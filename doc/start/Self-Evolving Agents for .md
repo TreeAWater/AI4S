@@ -1,0 +1,420 @@
+# Self-Evolving Agents for Scientific Research: Literature Review
+
+- What to Evolve
+  - Weight-Level
+    - Full-Params
+      - GRPO, DeepSeek, 2024
+        - repo: https://github.com/policy-gradient/GRPO-Zero
+        - paper: https://arxiv.org/abs/2501.12948
+      - DAPO, ByteDance, 2025
+        - repo: https://github.com/BytedTsinghua-SIA/DAPO
+        - paper: https://arxiv.org/abs/2503.14476
+      - WebRL, THUDM, 2025
+        - repo: https://github.com/THUDM/WebRL
+        - paper: https://arxiv.org/abs/2411.02337
+      - SE-Agent, THU, 2025
+        - repo: https://github.com/JARVIS-Xs/SE-Agent
+      - SEAL: Self-Adapting Language Models, MIT, 2025
+        - repo: https://github.com/Continual-Intelligence/SEAL
+        - paper: https://arxiv.org/abs/2506.10943
+    - Partial-Params (LoRA Variations)
+      - RAGEN, NWU, 2026.03 (v2)
+        - repo: https://github.com/mll-lab-nu/RAGEN
+        - paper.v2: https://ragen-ai.github.io/v2
+      - MARFT, SJTU, 2025.11
+        - repo: https://github.com/jwliao-ai/MARFT
+        - paper: https://arxiv.org/pdf/2504.16129
+      - Brainstacks, 2026.04
+        - repo: https://github.com/achelousace/brainstacks
+        - paper: https://arxiv.org/pdf/2604.01152
+  - Prompt-Level
+    - System Prompt / Persona Evolution
+      - E-SPL, University of Toronto, 2026
+        - repo: https://github.com/LunjunZhang/E-SPL
+        - paper: https://arxiv.org/pdf/2602.14697
+    - Instruction Optimization
+      - DSPy, Stanford, 2023
+        - repo: https://github.com/stanfordnlp/dspy
+        - paper: https://arxiv.org/pdf/2310.03714
+      - TextGrad, Nature, 2025
+        - repo: https://github.com/zou-group/textgrad
+        - paper: https://www.nature.com/articles/s41586-025-08661-4
+  - Memory-Level
+    - Episodic Memory
+      - EvolveR, ZJU, ICLR 2026
+        - repo: https://github.com/KnowledgeXLab/EvolveR
+        - paper: https://arxiv.org/abs/2510.16079
+    - Semantic / Knowledge Memory
+      - ReasoningBank, Google, 2025
+        - repo: https://github.com/google-research/reasoning-bank
+        - paper: https://arxiv.org/pdf/2509.25140
+    - Hierarchical Memory
+      - MUSE, AILab, 2025
+        - repo: https://github.com/KnowledgeXLab/MUSE
+        - paper: https://arxiv.org/abs/2510.08002
+    - Skill Memory
+  - Tool / Skill Level
+    - Tool / Skill Creation
+      - From Trajectory
+        - SkillX(2026)
+          - https://arxiv.org/abs/2604.04804
+          - repo: https://github.com/zjunlp/SkillX
+      - From External Resources
+        - SkillFoundry(2026)
+          - https://arxiv.org/html/2604.03964v1
+      - From Exploration
+        - EvoSkill (2026)
+          - https://arxiv.org/abs/2604.04804
+          - repo: https://github.com/zjunlp/SkillX
+    - Tool / Skill Composition & Assembly
+      - Graph of Skills(2026)
+        - https://arxiv.org/abs/2604.05333
+        - repo: https://github.com/davidliuk/graph-of-skills
+      - CUA-Skill (2026)
+        - https://arxiv.org/abs/2601.21123
+        - repo:  https://github.com/microsoft/cua_skill
+    - Tool / Skill -Agent Co-Evolution
+      - Skill + RL
+      - Skill + Reasoning
+  - Workflow / Architecture Level
+    - Workflow Topology
+      - Skill-chain Workflow
+        - SkillFlow(2026)
+          - https://arxiv.org/html/2504.06188v2
+        - Automating Computational Chemistry Workflows via OpenClaw and Domain-Specific Skills(2026)
+          - https://arxiv.org/abs/2603.25522
+          - repo: https://github.com/jinzhezenggroup/computational-chemistry-agent-skills
+      - Routing / Dispatch-driven Workflow
+        - SkillRouter(2026)
+          - https://arxiv.org/abs/2603.22455
+          - repo: https://github.com/zhengyanzhao1997/SkillRouter
+        - ClawBio(2026)
+          - https://zenodo.org/records/19420648
+          - repo: https://github.com/ClawBio/ClawBio
+      - DAG-based Workflow
+        - Static DAG
+          - AgentSkillOS(2026)
+            - https://arxiv.org/abs/2603.02176
+            - repo: https://github.com/ynulihao/AgentSkillOS
+        - Dynamic DAG
+          - centralized
+            - Flow(2025 ICLR)
+              - https://arxiv.org/abs/2501.07834
+              - repo: https://github.com/tmllab/2025_ICLR_FLOW
+          - decentralized
+            - AgentNet(2025 Nips)
+              - https://arxiv.org/abs/2504.00587
+              - repo: https://github.com/zoe-yyx/AgentNet
+    - Skill Library Organization Level
+      - Flat Library
+        - https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf
+      - Taxonomy / Hierarchy
+        - SkillFoundry(2026)
+          - https://arxiv.org/html/2604.03964v1
+      - Capability Tree
+        - AgentSkillOS(2026)
+          - https://arxiv.org/abs/2603.02176
+          - repo: https://github.com/ynulihao/AgentSkillOS.
+      - Skill Graph
+        - SkillNet(2026)
+          - https://arxiv.org/abs/2603.04448
+          - repo: http://skillnet.openkg.cn,https://github.com/zjunlp/SkillNet
+- When to Evolve
+  - Intra-Task
+    - ICL
+      - EvoFlow, 2025
+        - https://arxiv.org/abs/2502.07373
+      - MemGen, 2025
+        - https://arxiv.org/abs/2509.24704
+    - RL
+      - RAGEN / StarPO, 2025
+        - https://arxiv.org/abs/2504.20073
+      - TTRL, 2025
+        - https://arxiv.org/abs/2504.16084
+  - Inter-Task
+    - RL
+      - SAGE, 2025.12
+        - https://arxiv.org/abs/2512.17102
+      - AgentEvolver, Qwen, 2025
+        - https://github.com/modelscope/AgentEvolver
+      - EvolveR, 2025
+        - https://arxiv.org/abs/2510.16079
+    - SFT
+      - From Self-Evolving Synthetic Data to Verifiable-Reward RL, 2026
+        - https://arxiv.org/abs/2601.22607
+    - ICL
+      - ACE, ICLR 2026
+        - https://arxiv.org/abs/2510.04618
+      - Evo-Memory, 2025.11
+        - https://arxiv.org/abs/2511.20857
+- How to Evolve
+  - Gradient-Based
+    - SFT
+      - Imitation / demonstration learning
+      - Self-generated trajectory SFT
+        - ToolLLM
+        - ToolAce/Toolace-R
+        - Self-consolidation/EvoSC
+          - summarize error patterns first then prefix tuning
+          - paper: https://arxiv.org/abs/2602.01966
+    - RL
+      - Foundations
+        - GRPO (Feb 2024)
+          - group-relative advantage baseline
+          - paper: https://arxiv.org/abs/2402.03300
+          - code: https://github.com/deepseek-ai/deepseek-math
+        - Dr.GRPO (Mar 2025)
+          - mitigate length bias in GRPO with length-normalized objective
+          - paper: https://arxiv.org/abs/2503.20783
+          - code: https://github.com/sail-sg/understand-r1-zero
+        - DAPO (Mar 2025)
+          - GRPO with dynamic sampling, decoupled clipping, and token-level loss
+          - paper: https://arxiv.org/abs/2503.14476
+          - code: https://github.com/BytedTsinghua-SIA/DAPO
+        - GSPO (Jul 2025)
+          - sequence-level importance sampling ratio (& clipping) to suit MoE
+          - paper: https://arxiv.org/abs/2507.18071
+        - GEPO (Aug 2025)
+          - asynchronous, heterogeneous distributed RL and reduces importance-weight variance under staleness and latency
+          - paper: https://arxiv.org/abs/2508.17850
+          - code: https://github.com/yelurebajrang/HeteroRL_GEPO
+        - MinPRO (Jan 2026)
+          - replace token-level off policy correction with prefix-based surrogate
+          - paper: https://arxiv.org/abs/2601.22718
+      - Fine-grained rewards
+        - GTPO/GRPO-S (Aug 2025)
+          - token-level or sequence level rewards based on policy entropy
+          - paper:https://arxiv.org/abs/2508.04349
+        - GRPO-λ (Sep 2025)
+          - critic-free λ-return
+          - paper: https://arxiv.org/abs/2510.00194
+        - S-GRPO (Serial, May 2025)
+          - Reward early exit CoT that still yields correct answer
+          - paper: https://arxiv.org/abs/2505.07686
+        - S-GRPO (Stable GRPO, Aug 2025)
+          - noise-aware advantage reweighing when reward groups are imbalanced or noisy
+          - paper: https://arxiv.org/abs/2508.05928
+          - code: https://github.com/shenpeijun0212/S-GRPO
+      - Credit assignment
+        - GiGPO (May 2025)
+          - Learn with clustering step-level advantage groups
+          - paper: https://arxiv.org/abs/2505.10978
+          - repo: https://github.com/langfengQ/verl-agent
+        - Turn-level credit assignment
+          - assign turn-level advantage
+          - paper: https://arxiv.org/abs/2505.11821
+          - code: https://github.com/SiliangZeng/Multi-Turn-RL-Agent
+        - ARPO/AEPO (Jul 2025)
+          - Sample for more trajs if entropy is high
+          - paper: https://arxiv.org/abs/2507.19849
+          - repo: https://github.com/RUC-NLPIR/ARPO
+        - SALT (Oct 2025)
+          - build traj graph for each group of rollouts and infer step-level advantage from it
+          - paper: https://arxiv.org/abs/2510.20022
+        - HiPER (Feb 2026)
+          - make agent hierarchical hence use hierarchical advantage
+          - paper: https://arxiv.org/abs/2602.16165
+      - Reward distribution/hindsight/learned baseline
+        - SPA-RL (May 2025)
+          - learn a progress estimator to assign step-level rewards based on final task reward
+          - paper: https://arxiv.org/abs/2505.20732
+          - code: https://github.com/WangHanLinHenry/SPA-RL-Agent
+        - iStar (Sep 2025)
+          - jointly trains the policy and an implicit process reward model online
+          - paper: https://arxiv.org/abs/2509.19199
+        - SPO (Sep 2025)
+          - use a learned baseline to get rid of grouped rollouts
+          - paper: https://arxiv.org/abs/2509.13232
+        - RC-GRPO (Feb 2026)
+          - solve zero-adv problem via conditioning rollouts on reward tokens
+          - paper: https://arxiv.org/abs/2602.03025
+        - HCAPO (Mar 2026)
+          - Uses the LLM itself as a post-hoc critic to refine step-level credit
+          - paper: https://arxiv.org/abs/2603.08754
+      - RLHF
+        - DPO
+      - Environment-feedback
+        - GRPO
+        - StarPO (RAGEN, 2025)
+        - PPO
+        - LSE (learn to self evolve)
+          - formulate the evolution process as single-step MDP for RL
+          - repo: https://github.com/chenyn66/learning-to-self-evolve (假开源，只一个readme）
+          - paper: https://arxiv.org/pdf/2603.18620
+        - EvolveR
+          - online interaction -> offline self-distillation (of experience, not parameter)
+          - paper:https://arxiv.org/abs/2510.16079
+          - repo: https://github.com/Edaizi/EvolveR
+      - AI-feedback
+        - Internal/intrinsic signal
+          - SELAUR
+            - Uncertainty aware self-evolving algorithm
+          - Agent0:
+            - iteratively train: curriculum agent (questioner) and execution agent (solver) based on majority voted signal + uncertainty + tool use
+            - paper: https://arxiv.org/abs/2511.16043
+            - repo: https://github.com/aiming-lab/Agent0
+          - Dr.Zero:
+            - similar to Agent0, but adv baseline is hop-normalized
+            - paper: https://arxiv.org/pdf/2601.07055
+            - repo: https://github.com/facebookresearch/drzero
+        - External (LLM-as-judge like)
+          - RRPO (April 2, Arxiv)
+            - RL on retriever with end-to-end rag pipeline performance
+    - Distillation
+      - Self-Distillation
+        - OPSD (Jan 2026)
+          - A single model acts as both teacher and student, using privileged information to provide dense token-level supervision on the student's own on-policy rollouts.
+          - paper: https://arxiv.org/abs/2601.18734
+          - code: https://github.com/siyan-zhao/OPSD
+        - SDPO (Jan 2026)
+          - Converts rich textual environment feedback (e.g., runtime errors or judge comments) into dense logit-level self-distillation without needing an external teacher or explicit reward model
+          - paper: https://arxiv.org/abs/2601.20802
+        - π-distillation (Feb 2026)
+          - Distills a policy that has access to privileged information into one that acts without it, making PI a general dense supervision source beyond standard CoT distillation
+          - paper: https://arxiv.org/abs/2602.04942
+          - code: https://github.com/Emilianopp/Privileged-Information-Distillation
+        - OPCD (Feb 2026)
+          - Replace privileged labels with privileged context,  training a student on its own trajectories while matching a context-conditioned teacher at the token/logit level
+          - paper: https://arxiv.org/abs/2602.12275
+        - HDPO (Mar 2026)
+          - Augments RL with privileged self-distillation on “cliff” prompts where all normal rollouts fail, injecting token-level learning signals exactly where RL gradients vanish
+          - paper: https://arxiv.org/abs/2603.23871
+        - UI-voyager (Mar 2026)
+          - comparing successful/failed trajs from base policy and form step-level supervision based on fork points
+          - paper: https://arxiv.org/html/2603.24533v1
+          - repo: github.com/ui-voyager/ui-voyager
+        - SRPO (Apr 2026)
+          - routes correct samples to GRPO-style reinforcement and failed samples to SDPO-style logit-level correction
+          - paper: https://arxiv.org/abs/2604.02288
+        - RLSD / Self-Distilled RLVR (Apr 2026)
+          - Uses self-distillation to set fine-grained token-level update magnitudes while keeping RLVR/environment reward in charge of update direction for better long-run stability.
+          - paper: https://arxiv.org/abs/2604.03128
+      - Cross-Distillation
+  - Gradient Free
+    - Tree Search
+    - Self-Play
+      - SWE-RL, 2025
+    - Other test-time evolution
+      - OpenSAGE (Feb 26)
+        - agent developer kit with topologically connected tools/memory, evolve based on execution results
+        - paper:https://arxiv.org/abs/2602.16891
+        - repo:https://github.com/opensage-agent/opensage-adk
+    - Experience-Driven Methods
+      - Reflection & Self-Critique
+        - AgentFactory
+          - generate code for subagent and use execution results to refine
+          - repo: https://github.com/zzatpku/AgentFactory
+          - paper: https://arxiv.org/abs/2603.18000
+      - Experience Distillation
+        - ACE (Agentic Context Engineering)
+          - dynamically LLM-managed context
+          - repo: https://ace-agent.github.io
+          - paper: https://arxiv.org/abs/2510.04618
+        - Live-Evo
+          - accept guidelines if performs better
+          - repo:https://ag2ai.github.io/live-evo-page/.
+          - paper: https://arxiv.org/pdf/2602.02369
+        - Deep verifier
+          - use external rubric verifier to guide the evolution
+          - repo: https://github.com/yxwan123/DeepVerifier
+          - paper:https://arxiv.org/abs/2601.15808
+      - Curiosity & Self-Questioning
+        - GEPA （ICLR 2026）
+  - Special Issue: Evolve with human-in-the-loop
+    - ARIA (Gradient free)
+      - query human expert with both problem and the self-dialogue history for structured patch when agent self-dialogue identifies its lack of domain knowledge
+      - deployed on TikTok pay with 150M users
+      - paper: https://aclanthology.org/2025.emnlp-industry.115.pdf
+    - InternAgent/NovelSeek (Gradient free)
+      - prompt for human expert feedback on idea critique & assessment, but NO DEDICATED ALGORITHM for how to learn it
+      - paper:https://arxiv.org/abs/2602.08990
+      - repo: https://github.com/InternScience/InternAgent
+    - Agent-in-the-loop (AITL, Gradient free)
+      - human / LLM verifier to vet annotations & real customer feedback for continuous learning
+      - paper: https://arxiv.org/abs/2510.06674
+- Evaluation
+  - Benchmarks
+    - General Agent Benchmarks
+      - Agent Behavior
+        - xBench, CMU, 2025
+          - https://xbench.org/
+        - General Agent Evaluation, IBM, 2026
+          - https://arxiv.org/pdf/2602.22953
+        - AgentBench, THUDM, 2025
+          - repo: https://github.com/THUDM/AgentBench
+          - paper: https://arxiv.org/abs/2308.03688
+        - AgentBoard, HKUST, 2024
+          - https://github.com/hkust-nlp/AgentBoard
+        - SWE-bench, Princeton, ICLR 2024 & 2025
+          - https://github.com/swe-bench/SWE-bench
+        - Long-horizon
+          - LifelongAgentBench, 2025
+            - https://github.com/caixd-220529/LifelongAgentBench
+          - TheAgentCompany, 2025
+            - https://github.com/TheAgentCompany/TheAgentCompany
+      - Agent Capability
+        - Tool Use
+          - TRAJECT-Bench, ICLR 2026
+            - https://openreview.net/forum?id=TZWnWvsQ0X
+          - MCP-Bench, ICLR 2026
+            - https://openreview.net/forum?id=fe8mzHwMxN
+          - Old
+            - MetaTool, ICLR 2024
+              - https://github.com/HowieHwong/MetaTool
+            - ToolEmu, ICLR'24 Spotlight
+              - https://github.com/ryoungj/toolemu
+        - Planning & Reasoning
+          - DeepResearchBench, 2026
+            - https://github.com/Ayanami0730/deep_research_bench
+          - Dr. Mi-Bench, 2026
+            - https://huggingface.co/papers/2512.00986
+          - Old
+            - AgentBoard, HKUST, 2024
+              - https://github.com/hkust-nlp/AgentBoard
+        - Memory
+          - MemoryAgentBench, ICLR 2026
+          - Mem2ActBench, ACL 2026
+          - Old
+            - LoCoMo, ACL 2024
+              - https://github.com/snap-research/locomo
+            - SocialBench, ACL 2024 Findings
+              - https://github.com/X-PLUG/SocialBench
+            - Optimus-1, NuerIPS 2024
+              - https://github.com/iLearn-Lab/NeurIPS24-Optimus-1
+    - Scientific Agent Benchmarks
+      - Domain-Specific Scientific Tasks
+        - SciAgentBench(2025)
+          - https://arxiv.org/abs/2410.05080
+          - repo: https://github.com/OSU-NLP-Group/ScienceAgentBench
+        - BixBench(2025)
+          - https://arxiv.org/abs/2503.00096
+          - repo: https://huggingface.co/datasets/futurehouse/BixBench
+        - BioDSA-1K(2025)
+          - https://arxiv.org/abs/2505.16100
+        - scBench(2026)
+          - https://arxiv.org/abs/2602.09063
+          - repo: github.com/latchbio/scbench
+      - End-to-End Research Workflow
+        - MLR-Bench(2025)
+          - https://arxiv.org/abs/2505.19955
+          - repo: github.com/chchenhui/mlrbench
+        - AIRS-Bench(2026)
+          - https://arxiv.org/abs/2602.06855
+          - repo:github.com/facebookresearch/airs-bench
+        - BioAgent Bench(2026)
+          - https://arxiv.org/html/2601.21800v2
+          - repo: https://github.com/bioagent-bench/bioagent-bench
+        - SciAgentGym(2026)
+          - https://arxiv.org/pdf/2602.12984
+          - repo: https://github.com/CMarsRover/SciAgentGYM
+        - MoSciBench(2026 ICLR)
+          - https://openreview.net/forum?id=kZHSvETWdi
+          - repo: https://github.com/usail-hkust/MoSciBench
+      - Scientific Discovery and Validation
+        - HypoBench(2025)
+          - https://arxiv.org/abs/2504.11524
+          - repo: github.com/mlbio-epfl/heurekabench
+        - REPRO-Bench(2025)
+          - https://arxiv.org/abs/2507.18901
+          - repo: github.com/uiuc-kang-lab/REPRO-Bench
+  - Evolution-Specific Metrics

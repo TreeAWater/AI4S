@@ -1,0 +1,62 @@
+status	group	title	filename	url	note	error
+exists	01_foundations	ReAct	01_foundations/2022-10_ReAct_Yao_Princeton.pdf	https://arxiv.org/pdf/2210.03629.pdf		
+exists	01_foundations	DSPy	01_foundations/2023-10_DSPy_Khattab_Stanford.pdf	https://arxiv.org/pdf/2310.03714.pdf		
+exists	01_foundations	GRPO / DeepSeekMath	01_foundations/2024-02_GRPO_DeepSeekMath.pdf	https://arxiv.org/pdf/2402.03300.pdf		
+exists	01_foundations	Self-Evolving Agents Survey	01_foundations/2026-01_Self-Evolving_Agents_Survey.pdf	https://arxiv.org/pdf/2507.21046.pdf		
+exists	02_paradigm_openers	WebRL	02_paradigm_openers/2024-11_WebRL_THUDM.pdf	https://arxiv.org/pdf/2411.02337.pdf		
+exists	02_paradigm_openers	DAPO	02_paradigm_openers/2025-03_DAPO_ByteDance.pdf	https://arxiv.org/pdf/2503.14476.pdf		
+exists	02_paradigm_openers	RAGEN / StarPO	02_paradigm_openers/2025-04_RAGEN_StarPO.pdf	https://arxiv.org/pdf/2504.20073.pdf		
+exists	02_paradigm_openers	SEAL	02_paradigm_openers/2025-06_SEAL_MIT.pdf	https://arxiv.org/pdf/2506.10943.pdf		
+exists	02_paradigm_openers	TextGrad	02_paradigm_openers/2024-06_TextGrad.pdf	https://arxiv.org/pdf/2406.07496.pdf		
+exists	03_current_sota	GSPO	03_current_sota/2025-07_GSPO_Qwen.pdf	https://arxiv.org/pdf/2507.18071.pdf		
+exists	03_current_sota	GEPA	03_current_sota/2025-07_GEPA_Reflective_Prompt_Evolution.pdf	https://arxiv.org/pdf/2507.19457.pdf		
+exists	03_current_sota	ReasoningBank	03_current_sota/2025-09_ReasoningBank.pdf	https://arxiv.org/pdf/2509.25140.pdf		
+exists	03_current_sota	ACE	03_current_sota/2025-10_ACE_Agentic_Context_Engineering.pdf	https://arxiv.org/pdf/2510.04618.pdf		
+exists	03_current_sota	AgentNet	03_current_sota/2025-04_AgentNet.pdf	https://arxiv.org/pdf/2504.00587.pdf		
+exists	04_industry_hitl	ARIA	04_industry_hitl/2025-07_ARIA_TikTok.pdf	https://aclanthology.org/2025.emnlp-industry.115.pdf		
+exists	04_industry_hitl	AITL	04_industry_hitl/2025-10_AITL_Agent_in_the_Loop.pdf	https://arxiv.org/pdf/2510.06674.pdf		
+exists	05_scientific_grounding	MLR-Bench	05_scientific_grounding/2025-05_MLR-Bench.pdf	https://arxiv.org/pdf/2505.19955.pdf		
+exists	05_scientific_grounding	InternAgent-1.5 / NovelSeek	05_scientific_grounding/2026-02_InternAgent_1_5_NovelSeek.pdf	https://arxiv.org/pdf/2602.08990.pdf		
+exists	05_scientific_grounding	ScienceAgentBench	05_scientific_grounding/2025-10_ScienceAgentBench.pdf	https://arxiv.org/pdf/2410.05080.pdf		
+exists	05_scientific_grounding	BixBench	05_scientific_grounding/2025-03_BixBench.pdf	https://arxiv.org/pdf/2503.00096.pdf		
+exists	05_scientific_grounding	HypoBench	05_scientific_grounding/2025-04_HypoBench.pdf	https://arxiv.org/pdf/2504.11524.pdf		
+exists	05_scientific_grounding	REPRO-Bench	05_scientific_grounding/2025-07_REPRO-Bench.pdf	https://arxiv.org/pdf/2507.18901.pdf		
+exists	06_rl_variants	Dr.GRPO	06_rl_variants/2025-03_Dr_GRPO.pdf	https://arxiv.org/pdf/2503.20783.pdf		
+exists	06_rl_variants	SPA-RL	06_rl_variants/2025-05_SPA-RL.pdf	https://arxiv.org/pdf/2505.20732.pdf		
+exists	06_rl_variants	S-GRPO Serial	06_rl_variants/2025-05_S-GRPO_Serial.pdf	https://arxiv.org/pdf/2505.07686.pdf		
+exists	06_rl_variants	S-GRPO Stable	06_rl_variants/2025-08_S-GRPO_Stable.pdf	https://arxiv.org/pdf/2508.05928.pdf		
+exists	06_rl_variants	GTPO / GRPO-S	06_rl_variants/2025-08_GTPO_GRPO-S.pdf	https://arxiv.org/pdf/2508.04349.pdf		
+exists	06_rl_variants	GEPO	06_rl_variants/2025-08_GEPO.pdf	https://arxiv.org/pdf/2508.17850.pdf		
+exists	06_rl_variants	iStar	06_rl_variants/2025-09_iStar.pdf	https://arxiv.org/pdf/2509.19199.pdf		
+exists	06_rl_variants	SPO	06_rl_variants/2025-09_SPO.pdf	https://arxiv.org/pdf/2509.13232.pdf		
+exists	06_rl_variants	MinPRO	06_rl_variants/2026-01_MinPRO.pdf	https://arxiv.org/pdf/2601.22718.pdf		
+exists	06_rl_variants	RC-GRPO	06_rl_variants/2026-02_RC-GRPO.pdf	https://arxiv.org/pdf/2602.03025.pdf		
+exists	06_rl_variants	HiPER	06_rl_variants/2026-02_HiPER.pdf	https://arxiv.org/pdf/2602.16165.pdf		
+exists	06_rl_variants	HCAPO	06_rl_variants/2026-03_HCAPO.pdf	https://arxiv.org/pdf/2603.08754.pdf		
+exists	06_rl_variants	Agent0	06_rl_variants/2025-11_Agent0.pdf	https://arxiv.org/pdf/2511.16043.pdf		
+exists	06_rl_variants	EvolveR	06_rl_variants/2025-10_EvolveR.pdf	https://arxiv.org/pdf/2510.16079.pdf		
+exists	06_rl_variants	SAGE	06_rl_variants/2025-12_SAGE.pdf	https://arxiv.org/pdf/2512.17102.pdf		
+exists	06_rl_variants	Self-Evolving Synthetic Data to Verifiable-Reward RL	06_rl_variants/2026-01_Self-Evolving_Synthetic_Data_to_Verifiable-Reward_RL.pdf	https://arxiv.org/pdf/2601.22607.pdf		
+exists	07_gradient_free_memory_context	Flow	07_gradient_free_memory_context/2025-01_Flow_ICLR.pdf	https://arxiv.org/pdf/2501.07834.pdf		
+exists	07_gradient_free_memory_context	Evo-Memory	07_gradient_free_memory_context/2025-10_Evo-Memory.pdf	https://arxiv.org/pdf/2511.20857.pdf		
+exists	07_gradient_free_memory_context	OpenSAGE	07_gradient_free_memory_context/2026-02_OpenSAGE.pdf	https://arxiv.org/pdf/2602.16891.pdf		
+exists	07_gradient_free_memory_context	AgentFactory	07_gradient_free_memory_context/2026-03_AgentFactory.pdf	https://arxiv.org/pdf/2603.18000.pdf		
+exists	07_gradient_free_memory_context	Live-Evo	07_gradient_free_memory_context/2026-02_Live-Evo.pdf	https://arxiv.org/pdf/2602.02369.pdf		
+exists	07_gradient_free_memory_context	DeepVerifier	07_gradient_free_memory_context/2026-01_DeepVerifier.pdf	https://arxiv.org/pdf/2601.15808.pdf		
+exists	08_workflow_skill_benchmarks	SkillX / EvoSkill	08_workflow_skill_benchmarks/2026-04_SkillX.pdf	https://arxiv.org/pdf/2604.04804.pdf		
+exists	08_workflow_skill_benchmarks	SkillFoundry	08_workflow_skill_benchmarks/2026-04_SkillFoundry.pdf	https://arxiv.org/pdf/2604.03964.pdf		
+exists	08_workflow_skill_benchmarks	Graph of Skills	08_workflow_skill_benchmarks/2026-04_Graph_of_Skills.pdf	https://arxiv.org/pdf/2604.05333.pdf		
+exists	08_workflow_skill_benchmarks	CUA-Skill	08_workflow_skill_benchmarks/2026-01_CUA-Skill.pdf	https://arxiv.org/pdf/2601.21123.pdf		
+exists	08_workflow_skill_benchmarks	SkillFlow	08_workflow_skill_benchmarks/2025-04_SkillFlow.pdf	https://arxiv.org/pdf/2504.06188.pdf		
+exists	08_workflow_skill_benchmarks	OpenClaw Chemistry Workflows	08_workflow_skill_benchmarks/2026-03_OpenClaw_Chemistry_Workflows.pdf	https://arxiv.org/pdf/2603.25522.pdf		
+exists	08_workflow_skill_benchmarks	SkillRouter	08_workflow_skill_benchmarks/2026-03_SkillRouter.pdf	https://arxiv.org/pdf/2603.22455.pdf		
+exists	08_workflow_skill_benchmarks	AgentSkillOS	08_workflow_skill_benchmarks/2026-03_AgentSkillOS.pdf	https://arxiv.org/pdf/2603.02176.pdf		
+exists	08_workflow_skill_benchmarks	SkillNet	08_workflow_skill_benchmarks/2026-03_SkillNet.pdf	https://arxiv.org/pdf/2603.04448.pdf		
+exists	08_workflow_skill_benchmarks	MCP-Bench	08_workflow_skill_benchmarks/2026_MCP-Bench_ICLR.pdf	https://openreview.net/pdf?id=fe8mzHwMxN		
+exists	08_workflow_skill_benchmarks	TRAJECT-Bench	08_workflow_skill_benchmarks/2026_TRAJECT-Bench_ICLR.pdf	https://openreview.net/pdf?id=TZWnWvsQ0X		
+exists	08_workflow_skill_benchmarks	General Agent Evaluation	08_workflow_skill_benchmarks/2026-02_General_Agent_Evaluation_IBM.pdf	https://arxiv.org/pdf/2602.22953.pdf		
+exists	08_workflow_skill_benchmarks	scBench	08_workflow_skill_benchmarks/2026-02_scBench.pdf	https://arxiv.org/pdf/2602.09063.pdf		
+exists	08_workflow_skill_benchmarks	AIRS-Bench	08_workflow_skill_benchmarks/2026-02_AIRS-Bench.pdf	https://arxiv.org/pdf/2602.06855.pdf		
+exists	08_workflow_skill_benchmarks	BioAgent Bench	08_workflow_skill_benchmarks/2026-01_BioAgent_Bench.pdf	https://arxiv.org/pdf/2601.21800.pdf		
+exists	08_workflow_skill_benchmarks	SciAgentGym	08_workflow_skill_benchmarks/2026-02_SciAgentGym.pdf	https://arxiv.org/pdf/2602.12984.pdf		
+exists	08_workflow_skill_benchmarks	MoSciBench	08_workflow_skill_benchmarks/2026_MoSciBench_ICLR.pdf	https://openreview.net/pdf?id=kZHSvETWdi		
