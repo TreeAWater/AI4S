@@ -1,0 +1,23 @@
+SMOKE_RUN=2026-05-17T18:57:10Z
+
+== clone check ==
+reference-repos/repos/ai-research-skills/.git
+reference-repos/repos/ai-scientist/.git
+reference-repos/repos/auto-claude-code-research-in-sleep/.git
+reference-repos/repos/autoresearchclaw/.git
+reference-repos/repos/medgeclaw/.git
+reference-repos/repos/skillnet/.git
+
+== env python check ==
+ai-scientist: Python 3.11.15
+
+autoresearchclaw: Python 3.11.15
+
+medgeclaw: Python 3.11.15
+
+auto-claude-code-research-in-sleep: Python 3.11.15
+
+ai-research-skills: Python 3.11.15
+
+skillnet: Python 3.11.15
+

@@ -1,0 +1,8 @@
+ARIS smoke 2026-05-17T18:59:25Z
+compileall_selected_ok
+KEY_FILE:README.md=OK
+KEY_FILE:LICENSE=OK
+KEY_FILE:AGENT_GUIDE.md=OK
+skill_md_count=74
+
+missing_h1_count=0

@@ -1,0 +1,42 @@
+AutoResearchClaw smoke 2026-05-17T18:59:25Z
+Can't list 'sibyl'
+Can't list 'arc'
+
+compileall_ok
+researchclaw_import_ok
+
+usage: researchclaw [-h]
+                    {run,validate,doctor,init,setup,report,serve,dashboard,wizard,project,mcp,overleaf,trends,skills,calendar,attach,status,approve,reject,guide}
+                    ...
+
+ResearchClaw — Autonomous Research Pipeline
+
+positional arguments:
+  {run,validate,doctor,init,setup,report,serve,dashboard,wizard,project,mcp,overleaf,trends,skills,calendar,attach,status,approve,reject,guide}
+    run                 Run the 23-stage research pipeline
+    validate            Validate config file
+    doctor              Check environment and configuration health
+    init                Create config.arc.yaml from example template
+    setup               Check and install optional tools (OpenCode, etc.)
+    report              Generate human-readable run report
+    serve               Start the web server
+    dashboard           Start dashboard-only server
+    wizard              Run the setup wizard
+    project             Multi-project management
+    mcp                 MCP integration
+    overleaf            Overleaf bidirectional sync
+    trends              Research trend tracking
+    skills              List, install, or validate skills
+    calendar            Conference deadline calendar
+    attach              Attach to a running/paused pipeline for HITL
+                        interaction
+    status              Show pipeline and HITL status
+    approve             Approve the current HITL gate
+    reject              Reject the current HITL gate
+    guide               Inject guidance for a pipeline stage
+
+options:
+  -h, --help            show this help message and exit
+
+No broken requirements found.
+

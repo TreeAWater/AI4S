@@ -1,0 +1,79 @@
+# ARIS offline test collection
+TIME=2026-05-17T19:15:16Z
+## python version
+Python 3.11.15
+
+## pytest version
+pytest 9.0.3
+
+## collect
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/pytest/__main__.py", line 9, in <module>
+    raise SystemExit(pytest.console_main())
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/config/__init__.py", line 223, in console_main
+    code = main()
+           ^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/config/__init__.py", line 199, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/main.py", line 365, in pytest_cmdline_main
+    return wrap_session(config, _main)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/main.py", line 360, in wrap_session
+    config._ensure_unconfigure()
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/config/__init__.py", line 1177, in _ensure_unconfigure
+    self._cleanup_stack.close()
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/contextlib.py", line 609, in close
+    self.__exit__(None, None, None)
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/contextlib.py", line 601, in __exit__
+    raise exc_details[1]
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/contextlib.py", line 586, in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/contextlib.py", line 469, in _exit_wrapper
+    callback(*args, **kwds)
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/capture.py", line 778, in stop_global_capturing
+    self._global_capturing.pop_outerr_to_orig()
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/capture.py", line 659, in pop_outerr_to_orig
+    out, err = self.readouterr()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/capture.py", line 706, in readouterr
+    out = self.out.snap() if self.out else ""
+          ^^^^^^^^^^^^^^^
+  File "/Users/taw/project/AI4S/reference-repos/envs/auto-claude-code-research-in-sleep/lib/python3.11/site-packages/_pytest/capture.py", line 591, in snap
+    self.tmpfile.seek(0)
+OSError: [Errno 9] Bad file descriptor
+
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest tests --collect-only -q` failed. (See above for error)
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_array_only_system_init_returns_error
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_array_without_result_event_returns_error
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_cli_2x_single_line_array
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_empty_stdout
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_garbage_stdout
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_legacy_ndjson_dicts
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_noisy_stdout_with_array_line_no_result_falls_through
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_noisy_stdout_with_compact_array_line_recovers
+tests/test_claude_review_parse.py::ParseClaudeJsonTests::test_pretty_printed_multiline_array
+tests/test_claude_review_parse.py::RunClaudeReviewTests::test_array_without_result_event_surfaces_clear_error
+tests/test_claude_review_parse.py::RunClaudeReviewTests::test_claude_binary_missing_returns_clear_error
+tests/test_claude_review_parse.py::RunClaudeReviewTests::test_cli_2x_array_maps_all_result_fields
+tests/test_claude_review_parse.py::RunClaudeReviewTests::test_error_result_multiple_errors_joined
+tests/test_claude_review_parse.py::RunClaudeReviewTests::test_error_result_with_errors_list_surfaces_specific_message
+tests/test_claude_review_parse.py::RunClaudeReviewTests::test_legacy_ndjson_stdout_maps_correctly_end_to_end
+
+15 tests collected in 0.09s
+

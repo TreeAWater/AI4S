@@ -1,0 +1,1 @@
+I’m ready to receive the deployment prompt for 02-autoresearchclaw.

@@ -1,0 +1,13 @@
+# AutoResearchClaw offline test
+TIME=2026-05-17T19:07:29Z
+## python version
+Python 3.11.15
+
+## pytest version
+/Users/taw/project/AI4S/reference-repos/envs/autoresearchclaw/bin/python: No module named pytest
+
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest --version` failed. (See above for error)
+## collect tests
+/Users/taw/project/AI4S/reference-repos/envs/autoresearchclaw/bin/python: No module named pytest
+
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest tests --collect-only -q` failed. (See above for error)

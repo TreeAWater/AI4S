@@ -1,0 +1,30 @@
+SkillNet smoke 2026-05-17T18:59:53Z
+compileall_ok
+skillnet_ai_import_ok
+
+                                                                                
+ Usage: skillnet [OPTIONS] COMMAND [ARGS]...                                    
+                                                                                
+ SkillNet AI CLI Tool                                                           
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --install-completion          Install completion for the current shell.      │
+│ --show-completion             Show completion for the current shell, to copy │
+│                               it or customize the installation.              │
+│ --help                        Show this message and exit.                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────╮
+│ search    Search for skills on SkillNet using Keyword match or Vector (AI)   │
+│           semantic search.                                                   │
+│ download  Download and install a specific skill directly from a GitHub       │
+│           repository subdirectory.                                           │
+│ create    Create executable Skill packages using AI.                         │
+│ evaluate  Evaluate the quality, safety, and completeness of a skill using    │
+│           AI.                                                                │
+│ analyze   Analyze and map relationships (similar_to, belong_to,              │
+│           compose_with, depend_on) between local skills.                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+No broken requirements found.
+

@@ -1,0 +1,24 @@
+[submodule "reference-repos/repos/skillnet"]
+	path = reference-repos/repos/skillnet
+	url = https://github.com/zjunlp/SkillNet.git
+	ignore = dirty
+[submodule "reference-repos/repos/ai-research-skills"]
+	path = reference-repos/repos/ai-research-skills
+	url = https://github.com/Orchestra-Research/AI-research-SKILLs.git
+	ignore = dirty
+[submodule "reference-repos/repos/ai-scientist"]
+	path = reference-repos/repos/ai-scientist
+	url = https://github.com/SakanaAI/AI-Scientist.git
+	ignore = dirty
+[submodule "reference-repos/repos/auto-claude-code-research-in-sleep"]
+	path = reference-repos/repos/auto-claude-code-research-in-sleep
+	url = https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep.git
+	ignore = dirty
+[submodule "reference-repos/repos/autoresearchclaw"]
+	path = reference-repos/repos/autoresearchclaw
+	url = https://github.com/aiming-lab/AutoResearchClaw.git
+	ignore = dirty
+[submodule "reference-repos/repos/medgeclaw"]
+	path = reference-repos/repos/medgeclaw
+	url = https://github.com/xjtulyc/MedgeClaw.git
+	ignore = dirty

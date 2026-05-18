@@ -1,0 +1,54 @@
+# AI-research-SKILLs offline test
+TIME=2026-05-17T19:23:45Z
+## node/npm
+v25.1.0
+11.6.2
+## package test
+
+> @orchestra-research/ai-research-skills@1.6.0 test
+> node --test
+
+ℹ tests 0
+ℹ suites 0
+ℹ pass 0
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.073208
+## cli help
+AI Research Skills
+
+Usage:
+  ai-research-skills                 Start interactive installer
+  ai-research-skills --help          Show this help
+  ai-research-skills list [--local]  List installed skills
+  ai-research-skills install [--all|--category <id>|<skill>] [--local]
+  ai-research-skills update [--local]
+  ai-research-skills uninstall [--local]
+
+## non-tty no-arg help
+AI Research Skills
+
+Usage:
+  ai-research-skills                 Start interactive installer
+  ai-research-skills --help          Show this help
+  ai-research-skills list [--local]  List installed skills
+  ai-research-skills install [--all|--category <id>|<skill>] [--local]
+  ai-research-skills update [--local]
+  ai-research-skills uninstall [--local]
+
+## list local
+    No skills installed locally in this project.
+
+    Run npx @orchestra-research/ai-research-skills install --local to install skills.
+## source import
+index_import_ok
+## skill structure
+skill_md_count=98
+bad_frontmatter_count=0
+category_dir_count=23
+package=@orchestra-research/ai-research-skills@1.6.0
+
+## root npm test is placeholder
+echo "Error: no test specified" && exit 1

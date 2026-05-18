@@ -1,0 +1,92 @@
+===== tests/test_claude_review_parse.py =====
+...uuuu............
+15 passed, 4 subtests passed in 0.02s
+
+EXIT_CODE=0
+===== tests/test_codex_image2_server.py =====
+................
+EXIT_CODE=0
+===== tests/test_codex_install_update.py =====
+..............
+14 passed in 10.06s
+
+EXIT_CODE=0
+===== tests/test_codex_skill_mirror.py =====
+............
+12 passed in 0.10s
+
+EXIT_CODE=0
+===== tests/test_copilot_install.py =====
+.............
+13 passed in 3.47s
+
+EXIT_CODE=0
+===== tests/test_deepxiv_fetch.py =====
+...............
+15 passed in 0.03s
+
+EXIT_CODE=0
+===== tests/test_exa_search.py =====
+...............
+15 passed in 0.06s
+
+EXIT_CODE=0
+===== tests/test_feishu_bridge_server.py =====
+...........................
+27 passed in 0.14s
+
+EXIT_CODE=0
+===== tests/test_install_aris_tools_symlink.py =====
+........
+8 passed in 9.31s
+
+EXIT_CODE=0
+===== tests/test_llm_chat_server.py =====
+.......................
+23 passed in 0.19s
+
+EXIT_CODE=0
+===== tests/test_minimax_chat_server.py =====
+...........................
+27 passed in 0.13s
+
+EXIT_CODE=0
+===== tests/test_minimax_integration.py =====
+....sss
+4 passed, 3 skipped in 0.13s
+
+EXIT_CODE=0
+===== tests/test_research_wiki_helper_resolution.py =====
+.......
+7 passed in 1.18s
+
+EXIT_CODE=0
+===== tests/test_watchdog.py =====
+error: type must be 'training' or 'download', got 'invalid'
+error: missing required fields: {'session'}
+
+.registered: exp01 (training, screen)
+registered: exp01 (training, screen)
+registered: exp01 (training, screen)
+.registered: exp02 (training, screen)
+.registered: dl01 (download, tmux)
+...registered: a (training, screen)
+registered: b (training, screen)
+registered: c (training, screen)
+.registered: exp01 (training, screen)
+.registered: keep (training, screen)
+registered: remove (training, screen)
+no tasks file found
+.registered: keep (training, screen)
+registered: remove (training, screen)
+unregistered: ghost
+.registered: keep (training, screen)
+registered: remove (training, screen)
+unregistered: remove
+.registered: keep (training, screen)
+registered: remove (training, screen)
+unregistered: remove
+...................................
+46 passed in 0.07s
+
+EXIT_CODE=0

@@ -1,0 +1,12 @@
+envs/
+repos/
+__pycache__/
+*.py[cod]
+full-tests/tmp-*/
+logs/*.jsonl
+logs/*.log
+logs/*.txt
+results/*.thread_id
+results/*.log
+.conda-pkgs/
+.home/

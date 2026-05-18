@@ -1,0 +1,56 @@
+# MedgeClaw offline test
+TIME=2026-05-17T19:14:09Z
+## discovered tests
+## python version
+Python 3.11.15
+
+## compileall python files
+compileall_ok
+## shell syntax
+shell_syntax_ok
+## yaml/json parse
+parse_ok
+
+## skill structure
+skill_md_count=7
+missing_skill_md=[]
+
+## sync against temp OPENCLAW_DIR
+🧬 MedgeClaw Sync
+   MedgeClaw: /Users/taw/project/AI4S/reference-repos/repos/medgeclaw
+   OpenClaw:  /Users/taw/project/AI4S/reference-repos/full-tests/tmp-medgeclaw-openclaw
+
+📝 同步文档...
+   ✅ MEDGECLAW.md
+   ✅ IDENTITY.md
+🎨 同步 skills...
+   ✅ skills/feishu-rich-card
+   ✅ skills/svg-ui-templates
+   ✅ skills/cjk-viz
+   ✅ skills/dashboard
+   ✅ skills/biomed-dispatch
+📋 追加内容...
+   ✅ SOUL.md 已追加
+   ✅ AGENTS.md 已追加
+📦 更新配置...
+   ✅ 已更新 1 个模型: contextWindow=200000, maxTokens=320000
+   ✅ skills.load.extraDirs 已更新 (2 个路径)
+
+✅ 同步完成！重启 gateway: openclaw gateway restart
+
+## synced files
+TMP/openclaw.json
+TMP/workspace/AGENTS.md
+TMP/workspace/IDENTITY.md
+TMP/workspace/MEDGECLAW.md
+TMP/workspace/SOUL.md
+TMP/workspace/skills/biomed-dispatch/SKILL.md
+TMP/workspace/skills/cjk-viz/SKILL.md
+TMP/workspace/skills/dashboard/SKILL.md
+TMP/workspace/skills/dashboard/dashboard.html
+TMP/workspace/skills/dashboard/dashboard_serve.py
+TMP/workspace/skills/feishu-rich-card/SKILL.md
+TMP/workspace/skills/svg-ui-templates/SKILL.md
+## synced config
+['/Users/taw/project/AI4S/reference-repos/repos/medgeclaw/skills', '/Users/taw/project/AI4S/reference-repos/repos/medgeclaw/scientific-writer/skills']
+

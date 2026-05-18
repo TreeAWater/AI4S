@@ -1,0 +1,31 @@
+AI Research SKILLs smoke 2026-05-17T19:00:15Z
+KEY_FILE:README.md=OK
+KEY_FILE:LICENSE=OK
+KEY_FILE:CLAUDE.md=OK
+KEY_FILE:package.json=OK
+CATEGORY_DIR_COUNT=22
+SKILL_MD_COUNT=98
+PACKAGE_NAME=ai-research-skills
+
+readme_sections:
+1:# AI Research `Skills` Library
+46:## Table of Contents
+61:## Our Mission
+70:## Path Towards AI Research Agent
+80:## Available AI Research Engineering Skills
+115:# Interactive installer (recommended)
+118:# Direct commands
+131:# Add the marketplace
+134:# Install by category (23 categories available)
+315:## Demos
+335:## Skill Structure
+370:## Roadmap
+396:## Repository Structure
+430:## Use Cases
+448:## License
+454:## Citation
+480:## Acknowledgments
+491:## Contributors
+506:## Recent Updates
+717:## Community
+726:## Star History

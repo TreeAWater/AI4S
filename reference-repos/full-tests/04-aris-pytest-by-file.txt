@@ -1,0 +1,181 @@
+===== tests/test_claude_review_parse.py =====
+...uuuu............
+15 passed, 4 subtests passed in 0.02s
+
+EXIT_CODE=0
+===== tests/test_codex_image2_server.py =====
+................
+EXIT_CODE=0
+===== tests/test_codex_install_update.py =====
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest -q -s tests/test_codex_install_update.py --tb=short` failed. (See above for error)
+......FFFFF...
+=================================== FAILURES ===================================
+___________ test_smart_update_codex_copy_install_and_symlink_refusal ___________
+tests/test_codex_install_update.py:290: in test_smart_update_codex_copy_install_and_symlink_refusal
+    dry_run = run(
+tests/test_codex_install_update.py:15: in run
+    return subprocess.run(
+../../envs/auto-claude-code-research-in-sleep/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh', '--upstream', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-2/test_smart_update_codex_copy_i0/upstream', '--local', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-2/test_smart_update_codex_copy_i0/local']' returned non-zero exit status 1.
+_____________ test_smart_update_codex_local_uses_default_upstream ______________
+tests/test_codex_install_update.py:343: in test_smart_update_codex_local_uses_default_upstream
+    dry_run = run(["bash", str(UPDATE_SCRIPT), "--local", str(local)])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_codex_install_update.py:15: in run
+    return subprocess.run(
+../../envs/auto-claude-code-research-in-sleep/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh', '--local', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-2/test_smart_update_codex_local_0/local']' returned non-zero exit status 1.
+__________ test_smart_update_codex_allows_unrelated_symlinked_skills ___________
+tests/test_codex_install_update.py:357: in test_smart_update_codex_allows_unrelated_symlinked_skills
+    dry_run = run(["bash", str(UPDATE_SCRIPT), "--local", str(local)])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_codex_install_update.py:15: in run
+    return subprocess.run(
+../../envs/auto-claude-code-research-in-sleep/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh', '--local', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-2/test_smart_update_codex_allows0/local']' returned non-zero exit status 1.
+____________ test_smart_update_codex_refuses_aris_symlinked_skills _____________
+tests/test_codex_install_update.py:373: in test_smart_update_codex_refuses_aris_symlinked_skills
+    assert "symlink-managed ARIS entry 'auto-review-loop'" in refused.stderr
+E   assert "symlink-managed ARIS entry 'auto-review-loop'" in '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh: line 58: OVERLAYS[@]: unbound variable\n'
+E    +  where '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh: line 58: OVERLAYS[@]: unbound variable\n' = CompletedProcess(args=['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools...-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh: line 58: OVERLAYS[@]: unbound variable\n').stderr
+_____ test_smart_update_codex_ignores_local_only_shared_reference_failures _____
+tests/test_codex_install_update.py:385: in test_smart_update_codex_ignores_local_only_shared_reference_failures
+    result = run(
+tests/test_codex_install_update.py:15: in run
+    return subprocess.run(
+../../envs/auto-claude-code-research-in-sleep/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_codex.sh', '--upstream', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-2/test_smart_update_codex_ignore0/upstream', '--local', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-2/test_smart_update_codex_ignore0/local', '--apply']' returned non-zero exit status 1.
+=========================== short test summary info ============================
+FAILED tests/test_codex_install_update.py::test_smart_update_codex_copy_install_and_symlink_refusal
+FAILED tests/test_codex_install_update.py::test_smart_update_codex_local_uses_default_upstream
+FAILED tests/test_codex_install_update.py::test_smart_update_codex_allows_unrelated_symlinked_skills
+FAILED tests/test_codex_install_update.py::test_smart_update_codex_refuses_aris_symlinked_skills
+FAILED tests/test_codex_install_update.py::test_smart_update_codex_ignores_local_only_shared_reference_failures
+5 failed, 9 passed in 8.18s
+
+EXIT_CODE=1
+===== tests/test_codex_skill_mirror.py =====
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest -q -s tests/test_codex_skill_mirror.py --tb=short` failed. (See above for error)
+F.....F.F...
+=================================== FAILURES ===================================
+____________________ test_codex_skill_set_matches_mainline _____________________
+tests/test_codex_skill_mirror.py:33: in test_codex_skill_set_matches_mainline
+    assert len(main_names) == 67
+E   AssertionError: assert 74 == 67
+E    +  where 74 = len({'ablation-planner', 'alphaxiv', 'analyze-results', 'arxiv', 'auto-paper-improvement-loop', 'auto-review-loop', ...})
+____________ test_codex_high_risk_skills_preserve_claude_semantics _____________
+tests/test_codex_skill_mirror.py:238: in test_codex_high_risk_skills_preserve_claude_semantics
+    assert not failures, "High-risk Codex skills must preserve Claude semantics:\n" + "\n".join(failures)
+E   AssertionError: High-risk Codex skills must preserve Claude semantics:
+E     arxiv: missing export ARIS_REPO
+E   assert not ['arxiv: missing export ARIS_REPO']
+___________________ test_codex_optional_helpers_are_guarded ____________________
+tests/test_codex_skill_mirror.py:307: in test_codex_optional_helpers_are_guarded
+    assert needle in text
+E   assert 'if [ -n "$DEEPXIV_SCRIPT" ]; then' in '---\nname: "research-lit"\ndescription: "Search and analyze research papers, find related work, summarize key ideas. ...MCP server (e.g., `mcp__zotero__search` or `mcp__zotero-mcp__search_items`). Try the most common patterns and adapt.\n'
+=========================== short test summary info ============================
+FAILED tests/test_codex_skill_mirror.py::test_codex_skill_set_matches_mainline
+FAILED tests/test_codex_skill_mirror.py::test_codex_high_risk_skills_preserve_claude_semantics
+FAILED tests/test_codex_skill_mirror.py::test_codex_optional_helpers_are_guarded
+3 failed, 9 passed in 0.13s
+
+EXIT_CODE=1
+===== tests/test_copilot_install.py =====
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest -q -s tests/test_copilot_install.py --tb=short` failed. (See above for error)
+..........FF.
+=================================== FAILURES ===================================
+____________________ test_smart_update_copilot_copy_install ____________________
+tests/test_copilot_install.py:398: in test_smart_update_copilot_copy_install
+    result = run(
+tests/test_copilot_install.py:16: in run
+    return subprocess.run(
+../../envs/auto-claude-code-research-in-sleep/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_copilot.sh', '--upstream', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-3/test_smart_update_copilot_copy0/upstream', '--local', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-3/test_smart_update_copilot_copy0/local', '--apply']' returned non-zero exit status 1.
+______________ test_smart_update_copilot_hash_based_customization ______________
+tests/test_copilot_install.py:435: in test_smart_update_copilot_hash_based_customization
+    run(
+tests/test_copilot_install.py:16: in run
+    return subprocess.run(
+../../envs/auto-claude-code-research-in-sleep/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '/Users/taw/project/AI4S/reference-repos/repos/auto-claude-code-research-in-sleep/tools/smart_update_copilot.sh', '--upstream', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-3/test_smart_update_copilot_hash0/upstream', '--local', '/private/var/folders/vg/465yk2856ln9tv26p7dngfvr0000gn/T/pytest-of-taw/pytest-3/test_smart_update_copilot_hash0/local', '--apply']' returned non-zero exit status 1.
+=========================== short test summary info ============================
+FAILED tests/test_copilot_install.py::test_smart_update_copilot_copy_install
+FAILED tests/test_copilot_install.py::test_smart_update_copilot_hash_based_customization
+2 failed, 11 passed in 3.32s
+
+EXIT_CODE=1
+===== tests/test_deepxiv_fetch.py =====
+...............
+15 passed in 0.03s
+
+EXIT_CODE=0
+===== tests/test_exa_search.py =====
+...............
+15 passed in 0.02s
+
+EXIT_CODE=0
+===== tests/test_feishu_bridge_server.py =====
+...........................
+27 passed in 0.13s
+
+EXIT_CODE=0
+===== tests/test_install_aris_tools_symlink.py =====
+........
+8 passed in 9.44s
+
+EXIT_CODE=0
+===== tests/test_llm_chat_server.py =====
+.......................
+23 passed in 0.17s
+
+EXIT_CODE=0
+===== tests/test_minimax_chat_server.py =====
+...........................
+27 passed in 0.11s
+
+EXIT_CODE=0
+===== tests/test_minimax_integration.py =====
+....sss
+4 passed, 3 skipped in 0.10s
+
+EXIT_CODE=0
+===== tests/test_research_wiki_helper_resolution.py =====
+.......
+7 passed in 1.16s
+
+EXIT_CODE=0
+===== tests/test_watchdog.py =====
+error: type must be 'training' or 'download', got 'invalid'
+error: missing required fields: {'session'}
+
+.registered: exp01 (training, screen)
+registered: exp01 (training, screen)
+registered: exp01 (training, screen)
+.registered: exp02 (training, screen)
+.registered: dl01 (download, tmux)
+...registered: a (training, screen)
+registered: b (training, screen)
+registered: c (training, screen)
+.registered: exp01 (training, screen)
+.registered: keep (training, screen)
+registered: remove (training, screen)
+no tasks file found
+.registered: keep (training, screen)
+registered: remove (training, screen)
+unregistered: ghost
+.registered: keep (training, screen)
+registered: remove (training, screen)
+unregistered: remove
+.registered: keep (training, screen)
+registered: remove (training, screen)
+unregistered: remove
+...................................
+46 passed in 0.06s
+
+EXIT_CODE=0

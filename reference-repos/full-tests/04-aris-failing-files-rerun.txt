@@ -1,0 +1,32 @@
+ERROR conda.cli.main_run:execute(127): `conda run python -m pytest -q -s tests/test_codex_install_update.py tests/test_codex_skill_mirror.py tests/test_copilot_install.py --tb=short` failed. (See above for error)
+..............F...F.F.F................
+=================================== FAILURES ===================================
+____________________ test_codex_skill_set_matches_mainline _____________________
+tests/test_codex_skill_mirror.py:33: in test_codex_skill_set_matches_mainline
+    assert len(main_names) == 67
+E   AssertionError: assert 74 == 67
+E    +  where 74 = len({'ablation-planner', 'alphaxiv', 'analyze-results', 'arxiv', 'auto-paper-improvement-loop', 'auto-review-loop', ...})
+___________ test_codex_skill_helper_commands_use_installed_aris_repo ___________
+tests/test_codex_skill_mirror.py:151: in test_codex_skill_helper_commands_use_installed_aris_repo
+    assert not failures, "Codex skills must not assume helper scripts exist in the user project:\n" + "\n".join(failures)
+E   AssertionError: Codex skills must not assume helper scripts exist in the user project:
+E     skills/skills-codex/openalex/SKILL.md:118:   echo "       Fix: rerun bash tools/install_aris.sh, export ARIS_REPO, or copy the helper to tools/." >&2
+E     skills/skills-codex/paper-illustration-image2/SKILL.md:103:     echo "       /paper-illustration-image2 cannot proceed. Fix: rerun bash tools/install_aris.sh, or copy the canonical script from \$ARIS_REPO/skills/paper-illustration-image2/scripts/." >&2
+E   assert not ['skills/skills-codex/openalex/SKILL.md:118:   echo "       Fix: rerun bash tools/install_aris.sh, export ARIS_REPO, o...tools/install_aris.sh, or copy the canonical script from \\$ARIS_REPO/skills/paper-illustration-image2/scripts/." >&2']
+____________ test_codex_high_risk_skills_preserve_claude_semantics _____________
+tests/test_codex_skill_mirror.py:238: in test_codex_high_risk_skills_preserve_claude_semantics
+    assert not failures, "High-risk Codex skills must preserve Claude semantics:\n" + "\n".join(failures)
+E   AssertionError: High-risk Codex skills must preserve Claude semantics:
+E     arxiv: missing export ARIS_REPO
+E   assert not ['arxiv: missing export ARIS_REPO']
+___________________ test_codex_optional_helpers_are_guarded ____________________
+tests/test_codex_skill_mirror.py:307: in test_codex_optional_helpers_are_guarded
+    assert needle in text
+E   assert '[ -n "$SCRIPT" ] && python3 "$SCRIPT"' in '---\nname: "deepxiv"\ndescription: "Search and progressively read open-access academic papers through DeepXiv. Use wh...lt overlaps with a published venue paper from Semantic Scholar, keep the richer venue metadata in the final summary.\n'
+=========================== short test summary info ============================
+FAILED tests/test_codex_skill_mirror.py::test_codex_skill_set_matches_mainline
+FAILED tests/test_codex_skill_mirror.py::test_codex_skill_helper_commands_use_installed_aris_repo
+FAILED tests/test_codex_skill_mirror.py::test_codex_high_risk_skills_preserve_claude_semantics
+FAILED tests/test_codex_skill_mirror.py::test_codex_optional_helpers_are_guarded
+4 failed, 35 passed in 13.26s
+

@@ -1,0 +1,6 @@
+Collecting pyyaml
+  Using cached pyyaml-6.0.3-cp311-cp311-macosx_11_0_arm64.whl.metadata (2.4 kB)
+Using cached pyyaml-6.0.3-cp311-cp311-macosx_11_0_arm64.whl (175 kB)
+Installing collected packages: pyyaml
+Successfully installed pyyaml-6.0.3
+

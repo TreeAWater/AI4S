@@ -1,0 +1,46 @@
+AI Scientist smoke 2026-05-17T18:58:48Z
+
+compileall:
+compileall_ok
+
+import:
+ai_scientist_import_ok
+
+
+pip check:
+ERROR conda.cli.main_run:execute(127): `conda run python -m pip check` failed. (See above for error)
+datasets 2.19.1 has requirement fsspec[http]<=2024.3.1,>=2023.1.0, but you have fsspec 2026.2.0.
+
+
+launch_scientist_help:
+usage: launch_scientist.py [-h] [--skip-idea-generation]
+                           [--skip-novelty-check] [--experiment EXPERIMENT]
+                           [--model {claude-3-5-sonnet-20240620,claude-3-5-sonnet-20241022,gpt-4o-mini,gpt-4o-mini-2024-07-18,gpt-4o,gpt-4o-2024-05-13,gpt-4o-2024-08-06,gpt-4.1,gpt-4.1-2025-04-14,gpt-4.1-mini,gpt-4.1-mini-2025-04-14,gpt-4.1-nano,gpt-4.1-nano-2025-04-14,o1,o1-2024-12-17,o1-preview-2024-09-12,o1-mini,o1-mini-2024-09-12,o3-mini,o3-mini-2025-01-31,llama3.1-405b,bedrock/anthropic.claude-3-sonnet-20240229-v1:0,bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0,bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0,bedrock/anthropic.claude-3-haiku-20240307-v1:0,bedrock/anthropic.claude-3-opus-20240229-v1:0,vertex_ai/claude-3-opus@20240229,vertex_ai/claude-3-5-sonnet@20240620,vertex_ai/claude-3-5-sonnet-v2@20241022,vertex_ai/claude-3-sonnet@20240229,vertex_ai/claude-3-haiku@20240307,deepseek-chat,deepseek-coder,deepseek-reasoner,gemini-1.5-flash,gemini-1.5-pro,gemini-2.0-flash,gemini-2.0-flash-lite,gemini-2.0-flash-thinking-exp-01-21,gemini-2.5-pro-preview-03-25,gemini-2.5-pro-exp-03-25}]
+                           [--writeup {latex}] [--parallel PARALLEL]
+                           [--improvement] [--gpus GPUS]
+                           [--num-ideas NUM_IDEAS]
+                           [--engine {semanticscholar,openalex}]
+
+Run AI scientist experiments
+
+options:
+  -h, --help            show this help message and exit
+  --skip-idea-generation
+                        Skip idea generation and load existing ideas
+  --skip-novelty-check  Skip novelty check and use existing ideas
+  --experiment EXPERIMENT
+                        Experiment to run AI Scientist on.
+  --model {claude-3-5-sonnet-20240620,claude-3-5-sonnet-20241022,gpt-4o-mini,gpt-4o-mini-2024-07-18,gpt-4o,gpt-4o-2024-05-13,gpt-4o-2024-08-06,gpt-4.1,gpt-4.1-2025-04-14,gpt-4.1-mini,gpt-4.1-mini-2025-04-14,gpt-4.1-nano,gpt-4.1-nano-2025-04-14,o1,o1-2024-12-17,o1-preview-2024-09-12,o1-mini,o1-mini-2024-09-12,o3-mini,o3-mini-2025-01-31,llama3.1-405b,bedrock/anthropic.claude-3-sonnet-20240229-v1:0,bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0,bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0,bedrock/anthropic.claude-3-haiku-20240307-v1:0,bedrock/anthropic.claude-3-opus-20240229-v1:0,vertex_ai/claude-3-opus@20240229,vertex_ai/claude-3-5-sonnet@20240620,vertex_ai/claude-3-5-sonnet-v2@20241022,vertex_ai/claude-3-sonnet@20240229,vertex_ai/claude-3-haiku@20240307,deepseek-chat,deepseek-coder,deepseek-reasoner,gemini-1.5-flash,gemini-1.5-pro,gemini-2.0-flash,gemini-2.0-flash-lite,gemini-2.0-flash-thinking-exp-01-21,gemini-2.5-pro-preview-03-25,gemini-2.5-pro-exp-03-25}
+                        Model to use for AI Scientist.
+  --writeup {latex}     What format to use for writeup
+  --parallel PARALLEL   Number of parallel processes to run. 0 for sequential
+                        execution.
+  --improvement         Improve based on reviews.
+  --gpus GPUS           Comma-separated list of GPU IDs to use (e.g.,
+                        '0,1,2'). If not specified, all available GPUs will be
+                        used.
+  --num-ideas NUM_IDEAS
+                        Number of ideas to generate
+  --engine {semanticscholar,openalex}
+                        Scholar engine to use.
+

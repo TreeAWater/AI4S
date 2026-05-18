@@ -1,0 +1,34 @@
+MedgeClaw smoke 2026-05-17T18:59:25Z
+compileall_sync_ok
+KEY_FILE:README.md=OK
+KEY_FILE:README_ZH.md=OK
+KEY_FILE:MEDGECLAW.md=OK
+KEY_FILE:IDENTITY.md=OK
+KEY_FILE:setup.sh=OK
+KEY_FILE:medgeclaw-init.sh=OK
+docs_count=7
+
+readme_headings:
+1:# 🧬 MedgeClaw
+18:## Architecture
+36:## What's Included
+55:## Prerequisites
+64:## Quick Start
+67:# 1. Clone with submodules (includes K-Dense Scientific Skills)
+71:# 2. Configure environment
+75:# 3. Run setup
+78:# 4. Sync MedgeClaw configuration to OpenClaw
+82:# 5. Start the analysis environment
+85:# 6. Start OpenClaw
+103:## Model Providers
+117:## ⚠️ Using Third-Party API Proxies
+134:# Required for third-party API proxies:
+143:# Should complete in < 30 seconds. If it hangs, your SMALL_FAST_MODEL is wrong.
+149:## Usage Examples
+173:## 📊 Research Dashboard
+198:## Directory Structure
+236:## 🔄 Project Synchronization
+265:## Updating K-Dense Scientific Skills
+273:## Contributing
+285:## Roadmap
+305:## License

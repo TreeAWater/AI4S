@@ -1,0 +1,1 @@
+Model invocation worked and the current working directory is `/Users/taw/project/AI4S`.
