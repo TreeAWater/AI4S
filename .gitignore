@@ -9,3 +9,24 @@
 .env*
 *_secret*
 *_token*
+
+# Office temporary lock files
+~$*
+
+# Python build/cache artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
