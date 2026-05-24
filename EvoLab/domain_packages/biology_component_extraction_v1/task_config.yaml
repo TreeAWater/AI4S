@@ -1,0 +1,11 @@
+task_package: biology_component_extraction_v1
+description: Biology-specific resources for extracting biological component records with reusable scientific IE skills.
+schema: biology_component_schema.json
+ontology: biological_component_ontology.yaml
+sequence_policy: biological_sequence_policy.yaml
+evidence_policy: biological_evidence_policy.yaml
+negative_patterns: biological_negative_patterns.yaml
+reusable_skill_group: scientific_ie_v1
+stable_skill_policy:
+  allow_domain_terms_in_resources: true
+  allow_domain_terms_in_stable_skill_ids: false

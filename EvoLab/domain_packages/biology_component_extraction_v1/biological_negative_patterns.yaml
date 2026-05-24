@@ -1,0 +1,27 @@
+schema_version: v1
+name: biological_negative_patterns
+description: Negative pattern policy for biological component extraction. Terms here may be biology-specific resources, but they are not stable skill IDs.
+negative_patterns:
+  - primer
+  - barcode
+  - adapter
+  - linker
+  - restriction site
+  - PCR oligo
+  - qPCR primer
+  - sequencing index
+  - cloning scar
+  - multiple cloning site
+  - vector backbone only
+  - sequencing primer
+  - amplification primer
+filter_policy:
+  default_action: flag_for_review
+  require_context_before_removal: true
+  preserve_filtered_evidence: true
+  allow_override_when_schema_marks_component_type: true
+examples:
+  - text: "Primers used for qPCR are listed in Supplementary Table 2."
+    expected_action: flag_as_likely_negative
+  - text: "The promoter sequence is listed in Supplementary Table 1."
+    expected_action: keep_if_schema_component_type_is_promoter

@@ -1,0 +1,57 @@
+{
+  "lab_root": "lab/demo_api_init",
+  "task": {
+    "task_id": "demo-api-init",
+    "origin": "human",
+    "purpose": "evaluation",
+    "goal": "Return a concise confirmation that the API-backed LLM runtime is working.",
+    "task_config_ref": "configs/demo_api_init.yaml"
+  },
+  "task_config": {
+    "task_id": "demo-api-init",
+    "goal": "Return a concise confirmation that the API-backed LLM runtime is working.",
+    "task_memory_backend": {
+      "backend_id": "fake-task-memory"
+    },
+    "roles": {
+      "solver": {
+        "name": "solver",
+        "system_prompt": "You are a minimal API initialization check. Reply with a short success confirmation.",
+        "llm_backend": {
+          "backend_id": "aigocode-gpt"
+        },
+        "agent_memory_backend": {
+          "backend_id": "fake-agent-memory"
+        },
+        "allowed_tools": []
+      }
+    },
+    "runtime_policy": {
+      "max_tool_steps": 0,
+      "allow_human_tools": false
+    }
+  },
+  "backends": {
+    "llm": {
+      "aigocode-gpt": {
+        "type": "api",
+        "env_ref": "aigocode-gpt",
+        "model": "gpt-4.1-mini"
+      }
+    },
+    "memory": {
+      "fake-agent-memory": {
+        "type": "fake"
+      },
+      "fake-task-memory": {
+        "type": "fake"
+      }
+    },
+    "skill": {
+      "fake-skill": {
+        "type": "fake",
+        "skills": []
+      }
+    }
+  }
+}

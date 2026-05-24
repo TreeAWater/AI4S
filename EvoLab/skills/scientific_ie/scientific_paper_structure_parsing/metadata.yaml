@@ -1,0 +1,80 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.scientific_paper_structure_parsing.v1",
+  "name": "Scientific Paper Structure Parsing",
+  "version": "v1",
+  "summary": "Parse main text into normalized paper sections and supplementary references.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "literature",
+    "paper",
+    "section"
+  ],
+  "task_types": [
+    "parsing",
+    "extraction"
+  ],
+  "target_category": "task.scientific_paper_structure_parsing",
+  "scope": "Reusable section parsing for scientific papers.",
+  "applicability": [
+    "Main scientific text is available as text."
+  ],
+  "limitations": [
+    "Section labels can be ambiguous in poorly formatted documents."
+  ],
+  "required_inputs": [
+    "main text",
+    "document metadata"
+  ],
+  "expected_outputs": [
+    "normalized section map",
+    "section spans",
+    "supplementary references"
+  ],
+  "dependencies": [
+    "skill.scientific_document_intake.v1"
+  ],
+  "environment_assumptions": [
+    "Main text is readable as text."
+  ],
+  "procedure": [
+    "Read main text.",
+    "Extract section headings.",
+    "Normalize common section names.",
+    "Locate supplementary references.",
+    "Return section spans and warnings."
+  ],
+  "required_tools": [
+    "read_text",
+    "extract_sections",
+    "search_text"
+  ],
+  "scripts": [],
+  "resources": [
+    "section-name-normalization-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Parse abstract, methods, results, and supplementary references from a sample paper."
+    ],
+    "synthetic": [
+      "Paper with missing methods heading produces a structural warning."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "section_spans_non_overlapping",
+    "supplementary_refs_found"
+  ],
+  "confidence": 0.86,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

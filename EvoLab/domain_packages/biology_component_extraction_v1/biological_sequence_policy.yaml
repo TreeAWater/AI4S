@@ -1,0 +1,28 @@
+schema_version: v1
+name: biological_sequence_policy
+description: Policy for interpreting sequence evidence in biological component extraction tasks.
+allowed_sequence_types:
+  - DNA
+  - RNA
+  - protein
+  - amino_acid
+  - degenerate_nucleotide
+normalization_rules:
+  trim_whitespace: true
+  preserve_original_case_in_notes: true
+  uppercase_nucleotide_sequences: true
+  allow_iupac_degenerate_bases: true
+  reject_sequence_like_ids_without_evidence: true
+validation_rules:
+  require_direct_evidence_for_sequence: true
+  require_sequence_type_when_sequence_present: true
+  flag_short_sequences_under_length: 6
+  flag_long_sequences_without_source_coordinates: true
+evidence_requirements:
+  accepted_sources:
+    - main_text
+    - supplementary_text
+    - supplementary_table
+    - figure_caption
+    - sequence_file
+  require_source_coordinates: true

@@ -1,0 +1,78 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.domain_negative_pattern_filtering.v1",
+  "name": "Domain Negative Pattern Filtering",
+  "version": "v1",
+  "summary": "Filter false positives using task-provided negative pattern policy.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "negative pattern",
+    "filtering",
+    "false positive"
+  ],
+  "task_types": [
+    "filtering",
+    "validation"
+  ],
+  "target_category": "task.domain_negative_pattern_filtering",
+  "scope": "Reusable negative pattern filtering for candidate entities and records.",
+  "applicability": [
+    "A task or domain package provides negative patterns."
+  ],
+  "limitations": [
+    "Negative patterns are task resources, not stable skill IDs."
+  ],
+  "required_inputs": [
+    "candidate records or mentions",
+    "negative pattern policy",
+    "evidence context"
+  ],
+  "expected_outputs": [
+    "filtered false positives",
+    "kept records",
+    "filter rationale"
+  ],
+  "dependencies": [
+    "skill.domain_entity_validation.v1"
+  ],
+  "environment_assumptions": [
+    "Negative pattern policy is readable."
+  ],
+  "procedure": [
+    "Read negative pattern policy.",
+    "Search evidence context for exclusion patterns.",
+    "Mark false positives with rationale.",
+    "Return kept and filtered records."
+  ],
+  "required_tools": [
+    "search_text",
+    "json_schema_validate"
+  ],
+  "scripts": [],
+  "resources": [
+    "task-provided-negative-pattern-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Filter one false positive using a provided negative pattern."
+    ],
+    "synthetic": [
+      "Nearby negation does not remove unrelated valid records."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "false_positive_filters_are_explainable"
+  ],
+  "confidence": 0.82,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

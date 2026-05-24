@@ -1,0 +1,353 @@
+task_id: biology-component-extraction-v1-3-article-work-items-dynamic-qwen30b
+lab_root: /root/bio/evolab_component_ie_v1_3_article_work_items_dynamic_qwen30b
+dotenv_path: .env
+max_dispatch_steps: 100
+max_tool_steps: 30
+max_tool_steps_per_node: 30
+max_workflow_nodes: 30
+max_meta_dispatch_parse_retries: 4
+tool_result_prompt_max_chars: 1200
+max_repeated_tool_calls_per_run: 2
+scientific_max_rows_per_table: 10000
+scientific_sequence_extraction_profile: promoter
+scientific_primary_component_tables_only: true
+dynamic_zero_output_recovery_enabled: true
+subagent_budgets_by_role:
+  SurveyAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  ExecAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  CriticAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  WriteAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+completion_guards_by_role:
+  SurveyAgent:
+    required_tool_calls_before_final:
+    - write_report
+  DesignAgent:
+    required_tool_calls_before_final:
+    - write_report
+  ExecAgent:
+    required_tool_calls_before_final:
+    - write_jsonl
+    - write_report
+    max_non_required_tool_calls_before_required_outputs: 18
+  CriticAgent:
+    required_tool_calls_before_final:
+    - write_report
+  WriteAgent:
+    required_tool_calls_before_final:
+    - write_jsonl
+    - write_report
+    max_non_required_tool_calls_before_required_outputs: 12
+task: "Process exactly 3 biological article packages under:\n/root/bio/dataset/Constitutive_promoters_md_30_new\n\nIn-scope\
+  \ work items:\n1. work_item_id: parts_list_promoters_grna_scaffolds_mammalian_genome_engineering\n   article_package: /root/bio/dataset/Constitutive_promoters_md_30_new/A\
+  \ parts list of promoters and gRNA scaffolds for mammalian genome engineering and molecular recording\n   exact_source_files:\n\
+  \     - /root/bio/dataset/Constitutive_promoters_md_30_new/A parts list of promoters and gRNA scaffolds for mammalian genome\
+  \ engineering and molecular recording/manifest.json\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/A parts list\
+  \ of promoters and gRNA scaffolds for mammalian genome engineering and molecular recording/main_text.md\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/A\
+  \ parts list of promoters and gRNA scaffolds for mammalian genome engineering and molecular recording/supplementary/41587_2025_2896_MOESM1_ESM.md\n\
+  \     - /root/bio/dataset/Constitutive_promoters_md_30_new/A parts list of promoters and gRNA scaffolds for mammalian genome\
+  \ engineering and molecular recording/supplementary/41587_2025_2896_MOESM3_ESM.xlsx\n2. work_item_id: ai_knowledge_sigma70_design\n\
+  \   article_package: /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design\
+  \ of Escherichia coli Sigma70 Promoters\n   exact_source_files:\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/AI\
+  \ and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/manifest.json\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/AI\
+  \ and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/main_text.md\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/AI\
+  \ and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/supplementary/sub2_A novel deep learning\
+  \ identifier for promoters and their strength using heterogeneous features.xlsx\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/AI\
+  \ and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/supplementary/sub_AI_and_Knowledge-based_Method_for_Rational_Design_of_Escherichia_coli_Sigma70_Promoters.md\n\
+  3. work_item_id: automated_design_thousands_nonrepetitive_parts_engineering_stable_genetic\n   article_package: /root/bio/dataset/Constitutive_promoters_md_30_new/Automated\
+  \ design of thousands of nonrepetitive parts for engineering stable genetic systems\n   exact_source_files:\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/Automated\
+  \ design of thousands of nonrepetitive parts for engineering stable genetic systems/manifest.json\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/Automated\
+  \ design of thousands of nonrepetitive parts for engineering stable genetic systems/main_text.md\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/Automated\
+  \ design of thousands of nonrepetitive parts for engineering stable genetic systems/supplementary/sup.md\n     - /root/bio/dataset/Constitutive_promoters_md_30_new/Automated\
+  \ design of thousands of nonrepetitive parts for engineering stable genetic systems/supplementary/workbook.md\n\nTreat one\
+  \ top-level article package as one work item. Do not process any\nother package under the dataset root. Do not assign an\
+  \ extraction subagent\nmore than one work item at a time.\n\nEach article package may contain manifest.json, main_text.md,\
+  \ supplementary\nfiles, markdown tables, text files, CSV files, and spreadsheet files. Do not\ntreat pre-existing biology_component_records.jsonl,\
+  \ biology_component_report.json,\nor biology_component_report.md files found inside article packages as evidence\nrecords\
+  \ or as current-run final outputs. They may be noted only as prior-run\ncontext. Final artifacts must be produced as lab\
+  \ artifacts by the current run.\n\nExtract experimentally supported biological component/promoter sequence\nrecords. Focus\
+  \ on promoter or promoter-like regulatory DNA sequences that are\ndirectly supported by article text or supplementary evidence.\
+  \ A valid final\nrecord should include article_id, component_name, component_type, sequence\nwhen available, sequence_type,\
+  \ host_or_organism when supported, function or\nrole when supported, experimental context when supported, evidence_text,\n\
+  evidence_source, confidence, status, and notes when useful.\n\nUse these schemas and policies as task resources when they\
+  \ are available:\n- domain_packages/biology_component_extraction_v1/biology_component_schema.json\n- domain_packages/biology_component_extraction_v1/biological_component_ontology.yaml\n\
+  - domain_packages/biology_component_extraction_v1/biological_sequence_policy.yaml\n- domain_packages/biology_component_extraction_v1/biological_evidence_policy.yaml\n\
+  - domain_packages/biology_component_extraction_v1/biological_negative_patterns.yaml\n\nThe intended routing policy is generic\
+  \ and work-item based: survey only when\ninventory is missing, design a work plan when strategy is missing, execute\none\
+  \ article package at a time, critique that same work item when extraction\noutput exists, and write final lab artifacts\
+  \ only after all required work\nitems have completed review or a reviewed failure/empty-output audit.\n\nNormalize DNA sequences\
+  \ to uppercase A/C/G/T/N when writing accepted records.\nReject or mark for review sequence-like identifiers, primers, barcodes,\n\
+  adapters, linkers, restriction sites, cloning scars, qPCR primers, sequencing\nprimers, vector-backbone-only entries, predicted-only\
+  \ mentions, and\nmetadata-only records unless the source explicitly supports a promoter or\npromoter-like regulatory DNA\
+  \ sequence.\n\nThe final outputs should be written as lab artifacts:\n- biology_component_records.jsonl\n- biology_component_report.md\
+  \ or biology_component_report.json\n\nThe report should state 3-work-item coverage, processed article/file/table\ncounts\
+  \ with reasons for skips, candidate count, accepted record count,\nrejected record count, validation failures, empty-output\
+  \ justifications, and\nlinks or paths to final artifacts. Do not invent records. Do not silently drop\nfailures. If no valid\
+  \ records are found for a work item, write an explicit\nempty-output audit explaining the evidence inspected.\n"
+meta_agent:
+  llm_backend: openrouter-qwen30b
+  system_prompt: 'You are EvoLab''s MetaAgent. Decide the next route from the configured
+
+    subagent pool, or route to END when the task is complete.
+
+
+    Inputs you receive include the natural-language task description, available
+
+    subagents and their system prompts, current lab/task state, completed runs,
+
+    artifact summaries, trajectory summaries, and failure information when
+
+    present.
+
+
+    Return valid JSON only. Do not return markdown or commentary.
+
+
+    For subagent dispatch, return:
+
+    {"route":"<subagent_name>","instruction":"<assigned task>","metadata":{...}}
+
+
+    For completion, return:
+
+    {"route":"END","instruction":"<completion summary>","metadata":{"final_answer":"..."}}
+
+
+    The route must be one configured subagent name or END. Select only the
+
+    subagent needed for the next step; do not dispatch every subagent by default.
+
+    Do not follow a fixed chain blindly. Use routing_state, lab_state, completed
+
+    runs, artifacts, and failure reports to choose the next necessary action.
+
+
+    When work_item_routing is enabled, route executor roles with exactly one
+
+    work item per dispatch and include metadata.work_item_id. Route a reviewer
+
+    for the same work_item_id before dispatching another executor work item or
+
+    finishing the task. Missing required work_item_ids in routing_state must be
+
+    handled one at a time with an executor route unless a reviewed failure or
+
+    empty-output audit already exists for that work item.
+
+
+    Route SurveyAgent only when the file inventory or article package list is
+
+    unknown. Route DesignAgent when the work plan or extraction/validation
+
+    strategy is missing or insufficient. Route ExecAgent when one work item
+
+    needs extraction. Route CriticAgent when a work item has candidate or empty
+
+    extraction output requiring validation. Route WriteAgent only after all
+
+    required work items are reviewed or explicitly reviewed as failed/skipped.
+
+
+    For each work item instruction, copy exact article_package and exact source
+
+    file paths from the task description. Do not pass a directory path to
+
+    read_text. When a subagent needs configured resource files, copy exact
+
+    lab_path values from lab_context.configured_resource_paths; do not invent
+
+    resource paths by joining unrelated roots.
+
+
+    If a subagent failed because an internal DAG node exceeded tool budget or
+
+    because it produced tool calls without required artifacts, retry that same
+
+    role or its required reviewer with a simpler instruction and set
+
+    metadata.execution_mode="direct". Direct mode bypasses the internal skill
+
+    DAG and should be used only to recover from workflow-budget failures.
+
+
+    Do not route to END until final artifact writing is complete. An
+
+    intermediate extraction report from ExecAgent is not sufficient for END.
+
+    '
+subagents:
+  SurveyAgent:
+    llm_backend: openrouter-qwen30b
+    system_prompt: 'You survey assigned context, files, lab state, resources, schemas,
+
+      policies, prior artifacts, and source documents. Build an internal plan
+
+      for the assigned survey work, use only needed tools, and report coverage,
+
+      skipped items, artifacts, and failures. Do not perform final extraction or
+
+      final writing unless the MetaAgent explicitly assigns that work.
+
+      '
+  DesignAgent:
+    llm_backend: openrouter-qwen30b
+    system_prompt: 'You design plans, mappings, workflows, validation strategies, and
+
+      intermediate artifact structures for the assigned task. Build an internal
+
+      task DAG when useful, retrieve relevant skills per internal step, and
+
+      specify what evidence and outputs downstream agents need. Do not hardcode
+
+      domain-specific subagent identities.
+
+      '
+  ExecAgent:
+    llm_backend: openrouter-qwen30b
+    system_prompt: 'You execute concrete assigned operations using tools and skills. Read
+
+      files, inspect documents and tables, parse available artifacts, extract
+
+      candidate information, and produce traceable intermediate outputs. Cover
+
+      the full assigned scope unless you explicitly report skipped items with
+
+      reasons. Do not silently validate, finalize, or invent outputs.
+
+      Inspect main_text.md and supplementary files only for the assigned article
+
+      package/work item. Use text, table, markdown, and spreadsheet tools as
+
+      needed. Extract candidate promoter or promoter-like regulatory DNA
+
+      sequence records with explicit evidence_text and evidence_source fields.
+
+      '
+  CriticAgent:
+    llm_backend: openrouter-qwen30b
+    system_prompt: 'You validate, critique, audit evidence, diagnose errors, and check schema
+
+      conformance for assigned outputs. Separate valid evidence from uncertainty
+
+      and failure. Report rejection reasons, coverage issues, duplicates,
+
+      missing evidence, and whether an empty result is justified. Do not invent
+
+      missing data.
+
+      '
+  WriteAgent:
+    llm_backend: openrouter-qwen30b
+    system_prompt: 'You write final structured artifacts, reports, summaries, and audit files
+
+      from validated upstream content. Preserve traceability, include coverage
+
+      and failure information, and do not silently drop invalid or failed items.
+
+      Do not invent records. Call write_jsonl with a records argument; use
+
+      records: [] when no accepted records survive validation.
+
+      '
+work_item_routing:
+  enabled: true
+  executor_roles:
+  - ExecAgent
+  reviewer_roles:
+  - CriticAgent
+  finalizer_roles:
+  - WriteAgent
+  required_work_item_ids:
+  - parts_list_promoters_grna_scaffolds_mammalian_genome_engineering
+  - ai_knowledge_sigma70_design
+  - automated_design_thousands_nonrepetitive_parts_engineering_stable_genetic
+  work_item_id_field: work_item_id
+backends:
+  llm:
+    openrouter-gpt-planner-nano:
+      type: api
+      api: openai-chat-completions
+      api_key_env: OPENAI_API_KEY
+      base_url: https://openrouter.ai/api/v1
+      model: openai/gpt-4.1-nano
+      timeout_seconds: 60.0
+      max_retries: 1
+      max_output_tokens: 2048
+    openrouter-qwen30b:
+      type: api
+      api: openai-chat-completions
+      api_key_env: OPENAI_API_KEY
+      base_url: https://openrouter.ai/api/v1
+      model: qwen/qwen3-30b-a3b-instruct-2507
+      max_output_tokens: 2048
+      timeout_seconds: 90.0
+      max_retries: 1
+      retry_initial_delay_seconds: 5.0
+      retry_max_delay_seconds: 30.0
+  memory:
+    mem0-agent-memory:
+      type: 'null'
+    mem0-task-memory:
+      type: 'null'
+  skill:
+    scientific-ie-skills:
+      type: graph
+      graph_path: configs/skills/graphs/scientific_ie_seed_graph_v1.json
+evolve_worker:
+  enabled: false
+  mode: promotion_candidates_only
+dynamic_subagents:
+  enabled: true
+  mode: dynamic
+  scope: per_work_item
+  planner_backend:
+    backend_id: openrouter-gpt-planner-nano
+  default_worker_backend:
+    backend_id: openrouter-qwen30b
+  max_subagents_per_work_item: 6
+  max_planner_retries: 2
+  fallback_to_static: true
+  allow_skill_required_tools: true
+  require_output_schema: true
+  allowed_tool_names:
+  - list_files
+  - read_text
+  - search_text
+  - inspect_file_metadata
+  - extract_sections
+  - inspect_excel_workbook
+  - read_excel_sheet
+  - inspect_table
+  - read_table_slice
+  - detect_table_header
+  - normalize_table
+  - profile_table
+  - build_document_inventory
+  - discover_candidate_source_files
+  - discover_candidate_tables
+  - extract_candidate_rows
+  - build_candidate_records
+  - validate_candidate_records
+  - serialize_final_records
+  - json_schema_validate
+  - write_jsonl
+  - write_report
+  metadata:
+    extraction_task: true
+    sequence_extraction_profile: promoter
+    zero_output_recovery_enabled: true

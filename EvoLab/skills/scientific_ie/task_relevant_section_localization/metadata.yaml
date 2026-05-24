@@ -1,0 +1,79 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.task_relevant_section_localization.v1",
+  "name": "Task-Relevant Section Localization",
+  "version": "v1",
+  "summary": "Rank paper sections by task relevance using task goal, schema, section type, and supplementary references.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "literature",
+    "section",
+    "evidence"
+  ],
+  "task_types": [
+    "localization",
+    "extraction"
+  ],
+  "target_category": "task.task_relevant_section_localization",
+  "scope": "Reusable localization of paper sections likely to contain task-relevant evidence.",
+  "applicability": [
+    "A task goal or extraction schema is available with parsed sections."
+  ],
+  "limitations": [
+    "May miss evidence only present in figures or unsupported artifacts."
+  ],
+  "required_inputs": [
+    "task goal",
+    "optional extraction schema",
+    "section map",
+    "supplementary references"
+  ],
+  "expected_outputs": [
+    "ranked relevant sections",
+    "rationale",
+    "supplementary follow-up targets"
+  ],
+  "dependencies": [
+    "skill.scientific_paper_structure_parsing.v1"
+  ],
+  "environment_assumptions": [
+    "Sections have readable text spans."
+  ],
+  "procedure": [
+    "Read task goal and schema.",
+    "Score sections by goal terms, section type, and references.",
+    "Prioritize supplementary follow-up targets.",
+    "Return ranked sections with rationale."
+  ],
+  "required_tools": [
+    "read_text",
+    "search_text"
+  ],
+  "scripts": [],
+  "resources": [
+    "task-relevance-ranking-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Rank methods/results above unrelated background for an extraction task."
+    ],
+    "synthetic": [
+      "Schema field names boost sections containing likely evidence."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "ranked_sections_include_expected_evidence"
+  ],
+  "confidence": 0.85,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

@@ -1,0 +1,1847 @@
+{
+  "schema_version": "v1",
+  "version": "scientific-ie-v1",
+  "categories": [
+    {
+      "category_id": "cap.literature",
+      "name": "Literature",
+      "layer": "scientific_process_capability",
+      "description": "Understand scientific literature, documents, evidence, and artifacts.",
+      "metadata": {
+        "domain_tags": [
+          "literature",
+          "paper",
+          "scientific"
+        ],
+        "task_types": [
+          "document",
+          "reading",
+          "artifact",
+          "table",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "cap.analysis",
+      "name": "Analysis",
+      "layer": "scientific_process_capability",
+      "description": "Analyze scientific evidence into reusable schemas, fields, records, and domain-grounded entities.",
+      "metadata": {
+        "domain_tags": [
+          "schema",
+          "record",
+          "entity",
+          "field",
+          "biological",
+          "chemical",
+          "material"
+        ],
+        "task_types": [
+          "analysis",
+          "extraction",
+          "grounding",
+          "normalization",
+          "validation"
+        ]
+      }
+    },
+    {
+      "category_id": "cap.validation",
+      "name": "Validation",
+      "layer": "scientific_process_capability",
+      "description": "Validate extracted records, resolve conflicts, and evaluate against ground truth.",
+      "metadata": {
+        "domain_tags": [
+          "record",
+          "evidence",
+          "ground truth"
+        ],
+        "task_types": [
+          "validation",
+          "evaluation",
+          "extract",
+          "extraction",
+          "deduplication"
+        ]
+      }
+    },
+    {
+      "category_id": "cap.execution",
+      "name": "Execution",
+      "layer": "scientific_process_capability",
+      "description": "Improve reusable skills from trajectories and feedback.",
+      "metadata": {
+        "domain_tags": [
+          "trajectory",
+          "feedback",
+          "skill"
+        ],
+        "task_types": [
+          "execution",
+          "improvement",
+          "mining"
+        ]
+      }
+    },
+    {
+      "category_id": "cap.writing",
+      "name": "Writing",
+      "layer": "scientific_process_capability",
+      "description": "Write final artifacts, reports, summaries, and auditable outputs.",
+      "metadata": {
+        "domain_tags": [
+          "artifact",
+          "report",
+          "output"
+        ],
+        "task_types": [
+          "writing",
+          "reporting",
+          "finalization"
+        ]
+      }
+    },
+    {
+      "category_id": "task.scientific_document_understanding",
+      "name": "Scientific Document Understanding",
+      "layer": "scientific_task",
+      "description": "Understand scientific document packages, paper structure, and task-relevant sections.",
+      "parent_category_id": "cap.literature",
+      "metadata": {
+        "domain_tags": [
+          "paper",
+          "article",
+          "scientific"
+        ],
+        "task_types": [
+          "document",
+          "section",
+          "localization"
+        ]
+      }
+    },
+    {
+      "category_id": "task.document_intake",
+      "name": "Document Intake",
+      "layer": "scientific_task",
+      "description": "Map scientific document packages into main text, supplemental files, table artifacts, and unreadable files.",
+      "parent_category_id": "task.scientific_document_understanding",
+      "metadata": {
+        "domain_tags": [
+          "package",
+          "paper",
+          "article",
+          "files"
+        ],
+        "task_types": [
+          "intake",
+          "document"
+        ]
+      }
+    },
+    {
+      "category_id": "task.scientific_document_intake",
+      "name": "Scientific Document Intake",
+      "layer": "scientific_task",
+      "description": "Reusable document package intake for scientific information extraction.",
+      "parent_category_id": "task.document_intake",
+      "metadata": {
+        "domain_tags": [
+          "package",
+          "paper",
+          "article",
+          "files",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "intake",
+          "document",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.paper_structure_parsing",
+      "name": "Paper Structure Parsing",
+      "layer": "scientific_task",
+      "description": "Parse main text into normalized paper sections and supplementary references.",
+      "parent_category_id": "task.scientific_document_understanding",
+      "metadata": {
+        "domain_tags": [
+          "paper",
+          "section",
+          "supplementary"
+        ],
+        "task_types": [
+          "parsing",
+          "section"
+        ]
+      }
+    },
+    {
+      "category_id": "task.scientific_paper_structure_parsing",
+      "name": "Scientific Paper Structure Parsing",
+      "layer": "scientific_task",
+      "description": "Reusable paper structure parsing for scientific articles.",
+      "parent_category_id": "task.paper_structure_parsing",
+      "metadata": {
+        "domain_tags": [
+          "paper",
+          "section",
+          "article"
+        ],
+        "task_types": [
+          "parsing",
+          "section",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.task_relevant_section_localization_group",
+      "name": "Task-Relevant Section Localization",
+      "layer": "scientific_task",
+      "description": "Rank paper sections by task relevance using goals, schemas, and supplementary references.",
+      "parent_category_id": "task.scientific_document_understanding",
+      "metadata": {
+        "domain_tags": [
+          "task",
+          "section",
+          "evidence"
+        ],
+        "task_types": [
+          "localization",
+          "ranking"
+        ]
+      }
+    },
+    {
+      "category_id": "task.task_relevant_section_localization",
+      "name": "Task-Relevant Section Localization",
+      "layer": "scientific_task",
+      "description": "Reusable task-relevant section localization for extraction workflows.",
+      "parent_category_id": "task.task_relevant_section_localization_group",
+      "metadata": {
+        "domain_tags": [
+          "task",
+          "section",
+          "evidence"
+        ],
+        "task_types": [
+          "localization",
+          "ranking",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.evidence_grounded_reading",
+      "name": "Evidence-Grounded Reading",
+      "layer": "scientific_task",
+      "description": "Read scientific text with explicit separation between claims and evidence sources.",
+      "parent_category_id": "cap.literature",
+      "metadata": {
+        "domain_tags": [
+          "evidence",
+          "claim",
+          "source"
+        ],
+        "task_types": [
+          "reading",
+          "classification",
+          "attribution",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.claim_evidence_separation",
+      "name": "Claim-Evidence Separation",
+      "layer": "scientific_task",
+      "description": "Separate background, methods, observations, measured results, conclusions, and speculation.",
+      "parent_category_id": "task.evidence_grounded_reading",
+      "metadata": {
+        "domain_tags": [
+          "claim",
+          "evidence",
+          "observation",
+          "result"
+        ],
+        "task_types": [
+          "classification",
+          "reading"
+        ]
+      }
+    },
+    {
+      "category_id": "task.evidence_aware_claim_classification",
+      "name": "Evidence-Aware Claim Classification",
+      "layer": "scientific_task",
+      "description": "Reusable evidence-aware classification for scientific text spans.",
+      "parent_category_id": "task.claim_evidence_separation",
+      "metadata": {
+        "domain_tags": [
+          "claim",
+          "evidence",
+          "observation",
+          "result"
+        ],
+        "task_types": [
+          "classification",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.evidence_source_attribution_group",
+      "name": "Evidence Source Attribution",
+      "layer": "scientific_task",
+      "description": "Attach traceable evidence source metadata to claims, fields, and records.",
+      "parent_category_id": "task.evidence_grounded_reading",
+      "metadata": {
+        "domain_tags": [
+          "evidence",
+          "source",
+          "provenance"
+        ],
+        "task_types": [
+          "attribution",
+          "traceability"
+        ]
+      }
+    },
+    {
+      "category_id": "task.evidence_source_attribution",
+      "name": "Evidence Source Attribution",
+      "layer": "scientific_task",
+      "description": "Reusable evidence source attribution for fields and structured records.",
+      "parent_category_id": "task.evidence_source_attribution_group",
+      "metadata": {
+        "domain_tags": [
+          "evidence",
+          "source",
+          "provenance",
+          "record"
+        ],
+        "task_types": [
+          "attribution",
+          "traceability",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.scientific_artifact_understanding",
+      "name": "Scientific Artifact Understanding",
+      "layer": "scientific_task",
+      "description": "Discover, read, and understand scientific supplementary artifacts and tables.",
+      "parent_category_id": "cap.literature",
+      "metadata": {
+        "domain_tags": [
+          "supplementary",
+          "artifact",
+          "table",
+          "sequence"
+        ],
+        "task_types": [
+          "artifact",
+          "table",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.supplementary_artifact_discovery_group",
+      "name": "Supplementary Artifact Discovery",
+      "layer": "scientific_task",
+      "description": "Discover and prioritize supplementary artifacts likely to contain task-relevant evidence.",
+      "parent_category_id": "task.scientific_artifact_understanding",
+      "metadata": {
+        "domain_tags": [
+          "supplementary",
+          "artifact",
+          "files",
+          "tables"
+        ],
+        "task_types": [
+          "discovery",
+          "artifact"
+        ]
+      }
+    },
+    {
+      "category_id": "task.supplementary_artifact_discovery",
+      "name": "Supplementary Artifact Discovery",
+      "layer": "scientific_task",
+      "description": "Reusable supplementary artifact discovery for scientific IE.",
+      "parent_category_id": "task.supplementary_artifact_discovery_group",
+      "metadata": {
+        "domain_tags": [
+          "supplementary",
+          "artifact",
+          "tables",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "discovery",
+          "artifact",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.multi_format_artifact_reading_group",
+      "name": "Multi-format Artifact Reading",
+      "layer": "scientific_task",
+      "description": "Read scientific artifacts into normalized provenance-preserving views.",
+      "parent_category_id": "task.scientific_artifact_understanding",
+      "metadata": {
+        "domain_tags": [
+          "artifact",
+          "table",
+          "spreadsheet",
+          "text"
+        ],
+        "task_types": [
+          "reading",
+          "normalization"
+        ]
+      }
+    },
+    {
+      "category_id": "task.multi_format_artifact_reading",
+      "name": "Multi-format Artifact Reading",
+      "layer": "scientific_task",
+      "description": "Reusable multi-format artifact reading for scientific IE.",
+      "parent_category_id": "task.multi_format_artifact_reading_group",
+      "metadata": {
+        "domain_tags": [
+          "artifact",
+          "table",
+          "spreadsheet",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "reading",
+          "normalization",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.scientific_table_understanding_group",
+      "name": "Scientific Table Understanding",
+      "layer": "scientific_task",
+      "description": "Understand scientific table layout, headers, data regions, and annotations.",
+      "parent_category_id": "task.scientific_artifact_understanding",
+      "metadata": {
+        "domain_tags": [
+          "table",
+          "tables",
+          "spreadsheet"
+        ],
+        "task_types": [
+          "table",
+          "structure",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.scientific_table_structure_understanding",
+      "name": "Scientific Table Structure Understanding",
+      "layer": "scientific_task",
+      "description": "Reusable scientific table structure understanding.",
+      "parent_category_id": "task.scientific_table_understanding_group",
+      "metadata": {
+        "domain_tags": [
+          "table",
+          "tables",
+          "columns",
+          "headers",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "table",
+          "structure",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.schema_guided_information_extraction",
+      "name": "Schema-Guided Information Extraction",
+      "layer": "scientific_task",
+      "description": "Interpret schemas, map fields, and construct structured records.",
+      "parent_category_id": "cap.analysis",
+      "metadata": {
+        "domain_tags": [
+          "schema",
+          "field",
+          "record",
+          "table"
+        ],
+        "task_types": [
+          "extraction",
+          "mapping",
+          "record"
+        ]
+      }
+    },
+    {
+      "category_id": "task.schema_interpretation",
+      "name": "Schema Interpretation",
+      "layer": "scientific_task",
+      "description": "Interpret extraction schemas into fields, constraints, and evidence requirements.",
+      "parent_category_id": "task.schema_guided_information_extraction",
+      "metadata": {
+        "domain_tags": [
+          "schema",
+          "fields",
+          "records",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "interpretation",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.extraction_schema_interpretation",
+      "name": "Extraction Schema Interpretation",
+      "layer": "scientific_task",
+      "description": "Reusable extraction schema interpretation.",
+      "parent_category_id": "task.schema_interpretation",
+      "metadata": {
+        "domain_tags": [
+          "schema",
+          "fields",
+          "records"
+        ],
+        "task_types": [
+          "interpretation",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.field_mapping",
+      "name": "Field Mapping",
+      "layer": "scientific_task",
+      "description": "Map source fields, table columns, text spans, or artifact metadata to schema fields.",
+      "parent_category_id": "task.schema_guided_information_extraction",
+      "metadata": {
+        "domain_tags": [
+          "field",
+          "columns",
+          "table",
+          "tables",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "mapping",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.schema_guided_field_mapping",
+      "name": "Schema-Guided Field Mapping",
+      "layer": "scientific_task",
+      "description": "Reusable schema-guided field mapping.",
+      "parent_category_id": "task.field_mapping",
+      "metadata": {
+        "domain_tags": [
+          "field",
+          "columns",
+          "table",
+          "tables"
+        ],
+        "task_types": [
+          "mapping",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.structured_record_construction_group",
+      "name": "Structured Record Construction",
+      "layer": "scientific_task",
+      "description": "Construct candidate structured records with provenance.",
+      "parent_category_id": "task.schema_guided_information_extraction",
+      "metadata": {
+        "domain_tags": [
+          "record",
+          "records",
+          "provenance",
+          "biological",
+          "component",
+          "chemical",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "construction",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.structured_record_construction",
+      "name": "Structured Record Construction",
+      "layer": "scientific_task",
+      "description": "Reusable structured record construction.",
+      "parent_category_id": "task.structured_record_construction_group",
+      "metadata": {
+        "domain_tags": [
+          "record",
+          "records",
+          "provenance"
+        ],
+        "task_types": [
+          "construction",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.domain_entity_grounding",
+      "name": "Domain Entity Grounding",
+      "layer": "scientific_task",
+      "description": "Ground extracted entities using task-provided ontologies and policies.",
+      "parent_category_id": "cap.analysis",
+      "metadata": {
+        "domain_tags": [
+          "entity",
+          "domain",
+          "ontology",
+          "biological",
+          "chemical",
+          "material"
+        ],
+        "task_types": [
+          "grounding",
+          "normalization",
+          "validation",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.ontology_alignment",
+      "name": "Ontology Alignment",
+      "layer": "scientific_task",
+      "description": "Align mentions or fields to task-provided ontology concepts.",
+      "parent_category_id": "task.domain_entity_grounding",
+      "metadata": {
+        "domain_tags": [
+          "ontology",
+          "concept",
+          "controlled vocabulary"
+        ],
+        "task_types": [
+          "alignment",
+          "grounding"
+        ]
+      }
+    },
+    {
+      "category_id": "task.domain_ontology_alignment",
+      "name": "Domain Ontology Alignment",
+      "layer": "scientific_task",
+      "description": "Reusable domain ontology alignment.",
+      "parent_category_id": "task.ontology_alignment",
+      "metadata": {
+        "domain_tags": [
+          "ontology",
+          "concept",
+          "component",
+          "sequence",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "alignment",
+          "grounding",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.entity_normalization",
+      "name": "Entity Normalization",
+      "layer": "scientific_task",
+      "description": "Normalize aligned domain entities with a task-provided policy.",
+      "parent_category_id": "task.domain_entity_grounding",
+      "metadata": {
+        "domain_tags": [
+          "normalization",
+          "entity",
+          "sequence",
+          "condition"
+        ],
+        "task_types": [
+          "normalization",
+          "grounding"
+        ]
+      }
+    },
+    {
+      "category_id": "task.domain_entity_normalization",
+      "name": "Domain Entity Normalization",
+      "layer": "scientific_task",
+      "description": "Reusable domain entity normalization.",
+      "parent_category_id": "task.entity_normalization",
+      "metadata": {
+        "domain_tags": [
+          "normalization",
+          "component",
+          "sequence",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "normalization",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.entity_validation",
+      "name": "Entity Validation",
+      "layer": "scientific_task",
+      "description": "Validate normalized entities against a task-provided policy.",
+      "parent_category_id": "task.domain_entity_grounding",
+      "metadata": {
+        "domain_tags": [
+          "validation",
+          "component",
+          "sequence",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "validation",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.domain_entity_validation",
+      "name": "Domain Entity Validation",
+      "layer": "scientific_task",
+      "description": "Reusable domain entity validation.",
+      "parent_category_id": "task.entity_validation",
+      "metadata": {
+        "domain_tags": [
+          "validation",
+          "component",
+          "sequence",
+          "condition"
+        ],
+        "task_types": [
+          "validation",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.negative_pattern_filtering",
+      "name": "Negative Pattern Filtering",
+      "layer": "scientific_task",
+      "description": "Filter false positives using task-provided negative patterns.",
+      "parent_category_id": "task.domain_entity_grounding",
+      "metadata": {
+        "domain_tags": [
+          "negative pattern",
+          "false positive"
+        ],
+        "task_types": [
+          "filtering",
+          "validation"
+        ]
+      }
+    },
+    {
+      "category_id": "task.domain_negative_pattern_filtering",
+      "name": "Domain Negative Pattern Filtering",
+      "layer": "scientific_task",
+      "description": "Reusable domain negative pattern filtering.",
+      "parent_category_id": "task.negative_pattern_filtering",
+      "metadata": {
+        "domain_tags": [
+          "negative pattern",
+          "component",
+          "sequence",
+          "reaction",
+          "condition"
+        ],
+        "task_types": [
+          "filtering",
+          "validation",
+          "extract"
+        ]
+      }
+    },
+    {
+      "category_id": "task.extraction_result_validation",
+      "name": "Extraction Result Validation",
+      "layer": "scientific_task",
+      "description": "Validate candidate records against schemas, evidence requirements, and domain policies.",
+      "parent_category_id": "cap.validation",
+      "metadata": {
+        "domain_tags": [
+          "record",
+          "records",
+          "evidence",
+          "schema"
+        ],
+        "task_types": [
+          "validation",
+          "extraction"
+        ]
+      }
+    },
+    {
+      "category_id": "task.record_deduplication_and_conflict_resolution",
+      "name": "Record Deduplication and Conflict Resolution",
+      "layer": "scientific_task",
+      "description": "Deduplicate records and resolve conflicting fields while preserving evidence.",
+      "parent_category_id": "cap.validation",
+      "metadata": {
+        "domain_tags": [
+          "record",
+          "records",
+          "conflict",
+          "evidence"
+        ],
+        "task_types": [
+          "deduplication",
+          "resolution",
+          "validation"
+        ]
+      }
+    },
+    {
+      "category_id": "task.ground_truth_based_evaluation",
+      "name": "Ground Truth Based Evaluation",
+      "layer": "scientific_task",
+      "description": "Compare predicted records with ground truth using task-provided matching policies.",
+      "parent_category_id": "cap.validation",
+      "metadata": {
+        "domain_tags": [
+          "ground truth",
+          "record",
+          "evaluation"
+        ],
+        "task_types": [
+          "evaluation",
+          "validation"
+        ]
+      }
+    },
+    {
+      "category_id": "task.trajectory_based_skill_improvement",
+      "name": "Trajectory-Based Skill Improvement",
+      "layer": "scientific_task",
+      "description": "Mine reusable skill and tool-use patterns from trajectories.",
+      "parent_category_id": "cap.execution",
+      "metadata": {
+        "domain_tags": [
+          "trajectory",
+          "tool trace",
+          "skill"
+        ],
+        "task_types": [
+          "mining",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "category_id": "task.trajectory_pattern_mining",
+      "name": "Trajectory Pattern Mining",
+      "layer": "scientific_task",
+      "description": "Reusable trajectory pattern mining for skill improvement.",
+      "parent_category_id": "task.trajectory_based_skill_improvement",
+      "metadata": {
+        "domain_tags": [
+          "trajectory",
+          "tool trace",
+          "pattern"
+        ],
+        "task_types": [
+          "mining",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "category_id": "task.human_feedback_integration_group",
+      "name": "Human Feedback Integration",
+      "layer": "scientific_task",
+      "description": "Normalize human feedback into corrections, constraints, and review signals.",
+      "parent_category_id": "cap.execution",
+      "metadata": {
+        "domain_tags": [
+          "feedback",
+          "human",
+          "review"
+        ],
+        "task_types": [
+          "feedback",
+          "integration"
+        ]
+      }
+    },
+    {
+      "category_id": "task.human_feedback_integration",
+      "name": "Human Feedback Integration",
+      "layer": "scientific_task",
+      "description": "Reusable human feedback integration for skill update signals.",
+      "parent_category_id": "task.human_feedback_integration_group",
+      "metadata": {
+        "domain_tags": [
+          "feedback",
+          "human",
+          "review"
+        ],
+        "task_types": [
+          "feedback",
+          "integration"
+        ]
+      }
+    },
+    {
+      "category_id": "task.final_artifact_writing",
+      "name": "Final Artifact Writing",
+      "layer": "scientific_task",
+      "description": "Write final JSONL records, reports, and empty-output audits from validated upstream content.",
+      "parent_category_id": "cap.writing",
+      "metadata": {
+        "domain_tags": [
+          "artifact",
+          "report",
+          "output",
+          "record"
+        ],
+        "task_types": [
+          "writing",
+          "reporting",
+          "finalization"
+        ]
+      }
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.scientific_document_intake.v1",
+      "name": "Scientific Document Intake",
+      "summary": "Map a scientific document package into main text, supplementary files, table-like artifacts, unreadable files, and recommended next actions.",
+      "package_ref": "skills/scientific_ie/scientific_document_intake",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "artifact",
+        "document",
+        "extraction",
+        "intake",
+        "literature",
+        "scientific-ie"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.scientific_paper_structure_parsing.v1",
+      "name": "Scientific Paper Structure Parsing",
+      "summary": "Parse main text into normalized paper sections and supplementary references.",
+      "package_ref": "skills/scientific_ie/scientific_paper_structure_parsing",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "extraction",
+        "literature",
+        "paper",
+        "parsing",
+        "scientific-ie",
+        "section"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.task_relevant_section_localization.v1",
+      "name": "Task-Relevant Section Localization",
+      "summary": "Rank paper sections by task relevance using task goal, schema, section type, and supplementary references.",
+      "package_ref": "skills/scientific_ie/task_relevant_section_localization",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "evidence",
+        "extraction",
+        "literature",
+        "localization",
+        "scientific-ie",
+        "section"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.evidence_aware_claim_classification.v1",
+      "name": "Evidence-Aware Claim Classification",
+      "summary": "Classify scientific text spans as background, method, prediction, experimental observation, measured result, author conclusion, speculation, or unclear.",
+      "package_ref": "skills/scientific_ie/evidence_aware_claim_classification",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "claim",
+        "classification",
+        "evidence",
+        "literature",
+        "reading",
+        "scientific-ie"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.evidence_source_attribution.v1",
+      "name": "Evidence Source Attribution",
+      "summary": "Attach traceable evidence source metadata to claims, fields, or records.",
+      "package_ref": "skills/scientific_ie/evidence_source_attribution",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "attribution",
+        "evidence",
+        "extraction",
+        "provenance",
+        "scientific-ie",
+        "source"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.supplementary_artifact_discovery.v1",
+      "name": "Supplementary Artifact Discovery",
+      "summary": "Discover and prioritize supplementary artifacts likely to contain task-relevant evidence or structured data.",
+      "package_ref": "skills/scientific_ie/supplementary_artifact_discovery",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "artifact",
+        "discovery",
+        "extraction",
+        "scientific-ie",
+        "supplementary",
+        "table"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.multi_format_artifact_reading.v1",
+      "name": "Multi-format Artifact Reading",
+      "summary": "Read scientific artifacts into normalized provenance-preserving artifact views.",
+      "package_ref": "skills/scientific_ie/multi_format_artifact_reading",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "artifact",
+        "normalization",
+        "reading",
+        "scientific-ie",
+        "spreadsheet",
+        "table"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.scientific_table_structure_understanding.v1",
+      "name": "Scientific Table Structure Understanding",
+      "summary": "Understand table layout, headers, data region, annotation rows, column profiles, and structural warnings.",
+      "package_ref": "skills/scientific_ie/scientific_table_structure_understanding",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "columns",
+        "extraction",
+        "scientific-ie",
+        "spreadsheet",
+        "structure",
+        "table"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.extraction_schema_interpretation.v1",
+      "name": "Extraction Schema Interpretation",
+      "summary": "Interpret task-specific extraction schema into field definitions, required/nullable fields, evidence requirements, validation requirements, and extraction constraints.",
+      "package_ref": "skills/scientific_ie/extraction_schema_interpretation",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "extraction",
+        "field",
+        "interpretation",
+        "record",
+        "schema",
+        "scientific-ie"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.schema_guided_field_mapping.v1",
+      "name": "Schema-Guided Field Mapping",
+      "summary": "Map source fields, table columns, text spans, or artifact metadata to schema fields.",
+      "package_ref": "skills/scientific_ie/schema_guided_field_mapping",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "columns",
+        "extraction",
+        "field",
+        "mapping",
+        "schema",
+        "scientific-ie",
+        "table"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.structured_record_construction.v1",
+      "name": "Structured Record Construction",
+      "summary": "Construct candidate structured records from schema interpretation, field mapping, source values, and provenance.",
+      "package_ref": "skills/scientific_ie/structured_record_construction",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "construction",
+        "extraction",
+        "provenance",
+        "record",
+        "schema",
+        "scientific-ie"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.domain_ontology_alignment.v1",
+      "name": "Domain Ontology Alignment",
+      "summary": "Align extracted mentions or record fields to task-provided ontology concepts, entity types, or controlled vocabulary.",
+      "package_ref": "skills/scientific_ie/domain_ontology_alignment",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "alignment",
+        "concept",
+        "entity",
+        "grounding",
+        "ontology",
+        "scientific-ie"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.domain_entity_normalization.v1",
+      "name": "Domain Entity Normalization",
+      "summary": "Normalize aligned domain entities using task-provided domain normalization policy.",
+      "package_ref": "skills/scientific_ie/domain_entity_normalization",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "entity",
+        "grounding",
+        "normalization",
+        "policy",
+        "scientific-ie"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.domain_entity_validation.v1",
+      "name": "Domain Entity Validation",
+      "summary": "Validate normalized entities against task-provided domain validation policy.",
+      "package_ref": "skills/scientific_ie/domain_entity_validation",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "entity",
+        "extraction",
+        "grounding",
+        "policy",
+        "scientific-ie",
+        "sequence",
+        "validation"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.domain_negative_pattern_filtering.v1",
+      "name": "Domain Negative Pattern Filtering",
+      "summary": "Filter false positives using task-provided negative pattern policy.",
+      "package_ref": "skills/scientific_ie/domain_negative_pattern_filtering",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "false positive",
+        "filtering",
+        "negative pattern",
+        "scientific-ie",
+        "validation"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.extraction_result_validation.v1",
+      "name": "Extraction Result Validation",
+      "summary": "Validate candidate records against schema, evidence requirements, domain validation results, and negative filtering results.",
+      "package_ref": "skills/scientific_ie/extraction_result_validation",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "evidence",
+        "extraction",
+        "record",
+        "scientific-ie",
+        "validation"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.record_deduplication_and_conflict_resolution.v1",
+      "name": "Record Deduplication and Conflict Resolution",
+      "summary": "Deduplicate records and resolve conflicting fields while preserving evidence.",
+      "package_ref": "skills/scientific_ie/record_deduplication_and_conflict_resolution",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "conflict",
+        "deduplication",
+        "record",
+        "scientific-ie",
+        "validation"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.ground_truth_based_evaluation.v1",
+      "name": "Ground Truth Based Evaluation",
+      "summary": "Compare predicted records with ground truth using task-provided evaluation schema and matching policy.",
+      "package_ref": "skills/scientific_ie/ground_truth_based_evaluation",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "evaluation",
+        "ground truth",
+        "record",
+        "scientific-ie",
+        "validation"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.trajectory_pattern_mining.v1",
+      "name": "Trajectory Pattern Mining",
+      "summary": "Mine reusable patterns, failure-repair patterns, tool-use patterns, and candidate skill suggestions from subagent trajectories and tool traces.",
+      "package_ref": "skills/scientific_ie/trajectory_pattern_mining",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "improvement",
+        "mining",
+        "scientific-ie",
+        "skill",
+        "tool trace",
+        "trajectory"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.human_feedback_integration.v1",
+      "name": "Human Feedback Integration",
+      "summary": "Normalize human feedback into corrections, constraints, review signals, and possible skill update signals.",
+      "package_ref": "skills/scientific_ie/human_feedback_integration",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "feedback",
+        "improvement",
+        "review",
+        "scientific-ie",
+        "skill"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    },
+    {
+      "id": "skill.final_artifact_writing.v1",
+      "name": "Final Artifact Writing",
+      "summary": "Write final structured JSONL records and report artifacts from validated upstream content without inventing records.",
+      "package_ref": "skills/scientific_ie/final_artifact_writing",
+      "group": "scientific_ie_v1",
+      "status": "active",
+      "tags": [
+        "artifact",
+        "finalization",
+        "output",
+        "report",
+        "scientific-ie",
+        "writing"
+      ],
+      "metadata": {
+        "stable_skill": true,
+        "domain_specific": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "skill.scientific_document_intake.v1",
+      "target_id": "task.scientific_document_intake",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.scientific_paper_structure_parsing.v1",
+      "target_id": "task.scientific_paper_structure_parsing",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.task_relevant_section_localization.v1",
+      "target_id": "task.task_relevant_section_localization",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.evidence_aware_claim_classification.v1",
+      "target_id": "task.evidence_aware_claim_classification",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.evidence_source_attribution.v1",
+      "target_id": "task.evidence_source_attribution",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.supplementary_artifact_discovery.v1",
+      "target_id": "task.supplementary_artifact_discovery",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.multi_format_artifact_reading.v1",
+      "target_id": "task.multi_format_artifact_reading",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.scientific_table_structure_understanding.v1",
+      "target_id": "task.scientific_table_structure_understanding",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.extraction_schema_interpretation.v1",
+      "target_id": "task.extraction_schema_interpretation",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.schema_guided_field_mapping.v1",
+      "target_id": "task.schema_guided_field_mapping",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.structured_record_construction.v1",
+      "target_id": "task.structured_record_construction",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_ontology_alignment.v1",
+      "target_id": "task.domain_ontology_alignment",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_entity_normalization.v1",
+      "target_id": "task.domain_entity_normalization",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_entity_validation.v1",
+      "target_id": "task.domain_entity_validation",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_negative_pattern_filtering.v1",
+      "target_id": "task.domain_negative_pattern_filtering",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.extraction_result_validation.v1",
+      "target_id": "task.extraction_result_validation",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.record_deduplication_and_conflict_resolution.v1",
+      "target_id": "task.record_deduplication_and_conflict_resolution",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.ground_truth_based_evaluation.v1",
+      "target_id": "task.ground_truth_based_evaluation",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.trajectory_pattern_mining.v1",
+      "target_id": "task.trajectory_pattern_mining",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.human_feedback_integration.v1",
+      "target_id": "task.human_feedback_integration",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.scientific_document_intake.v1",
+      "target_id": "skill.supplementary_artifact_discovery.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.scientific_document_intake.v1",
+      "target_id": "skill.multi_format_artifact_reading.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.scientific_paper_structure_parsing.v1",
+      "target_id": "skill.scientific_document_intake.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.scientific_paper_structure_parsing.v1",
+      "target_id": "skill.task_relevant_section_localization.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.scientific_paper_structure_parsing.v1",
+      "target_id": "skill.evidence_source_attribution.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.task_relevant_section_localization.v1",
+      "target_id": "skill.scientific_paper_structure_parsing.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.task_relevant_section_localization.v1",
+      "target_id": "skill.evidence_aware_claim_classification.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.task_relevant_section_localization.v1",
+      "target_id": "skill.supplementary_artifact_discovery.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.task_relevant_section_localization.v1",
+      "target_id": "skill.extraction_schema_interpretation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.evidence_aware_claim_classification.v1",
+      "target_id": "skill.scientific_paper_structure_parsing.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.evidence_aware_claim_classification.v1",
+      "target_id": "skill.evidence_source_attribution.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.evidence_aware_claim_classification.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.evidence_source_attribution.v1",
+      "target_id": "skill.scientific_paper_structure_parsing.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.evidence_source_attribution.v1",
+      "target_id": "skill.structured_record_construction.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.evidence_source_attribution.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.supplementary_artifact_discovery.v1",
+      "target_id": "skill.scientific_document_intake.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.supplementary_artifact_discovery.v1",
+      "target_id": "skill.multi_format_artifact_reading.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.supplementary_artifact_discovery.v1",
+      "target_id": "skill.scientific_table_structure_understanding.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.multi_format_artifact_reading.v1",
+      "target_id": "skill.supplementary_artifact_discovery.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.multi_format_artifact_reading.v1",
+      "target_id": "skill.scientific_table_structure_understanding.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.multi_format_artifact_reading.v1",
+      "target_id": "skill.evidence_source_attribution.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.scientific_table_structure_understanding.v1",
+      "target_id": "skill.multi_format_artifact_reading.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.scientific_table_structure_understanding.v1",
+      "target_id": "skill.schema_guided_field_mapping.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.extraction_schema_interpretation.v1",
+      "target_id": "skill.schema_guided_field_mapping.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.extraction_schema_interpretation.v1",
+      "target_id": "skill.structured_record_construction.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.extraction_schema_interpretation.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.schema_guided_field_mapping.v1",
+      "target_id": "skill.extraction_schema_interpretation.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.schema_guided_field_mapping.v1",
+      "target_id": "skill.scientific_table_structure_understanding.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.schema_guided_field_mapping.v1",
+      "target_id": "skill.structured_record_construction.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.structured_record_construction.v1",
+      "target_id": "skill.extraction_schema_interpretation.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.structured_record_construction.v1",
+      "target_id": "skill.schema_guided_field_mapping.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.structured_record_construction.v1",
+      "target_id": "skill.evidence_source_attribution.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.structured_record_construction.v1",
+      "target_id": "skill.domain_entity_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.structured_record_construction.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.domain_ontology_alignment.v1",
+      "target_id": "skill.structured_record_construction.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_ontology_alignment.v1",
+      "target_id": "skill.domain_entity_normalization.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.domain_ontology_alignment.v1",
+      "target_id": "skill.domain_entity_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.domain_entity_normalization.v1",
+      "target_id": "skill.domain_ontology_alignment.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_entity_normalization.v1",
+      "target_id": "skill.domain_entity_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.domain_entity_validation.v1",
+      "target_id": "skill.domain_entity_normalization.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_entity_validation.v1",
+      "target_id": "skill.domain_negative_pattern_filtering.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.domain_entity_validation.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.domain_negative_pattern_filtering.v1",
+      "target_id": "skill.domain_entity_validation.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.domain_negative_pattern_filtering.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.extraction_result_validation.v1",
+      "target_id": "skill.structured_record_construction.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.extraction_result_validation.v1",
+      "target_id": "skill.evidence_source_attribution.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.extraction_result_validation.v1",
+      "target_id": "skill.record_deduplication_and_conflict_resolution.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.extraction_result_validation.v1",
+      "target_id": "skill.ground_truth_based_evaluation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.record_deduplication_and_conflict_resolution.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.record_deduplication_and_conflict_resolution.v1",
+      "target_id": "skill.ground_truth_based_evaluation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.ground_truth_based_evaluation.v1",
+      "target_id": "skill.record_deduplication_and_conflict_resolution.v1",
+      "relation": "depends_on",
+      "weight": 1.0
+    },
+    {
+      "source_id": "skill.ground_truth_based_evaluation.v1",
+      "target_id": "skill.trajectory_pattern_mining.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.trajectory_pattern_mining.v1",
+      "target_id": "skill.extraction_result_validation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.trajectory_pattern_mining.v1",
+      "target_id": "skill.ground_truth_based_evaluation.v1",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source_id": "skill.final_artifact_writing.v1",
+      "target_id": "task.final_artifact_writing",
+      "relation": "belongs_to_category",
+      "weight": 1.0
+    }
+  ],
+  "metadata": {
+    "description": "Reusable scientific information extraction seed skill graph. Domain packages provide schemas, ontology, and policies for specific tasks.",
+    "stable_skill_policy": "Stable skills are reusable across scientific tasks and must not encode narrow domain-specific extraction skill IDs.",
+    "storage_format": "package_ref_v1",
+    "canonical_graph": "configs/skills/graphs/scientific_ie_seed_graph_v1.json",
+    "skill_groups": [
+      "scientific_ie_v1"
+    ],
+    "skill_roots": [
+      "skills/scientific_ie"
+    ],
+    "domain_packages": [
+      "domain_packages/biology_component_extraction_v1"
+    ]
+  }
+}

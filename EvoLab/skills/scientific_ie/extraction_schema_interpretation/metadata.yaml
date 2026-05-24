@@ -1,0 +1,77 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.extraction_schema_interpretation.v1",
+  "name": "Extraction Schema Interpretation",
+  "version": "v1",
+  "summary": "Interpret task-specific extraction schema into field definitions, required/nullable fields, evidence requirements, validation requirements, and extraction constraints.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "schema",
+    "field",
+    "record"
+  ],
+  "task_types": [
+    "interpretation",
+    "extraction"
+  ],
+  "target_category": "task.extraction_schema_interpretation",
+  "scope": "Reusable interpretation of task-provided extraction schemas.",
+  "applicability": [
+    "The task provides a schema or field specification."
+  ],
+  "limitations": [
+    "Does not invent missing domain ontology terms."
+  ],
+  "required_inputs": [
+    "extraction schema",
+    "task goal",
+    "domain package references"
+  ],
+  "expected_outputs": [
+    "field definitions",
+    "required and nullable fields",
+    "evidence requirements",
+    "validation constraints"
+  ],
+  "dependencies": [],
+  "environment_assumptions": [
+    "Schema is available as JSON or a JSON-compatible specification."
+  ],
+  "procedure": [
+    "Validate schema syntax.",
+    "List fields and nullability.",
+    "Extract evidence and validation requirements.",
+    "Identify constraints and domain package references.",
+    "Return interpreted schema contract."
+  ],
+  "required_tools": [
+    "json_schema_validate"
+  ],
+  "scripts": [],
+  "resources": [
+    "schema-interpretation-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Interpret a schema with required and nullable fields."
+    ],
+    "synthetic": [
+      "Invalid schema emits validation failure rather than field mapping."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "schema_fields_and_constraints_listed"
+  ],
+  "confidence": 0.89,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

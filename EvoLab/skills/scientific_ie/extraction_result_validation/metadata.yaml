@@ -1,0 +1,82 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.extraction_result_validation.v1",
+  "name": "Extraction Result Validation",
+  "version": "v1",
+  "summary": "Validate candidate records against schema, evidence requirements, domain validation results, and negative filtering results.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "record",
+    "validation",
+    "evidence"
+  ],
+  "task_types": [
+    "validation",
+    "extraction"
+  ],
+  "target_category": "task.extraction_result_validation",
+  "scope": "Reusable validation of candidate scientific IE records.",
+  "applicability": [
+    "Candidate records and validation policies are available."
+  ],
+  "limitations": [
+    "Validation can flag issues but does not invent missing evidence."
+  ],
+  "required_inputs": [
+    "candidate records",
+    "schema",
+    "evidence requirements",
+    "domain validation results",
+    "negative filtering results"
+  ],
+  "expected_outputs": [
+    "validated records",
+    "record-level errors",
+    "validation report"
+  ],
+  "dependencies": [
+    "skill.structured_record_construction.v1",
+    "skill.evidence_source_attribution.v1"
+  ],
+  "environment_assumptions": [
+    "Report output path is writable."
+  ],
+  "procedure": [
+    "Validate candidate records against schema.",
+    "Check evidence requirements.",
+    "Incorporate domain validation and negative filters.",
+    "Write validation report.",
+    "Return accepted and rejected records."
+  ],
+  "required_tools": [
+    "json_schema_validate",
+    "write_report"
+  ],
+  "scripts": [],
+  "resources": [
+    "record-validation-report-template"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Validate one candidate record with evidence."
+    ],
+    "synthetic": [
+      "Record missing required evidence is rejected."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "validation_report_lists_accept_reject_reasons"
+  ],
+  "confidence": 0.88,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

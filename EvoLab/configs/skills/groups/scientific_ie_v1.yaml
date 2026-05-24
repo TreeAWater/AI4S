@@ -1,0 +1,20 @@
+{
+  "group_name": "scientific_ie_v1",
+  "description": "Reusable scientific information extraction skills for literature, artifact reading, schema-guided extraction, validation, and trajectory mining.",
+  "graph": "configs/skills/graphs/scientific_ie_seed_graph_v1.json",
+  "skill_roots": [
+    "skills/scientific_ie"
+  ],
+  "domain_packages": [
+    "domain_packages/biology_component_extraction_v1"
+  ],
+  "default_active_status": "active",
+  "include_patterns": [
+    "*/metadata.yaml",
+    "*/metadata.json"
+  ],
+  "exclude_patterns": [
+    "*/__pycache__/*",
+    "*/.pytest_cache/*"
+  ]
+}

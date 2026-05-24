@@ -1,0 +1,80 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.ground_truth_based_evaluation.v1",
+  "name": "Ground Truth Based Evaluation",
+  "version": "v1",
+  "summary": "Compare predicted records with ground truth using task-provided evaluation schema and matching policy.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "ground truth",
+    "evaluation",
+    "record"
+  ],
+  "task_types": [
+    "evaluation",
+    "validation"
+  ],
+  "target_category": "task.ground_truth_based_evaluation",
+  "scope": "Reusable ground-truth evaluation for scientific IE records.",
+  "applicability": [
+    "Ground truth records and matching policy are available."
+  ],
+  "limitations": [
+    "Evaluation quality depends on task-provided matching policy."
+  ],
+  "required_inputs": [
+    "predicted records",
+    "ground truth records",
+    "evaluation schema",
+    "matching policy"
+  ],
+  "expected_outputs": [
+    "evaluation metrics",
+    "match report",
+    "error categories"
+  ],
+  "dependencies": [
+    "skill.record_deduplication_and_conflict_resolution.v1"
+  ],
+  "environment_assumptions": [
+    "Ground truth data is available as structured records."
+  ],
+  "procedure": [
+    "Validate evaluation schema.",
+    "Match predictions to ground truth.",
+    "Compute task metrics.",
+    "Categorize errors.",
+    "Write evaluation report."
+  ],
+  "required_tools": [
+    "json_schema_validate",
+    "write_report"
+  ],
+  "scripts": [],
+  "resources": [
+    "ground-truth-evaluation-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Evaluate one exact record match."
+    ],
+    "synthetic": [
+      "Partial match policy affects metric as configured."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "evaluation_report_contains_metrics_and_matches"
+  ],
+  "confidence": 0.84,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

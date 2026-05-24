@@ -1,0 +1,85 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.scientific_table_structure_understanding.v1",
+  "name": "Scientific Table Structure Understanding",
+  "version": "v1",
+  "summary": "Understand table layout, headers, data region, annotation rows, column profiles, and structural warnings.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "table",
+    "spreadsheet",
+    "columns"
+  ],
+  "task_types": [
+    "table",
+    "structure",
+    "extraction"
+  ],
+  "target_category": "task.scientific_table_structure_understanding",
+  "scope": "Reusable table structure understanding for scientific IE.",
+  "applicability": [
+    "A table-like artifact may contain extraction evidence."
+  ],
+  "limitations": [
+    "Does not decide task-specific field semantics by itself."
+  ],
+  "required_inputs": [
+    "table artifact reference",
+    "task goal",
+    "optional schema fields"
+  ],
+  "expected_outputs": [
+    "header rows",
+    "data region",
+    "column profiles",
+    "annotation rows",
+    "structural warnings"
+  ],
+  "dependencies": [
+    "skill.multi_format_artifact_reading.v1"
+  ],
+  "environment_assumptions": [
+    "Table inspection and slicing tools can access the artifact."
+  ],
+  "procedure": [
+    "Inspect table dimensions.",
+    "Detect header and data regions.",
+    "Profile columns.",
+    "Identify annotation rows and merged header risks.",
+    "Return structural view and warnings."
+  ],
+  "required_tools": [
+    "inspect_table",
+    "read_table_slice",
+    "detect_table_header",
+    "normalize_table",
+    "profile_table"
+  ],
+  "scripts": [],
+  "resources": [
+    "scientific-table-structure-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Detect header and data region in a simple supplementary table."
+    ],
+    "synthetic": [
+      "Multi-row headers produce structural warnings."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "table_structure_has_header_and_data_region"
+  ],
+  "confidence": 0.86,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

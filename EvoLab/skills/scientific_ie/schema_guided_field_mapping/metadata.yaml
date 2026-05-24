@@ -1,0 +1,84 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.schema_guided_field_mapping.v1",
+  "name": "Schema-Guided Field Mapping",
+  "version": "v1",
+  "summary": "Map source fields, table columns, text spans, or artifact metadata to schema fields.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "schema",
+    "field",
+    "table",
+    "columns"
+  ],
+  "task_types": [
+    "mapping",
+    "extraction"
+  ],
+  "target_category": "task.schema_guided_field_mapping",
+  "scope": "Reusable schema-guided mapping from sources to extraction fields.",
+  "applicability": [
+    "Schema fields and candidate text/table sources are available."
+  ],
+  "limitations": [
+    "Mappings require downstream validation before becoming final records."
+  ],
+  "required_inputs": [
+    "interpreted schema",
+    "source spans or table structure",
+    "artifact metadata"
+  ],
+  "expected_outputs": [
+    "field-source mappings",
+    "mapping confidence",
+    "unmapped fields",
+    "source warnings"
+  ],
+  "dependencies": [
+    "skill.extraction_schema_interpretation.v1"
+  ],
+  "environment_assumptions": [
+    "Source artifacts can be searched or inspected."
+  ],
+  "procedure": [
+    "Validate interpreted schema.",
+    "Inspect source columns or text spans.",
+    "Match source labels and context to schema fields.",
+    "Record confidence and unmapped fields.",
+    "Return mapping candidates."
+  ],
+  "required_tools": [
+    "json_schema_validate",
+    "inspect_table",
+    "read_table_slice",
+    "search_text",
+    "profile_table"
+  ],
+  "scripts": [],
+  "resources": [
+    "field-mapping-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Map a table column to a schema field by label and context."
+    ],
+    "synthetic": [
+      "Ambiguous field mapping is returned with low confidence."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "mapped_fields_have_sources"
+  ],
+  "confidence": 0.86,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

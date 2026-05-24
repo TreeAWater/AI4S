@@ -1,0 +1,111 @@
+{
+  "lab_root": "lab/demo_v1",
+  "files": {
+    "inputs/biology_component_article.md": "# Engineered Translation System\n\n## Abstract\nWe engineered a synthetic translation control system in E. coli. Component pTet drives sfGFP expression from plasmid pEVL-101. A B0034 ribosome binding site improves translation initiation. The construct includes terminator B0015. Supplementary Table 1 reports pTet, B0034, sfGFP, and B0015 as validated components with sequence evidence.\n\n## Methods\nComponents were cloned into pEVL-101 and sequence-verified. Fluorescence increased 3.2-fold after induction.\n\n## Supplementary Table 1\ncomponent_name,component_type,sequence,evidence_source\npTet,promoter,TTGACATCCCTATCAGTGATAGAGATCTCC,main text abstract\nB0034,RBS,AAAGAGGAGAAA,supplementary table\nsfGFP,CDS,ATGAGTAAAGGAGAAGAACTTTTC,methods\nB0015,terminator,CCAGGCATCAAATAAAACGAAAGGCTCAGTCGAAAGACTGGGCCTTTCGTTTTAT,supplementary table\n",
+    "inputs/biology_component_schema.json": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"component_name\": {\"type\": \"string\"},\n    \"component_type\": {\"type\": \"string\"},\n    \"sequence\": {\"type\": \"string\"},\n    \"evidence_source\": {\"type\": \"string\"}\n  },\n  \"required\": [\"component_name\", \"component_type\", \"sequence\", \"evidence_source\"]\n}\n"
+  },
+  "tools": {
+    "scientific_ie": {
+      "enabled": true,
+      "include_human_tools": false
+    }
+  },
+  "task": {
+    "task_id": "demo-v1",
+    "origin": "human",
+    "purpose": "science",
+    "goal": "Use the scientific IE skills to extract biological component records from inputs/biology_component_article.md, validate them against inputs/biology_component_schema.json, and summarize the records.",
+    "task_config_ref": "configs/demo_v1.yaml"
+  },
+  "task_config": {
+    "task_id": "demo-v1",
+    "goal": "Use the scientific IE skills to extract biological component records from inputs/biology_component_article.md, validate them against inputs/biology_component_schema.json, and summarize the records.",
+    "task_memory_backend": {
+      "backend_id": "mem0-task-memory"
+    },
+    "roles": {
+      "solver": {
+        "name": "solver",
+        "system_prompt": "You are EvoLab V1's scientific information extraction solver. The task files are already seeded in the Lab and are readable through tools by their relative paths. Do not ask the user to upload or confirm files. First call read_text for inputs/biology_component_schema.json, then call read_text for inputs/biology_component_article.md. Use only tool-observed content. If you call json_schema_validate, pass schema_path=\"inputs/biology_component_schema.json\", instance=<candidate record or list>, and many=true for a list. Return a concise final answer with extracted records that use exactly the schema fields and evidence from the article.",
+        "llm_backend": {
+          "backend_id": "aigocode-gpt",
+          "config_ref": "env:aigocode-gpt"
+        },
+        "agent_memory_backend": {
+          "backend_id": "mem0-agent-memory"
+        },
+        "allowed_tools": [
+          "list_files",
+          "read_text",
+          "inspect_file_metadata",
+          "extract_sections",
+          "search_text",
+          "read_table_slice",
+          "inspect_table",
+          "inspect_excel_workbook",
+          "read_excel_sheet",
+          "detect_table_header",
+          "normalize_table",
+          "profile_table",
+          "json_schema_validate",
+          "write_jsonl",
+          "write_report"
+        ]
+      }
+    },
+    "runtime_policy": {
+      "max_tool_steps": 6,
+      "allow_human_tools": false,
+      "enable_workflow_planning": false
+    }
+  },
+  "backends": {
+    "llm": {
+      "aigocode-gpt": {
+        "type": "api",
+        "env_ref": "aigocode-gpt",
+        "model": "gpt-5.1-codex"
+      },
+      "fake-memory-llm": {
+        "type": "fake",
+        "default_content": "{\"memory\":[]}"
+      }
+    },
+    "embedding": {
+      "fake-memory-embedding": {
+        "type": "fake",
+        "dimensions": 8
+      }
+    },
+    "memory": {
+      "mem0-agent-memory": {
+        "type": "method",
+        "method": "mem0",
+        "store_path": "registries/memory/mem0-agent.sqlite",
+        "llm_backend": "fake-memory-llm",
+        "embedding_backend": "fake-memory-embedding"
+      },
+      "mem0-task-memory": {
+        "type": "method",
+        "method": "mem0",
+        "store_path": "registries/memory/mem0-task.sqlite",
+        "llm_backend": "fake-memory-llm",
+        "embedding_backend": "fake-memory-embedding"
+      }
+    },
+    "skill": {
+      "scientific-ie-skills": {
+        "type": "graph",
+        "graph_path": "configs/skills/graphs/scientific_ie_seed_graph_v1.json"
+      }
+    }
+  },
+  "evolution": {
+    "backends": {
+      "aigocode-gpt": {
+        "type": "sft",
+        "promote_dry_run": true
+      }
+    }
+  }
+}

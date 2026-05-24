@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evolab"
+version = "0.1.0"
+description = "Self-evolving agents for scientific research"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.7",
+  "openai>=1.109.0",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+sft = [
+  "accelerate>=0.26",
+  "torch>=2.1",
+  "transformers>=4.40",
+]
+
+[project.scripts]
+evolab = "evolab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["evolab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

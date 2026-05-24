@@ -1,0 +1,32 @@
+schema_version: v1
+name: biological_evidence_policy
+description: Evidence policy for biological component records. This policy guides reusable extraction and validation skills.
+required_evidence:
+  component_name:
+    source_types: [main_text, supplementary_text, supplementary_table]
+    allow_inference: false
+  component_type:
+    source_types: [main_text, supplementary_text, supplementary_table, ontology]
+    allow_inference: true
+  sequence:
+    source_types: [main_text, supplementary_table, sequence_file]
+    allow_inference: false
+  function_or_role:
+    source_types: [main_text, supplementary_text, supplementary_table]
+    allow_inference: true
+evidence_classes:
+  strong:
+    - measured_result
+    - experimental_observation
+    - method
+  weak:
+    - author_conclusion
+    - background
+  reject:
+    - speculation
+    - unclear
+provenance_requirements:
+  require_article_id: true
+  require_section_or_artifact_ref: true
+  require_table_coordinates_when_table_derived: true
+  preserve_exact_evidence_text: true

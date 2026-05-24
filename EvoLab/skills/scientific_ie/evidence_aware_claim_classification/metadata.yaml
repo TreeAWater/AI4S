@@ -1,0 +1,78 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.evidence_aware_claim_classification.v1",
+  "name": "Evidence-Aware Claim Classification",
+  "version": "v1",
+  "summary": "Classify scientific text spans as background, method, prediction, experimental observation, measured result, author conclusion, speculation, or unclear.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "evidence",
+    "claim",
+    "literature"
+  ],
+  "task_types": [
+    "classification",
+    "reading"
+  ],
+  "target_category": "task.evidence_aware_claim_classification",
+  "scope": "Reusable evidence-aware classification for scientific text spans.",
+  "applicability": [
+    "Text spans may be used as evidence for extraction or validation."
+  ],
+  "limitations": [
+    "Does not determine domain correctness of extracted entities."
+  ],
+  "required_inputs": [
+    "text span",
+    "section context",
+    "task goal"
+  ],
+  "expected_outputs": [
+    "claim class",
+    "classification rationale",
+    "uncertainty notes"
+  ],
+  "dependencies": [
+    "skill.scientific_paper_structure_parsing.v1"
+  ],
+  "environment_assumptions": [
+    "Text spans have source metadata."
+  ],
+  "procedure": [
+    "Read candidate span and nearby context.",
+    "Classify the span by evidence role.",
+    "Flag unclear or speculative language.",
+    "Return classification with rationale."
+  ],
+  "required_tools": [
+    "read_text",
+    "search_text"
+  ],
+  "scripts": [],
+  "resources": [
+    "evidence-class-taxonomy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Classify a measured result sentence as measured_result."
+    ],
+    "synthetic": [
+      "Speculative statements are not classified as measured results."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "claim_class_consistent_with_section_context"
+  ],
+  "confidence": 0.84,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.multi_format_artifact_reading.v1",
+  "name": "Multi-format Artifact Reading",
+  "version": "v1",
+  "summary": "Read scientific artifacts into normalized provenance-preserving artifact views.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "artifact",
+    "spreadsheet",
+    "table"
+  ],
+  "task_types": [
+    "reading",
+    "normalization"
+  ],
+  "target_category": "task.multi_format_artifact_reading",
+  "scope": "Reusable reading of text, spreadsheet, and table-like scientific artifacts.",
+  "applicability": [
+    "A task-relevant artifact was discovered."
+  ],
+  "limitations": [
+    "Does not interpret domain semantics without task schema and policy."
+  ],
+  "required_inputs": [
+    "artifact reference",
+    "artifact metadata",
+    "task goal"
+  ],
+  "expected_outputs": [
+    "normalized artifact view",
+    "provenance metadata",
+    "reading warnings"
+  ],
+  "dependencies": [
+    "skill.supplementary_artifact_discovery.v1"
+  ],
+  "environment_assumptions": [
+    "Artifact readers are available for common text, spreadsheet, and table formats."
+  ],
+  "procedure": [
+    "Inspect artifact metadata.",
+    "Select an appropriate reader.",
+    "Read text, sheets, or table slices.",
+    "Normalize into provenance-preserving views.",
+    "Report reading warnings."
+  ],
+  "required_tools": [
+    "inspect_file_metadata",
+    "read_text",
+    "inspect_excel_workbook",
+    "read_excel_sheet",
+    "inspect_table",
+    "read_table_slice"
+  ],
+  "scripts": [],
+  "resources": [
+    "artifact-view-schema"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Read one worksheet and preserve sheet name provenance."
+    ],
+    "synthetic": [
+      "Multi-sheet workbook produces one view per sheet."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "artifact_views_have_source_metadata"
+  ],
+  "confidence": 0.85,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

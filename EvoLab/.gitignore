@@ -1,0 +1,13 @@
+.worktrees/
+.venv
+*.egg-info/
+
+# Cocodex local runtime files
+.cocodex/state.sqlite
+.cocodex/tasks/
+.cocodex/worktrees/
+
+# Local environment
+env.json
+.cocodex/config.json
+__pycache__/

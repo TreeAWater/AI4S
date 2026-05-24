@@ -1,0 +1,82 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.supplementary_artifact_discovery.v1",
+  "name": "Supplementary Artifact Discovery",
+  "version": "v1",
+  "summary": "Discover and prioritize supplementary artifacts likely to contain task-relevant evidence or structured data.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "supplementary",
+    "artifact",
+    "table"
+  ],
+  "task_types": [
+    "discovery",
+    "extraction"
+  ],
+  "target_category": "task.supplementary_artifact_discovery",
+  "scope": "Reusable discovery of supplementary artifacts for scientific IE.",
+  "applicability": [
+    "Supplementary files or references are present."
+  ],
+  "limitations": [
+    "Cannot inspect encrypted or unsupported artifacts beyond metadata."
+  ],
+  "required_inputs": [
+    "document package manifest",
+    "task goal",
+    "supplementary references"
+  ],
+  "expected_outputs": [
+    "ranked supplementary artifacts",
+    "artifact type guesses",
+    "priority rationale"
+  ],
+  "dependencies": [
+    "skill.scientific_document_intake.v1"
+  ],
+  "environment_assumptions": [
+    "Supplementary files are accessible for metadata inspection."
+  ],
+  "procedure": [
+    "List supplementary files.",
+    "Inspect metadata and filenames.",
+    "Read lightweight text where possible.",
+    "Prioritize likely evidence artifacts.",
+    "Return artifact candidates."
+  ],
+  "required_tools": [
+    "list_files",
+    "inspect_file_metadata",
+    "read_text",
+    "inspect_excel_workbook",
+    "inspect_table"
+  ],
+  "scripts": [],
+  "resources": [
+    "supplementary-artifact-prioritization-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Rank a supplementary spreadsheet above unrelated images for a table extraction task."
+    ],
+    "synthetic": [
+      "Unsupported artifacts are reported with metadata only."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "task_relevant_artifacts_prioritized"
+  ],
+  "confidence": 0.87,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

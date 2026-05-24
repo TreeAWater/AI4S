@@ -1,0 +1,78 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.human_feedback_integration.v1",
+  "name": "Human Feedback Integration",
+  "version": "v1",
+  "summary": "Normalize human feedback into corrections, constraints, review signals, and possible skill update signals.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "feedback",
+    "review",
+    "skill"
+  ],
+  "task_types": [
+    "feedback",
+    "improvement"
+  ],
+  "target_category": "task.human_feedback_integration",
+  "scope": "Reusable integration of human feedback into structured review and skill update signals.",
+  "applicability": [
+    "Human feedback is available for a task, trajectory, or extraction output."
+  ],
+  "limitations": [
+    "Does not decide promotion or graph mutation by itself."
+  ],
+  "required_inputs": [
+    "human feedback text",
+    "related task or trajectory refs",
+    "candidate outputs"
+  ],
+  "expected_outputs": [
+    "normalized corrections",
+    "constraints",
+    "review signals",
+    "candidate skill update signals"
+  ],
+  "dependencies": [],
+  "environment_assumptions": [
+    "Human feedback can be read as text."
+  ],
+  "procedure": [
+    "Read feedback text.",
+    "Classify corrections and constraints.",
+    "Link feedback to outputs or trajectories.",
+    "Summarize possible skill update signals.",
+    "Write feedback integration report."
+  ],
+  "required_tools": [
+    "read_text",
+    "write_report"
+  ],
+  "scripts": [],
+  "resources": [
+    "human-feedback-normalization-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Normalize one correction and one constraint from feedback."
+    ],
+    "synthetic": [
+      "Ambiguous feedback is marked for review."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "feedback_report_links_to_source_outputs"
+  ],
+  "confidence": 0.81,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

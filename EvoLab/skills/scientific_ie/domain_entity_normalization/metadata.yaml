@@ -1,0 +1,81 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.domain_entity_normalization.v1",
+  "name": "Domain Entity Normalization",
+  "version": "v1",
+  "summary": "Normalize aligned domain entities using task-provided domain normalization policy.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "entity",
+    "normalization",
+    "policy"
+  ],
+  "task_types": [
+    "normalization",
+    "grounding"
+  ],
+  "target_category": "task.domain_entity_normalization",
+  "scope": "Reusable domain entity normalization driven by task policies.",
+  "applicability": [
+    "Aligned entities need canonical forms under a task-specific policy."
+  ],
+  "limitations": [
+    "Does not require or hardcode domain-specific normalizer tools."
+  ],
+  "required_inputs": [
+    "aligned entities",
+    "normalization policy",
+    "task schema"
+  ],
+  "expected_outputs": [
+    "normalized entities",
+    "normalization notes",
+    "unresolved entities"
+  ],
+  "dependencies": [
+    "skill.domain_ontology_alignment.v1"
+  ],
+  "environment_assumptions": [
+    "Normalization policy is provided by the task or domain package."
+  ],
+  "procedure": [
+    "Read normalization policy.",
+    "Normalize aligned entity labels and values.",
+    "Preserve original mention and evidence.",
+    "Report unresolved or policy-conflicting cases."
+  ],
+  "required_tools": [
+    "read_text",
+    "json_schema_validate"
+  ],
+  "scripts": [],
+  "resources": [
+    "optional normalize_sequence",
+    "optional normalize_unit",
+    "optional canonicalize_smiles",
+    "optional normalize_taxon_name"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Normalize a synonym using a task-provided policy."
+    ],
+    "synthetic": [
+      "Unsupported entity type is reported without calling a domain-specific tool."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "normalized_entities_preserve_original_mentions"
+  ],
+  "confidence": 0.83,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

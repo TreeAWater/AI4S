@@ -1,0 +1,77 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.trajectory_pattern_mining.v1",
+  "name": "Trajectory Pattern Mining",
+  "version": "v1",
+  "summary": "Mine reusable patterns, failure-repair patterns, tool-use patterns, and candidate skill suggestions from subagent trajectories and tool traces.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "trajectory",
+    "tool trace",
+    "skill"
+  ],
+  "task_types": [
+    "mining",
+    "improvement"
+  ],
+  "target_category": "task.trajectory_pattern_mining",
+  "scope": "Reusable mining of trajectory patterns for future skill improvement.",
+  "applicability": [
+    "Subagent trajectories and tool traces are available."
+  ],
+  "limitations": [
+    "Does not directly mutate the skill graph without review and update policy."
+  ],
+  "required_inputs": [
+    "trajectory records",
+    "tool traces",
+    "validation outcomes"
+  ],
+  "expected_outputs": [
+    "reusable patterns",
+    "failure-repair patterns",
+    "candidate skill suggestions"
+  ],
+  "dependencies": [],
+  "environment_assumptions": [
+    "Trajectory logs can be read as text or JSON records."
+  ],
+  "procedure": [
+    "Read trajectory and tool trace records.",
+    "Identify recurring successful patterns.",
+    "Identify recurring failures and repairs.",
+    "Summarize candidate skill updates.",
+    "Write pattern report."
+  ],
+  "required_tools": [
+    "read_text",
+    "write_report"
+  ],
+  "scripts": [],
+  "resources": [
+    "trajectory-pattern-report-template"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Mine one repeated successful tool-use pattern."
+    ],
+    "synthetic": [
+      "Failure-repair pattern is separated from success pattern."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "pattern_report_links_to_source_runs"
+  ],
+  "confidence": 0.82,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

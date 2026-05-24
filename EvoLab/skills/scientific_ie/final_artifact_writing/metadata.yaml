@@ -1,0 +1,84 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.final_artifact_writing.v1",
+  "name": "Final Artifact Writing",
+  "version": "v1",
+  "summary": "Write final structured JSONL records and report artifacts from validated upstream content without inventing records.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "artifact",
+    "report",
+    "output"
+  ],
+  "task_types": [
+    "writing",
+    "reporting",
+    "finalization"
+  ],
+  "target_category": "task.final_artifact_writing",
+  "scope": "Reusable final artifact writing for scientific information extraction tasks.",
+  "applicability": [
+    "Validated records or an explicit empty-output audit are available.",
+    "The final artifact names and formats are known."
+  ],
+  "limitations": [
+    "Does not extract new evidence.",
+    "Does not validate unsupported records by invention.",
+    "Does not silently convert narrative summaries into records."
+  ],
+  "required_inputs": [
+    "validated records or empty-output audit",
+    "coverage summary",
+    "failure and skipped-item summaries",
+    "target artifact names"
+  ],
+  "expected_outputs": [
+    "final JSONL records artifact",
+    "final report artifact",
+    "coverage and failure audit"
+  ],
+  "dependencies": [],
+  "environment_assumptions": [
+    "Output artifact paths are writable."
+  ],
+  "procedure": [
+    "Read validated upstream content and artifact references.",
+    "If accepted records exist, pass a list of record objects to write_jsonl.",
+    "If no accepted records exist, pass an empty list to write_jsonl and write an explicit empty-output audit report.",
+    "Write a report with coverage, skipped items, failures, rejected records, and final artifact paths.",
+    "Do not call table-reading, extraction, validation, or ontology tools during final writing."
+  ],
+  "required_tools": [
+    "write_jsonl",
+    "write_report"
+  ],
+  "scripts": [],
+  "resources": [
+    "final-artifact-report-template"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Write one final JSONL record and a report from validated input."
+    ],
+    "synthetic": [
+      "Write an empty JSONL file and explicit empty-output audit when no accepted records exist."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "final_jsonl_contains_only_json_objects",
+    "report_links_final_artifacts",
+    "empty_output_has_audit"
+  ],
+  "confidence": 0.9,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

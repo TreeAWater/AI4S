@@ -1,0 +1,81 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.scientific_document_intake.v1",
+  "name": "Scientific Document Intake",
+  "version": "v1",
+  "summary": "Map a scientific document package into main text, supplementary files, table-like artifacts, unreadable files, and recommended next actions.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "literature",
+    "document",
+    "artifact"
+  ],
+  "task_types": [
+    "intake",
+    "extraction"
+  ],
+  "target_category": "task.scientific_document_intake",
+  "scope": "Reusable intake for scientific document packages before task-specific extraction.",
+  "applicability": [
+    "A task provides a paper, document bundle, or supplementary package."
+  ],
+  "limitations": [
+    "Does not infer task-specific records or domain entities."
+  ],
+  "required_inputs": [
+    "document package path or manifest",
+    "task goal"
+  ],
+  "expected_outputs": [
+    "main text reference",
+    "supplementary file list",
+    "table-like artifacts",
+    "unreadable file report",
+    "recommended next actions"
+  ],
+  "dependencies": [],
+  "environment_assumptions": [
+    "Document package files are accessible to file inspection tools."
+  ],
+  "procedure": [
+    "List package files.",
+    "Identify likely main text and supplementary artifacts.",
+    "Inspect file metadata.",
+    "Report unreadable or unsupported files.",
+    "Recommend next reading actions."
+  ],
+  "required_tools": [
+    "list_files",
+    "read_text",
+    "inspect_file_metadata"
+  ],
+  "scripts": [],
+  "resources": [
+    "domain_packages/"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Run intake on a package with one paper and one supplementary table."
+    ],
+    "synthetic": [
+      "Package with unreadable artifact is reported without aborting."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "main_text_found",
+    "supplementary_manifest_complete",
+    "unreadable_files_reported"
+  ],
+  "confidence": 0.88,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

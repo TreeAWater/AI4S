@@ -1,0 +1,83 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.domain_entity_validation.v1",
+  "name": "Domain Entity Validation",
+  "version": "v1",
+  "summary": "Validate normalized entities against task-provided domain validation policy.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "entity",
+    "validation",
+    "policy",
+    "sequence"
+  ],
+  "task_types": [
+    "validation",
+    "grounding",
+    "extraction"
+  ],
+  "target_category": "task.domain_entity_validation",
+  "scope": "Reusable validation of normalized domain entities using task-provided policies.",
+  "applicability": [
+    "Normalized entities need validation before final record acceptance."
+  ],
+  "limitations": [
+    "Does not hardcode biological, chemical, or material validation tools."
+  ],
+  "required_inputs": [
+    "normalized entities",
+    "validation policy",
+    "candidate records"
+  ],
+  "expected_outputs": [
+    "entity validation results",
+    "invalid entity report",
+    "validation warnings"
+  ],
+  "dependencies": [
+    "skill.domain_entity_normalization.v1"
+  ],
+  "environment_assumptions": [
+    "Validation policy is available in the task or domain package."
+  ],
+  "procedure": [
+    "Validate policy schema.",
+    "Apply entity validation rules.",
+    "Preserve evidence and original values.",
+    "Return invalid entities and warnings."
+  ],
+  "required_tools": [
+    "json_schema_validate"
+  ],
+  "scripts": [],
+  "resources": [
+    "optional detect_biological_sequence",
+    "optional compare_sequences",
+    "optional validate_smiles",
+    "optional validate_unit",
+    "optional validate_numeric_range"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Validate one normalized entity against a simple policy."
+    ],
+    "synthetic": [
+      "Invalid entity value is rejected with evidence preserved."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "entity_validation_results_attached_to_records"
+  ],
+  "confidence": 0.84,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

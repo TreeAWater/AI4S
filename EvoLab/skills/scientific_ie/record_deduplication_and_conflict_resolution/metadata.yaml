@@ -1,0 +1,79 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.record_deduplication_and_conflict_resolution.v1",
+  "name": "Record Deduplication and Conflict Resolution",
+  "version": "v1",
+  "summary": "Deduplicate records and resolve conflicting fields while preserving evidence.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "record",
+    "deduplication",
+    "conflict"
+  ],
+  "task_types": [
+    "deduplication",
+    "validation"
+  ],
+  "target_category": "task.record_deduplication_and_conflict_resolution",
+  "scope": "Reusable record deduplication and conflict resolution for scientific IE outputs.",
+  "applicability": [
+    "Multiple candidate records may refer to the same scientific entity or event."
+  ],
+  "limitations": [
+    "Requires evidence preservation to resolve conflicts transparently."
+  ],
+  "required_inputs": [
+    "validated records",
+    "deduplication policy",
+    "evidence metadata"
+  ],
+  "expected_outputs": [
+    "deduplicated records",
+    "conflict report",
+    "merged evidence references"
+  ],
+  "dependencies": [
+    "skill.extraction_result_validation.v1"
+  ],
+  "environment_assumptions": [
+    "Report output path is writable."
+  ],
+  "procedure": [
+    "Validate deduplication policy.",
+    "Group likely duplicate records.",
+    "Resolve field conflicts using evidence.",
+    "Preserve alternative evidence.",
+    "Write conflict report."
+  ],
+  "required_tools": [
+    "json_schema_validate",
+    "write_report"
+  ],
+  "scripts": [],
+  "resources": [
+    "deduplication-and-conflict-policy"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Merge duplicate records with identical evidence."
+    ],
+    "synthetic": [
+      "Conflicting fields produce a conflict report."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "deduplicated_records_preserve_evidence"
+  ],
+  "confidence": 0.83,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

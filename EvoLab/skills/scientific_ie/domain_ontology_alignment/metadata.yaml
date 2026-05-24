@@ -1,0 +1,78 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.domain_ontology_alignment.v1",
+  "name": "Domain Ontology Alignment",
+  "version": "v1",
+  "summary": "Align extracted mentions or record fields to task-provided ontology concepts, entity types, or controlled vocabulary.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "ontology",
+    "entity",
+    "concept"
+  ],
+  "task_types": [
+    "alignment",
+    "grounding"
+  ],
+  "target_category": "task.domain_ontology_alignment",
+  "scope": "Reusable alignment to task-provided domain ontologies.",
+  "applicability": [
+    "A domain package provides ontology concepts or controlled vocabulary."
+  ],
+  "limitations": [
+    "Does not hardcode domain-specific ontology content."
+  ],
+  "required_inputs": [
+    "candidate records or mentions",
+    "domain ontology",
+    "task schema"
+  ],
+  "expected_outputs": [
+    "ontology alignments",
+    "unmatched mentions",
+    "alignment confidence"
+  ],
+  "dependencies": [
+    "skill.structured_record_construction.v1"
+  ],
+  "environment_assumptions": [
+    "Task-provided ontology is available as a resource."
+  ],
+  "procedure": [
+    "Read ontology concepts.",
+    "Compare record fields or mentions to ontology labels.",
+    "Assign entity types or concepts.",
+    "Report unmatched or ambiguous mentions."
+  ],
+  "required_tools": [
+    "read_text",
+    "json_schema_validate"
+  ],
+  "scripts": [],
+  "resources": [
+    "task-provided-domain-ontology"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Align a record field to a provided controlled vocabulary term."
+    ],
+    "synthetic": [
+      "Unknown mention is reported as unmatched."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "aligned_entities_reference_task_ontology"
+  ],
+  "confidence": 0.84,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

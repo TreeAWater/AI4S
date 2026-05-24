@@ -1,0 +1,82 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.structured_record_construction.v1",
+  "name": "Structured Record Construction",
+  "version": "v1",
+  "summary": "Construct candidate structured records from schema interpretation, field mapping, source values, and provenance.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "record",
+    "schema",
+    "provenance"
+  ],
+  "task_types": [
+    "construction",
+    "extraction"
+  ],
+  "target_category": "task.structured_record_construction",
+  "scope": "Reusable construction of candidate scientific IE records.",
+  "applicability": [
+    "Field mappings and source values are available."
+  ],
+  "limitations": [
+    "Constructed records remain candidates until validation passes."
+  ],
+  "required_inputs": [
+    "interpreted schema",
+    "field mappings",
+    "source values",
+    "evidence metadata"
+  ],
+  "expected_outputs": [
+    "candidate records",
+    "record provenance",
+    "missing field report"
+  ],
+  "dependencies": [
+    "skill.extraction_schema_interpretation.v1",
+    "skill.schema_guided_field_mapping.v1"
+  ],
+  "environment_assumptions": [
+    "Output JSONL path is writable."
+  ],
+  "procedure": [
+    "Validate schema.",
+    "Read mapped source values.",
+    "Construct records with provenance.",
+    "Mark missing or nullable fields.",
+    "Write candidate JSONL when requested."
+  ],
+  "required_tools": [
+    "json_schema_validate",
+    "read_table_slice",
+    "write_jsonl"
+  ],
+  "scripts": [],
+  "resources": [
+    "candidate-record-schema"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Construct one record with evidence metadata from a mapped table row."
+    ],
+    "synthetic": [
+      "Missing required fields are reported and not silently filled."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "candidate_records_schema_valid"
+  ],
+  "confidence": 0.87,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

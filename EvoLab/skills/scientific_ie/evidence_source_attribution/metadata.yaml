@@ -1,0 +1,81 @@
+{
+  "schema_version": "v1",
+  "skill_id": "skill.evidence_source_attribution.v1",
+  "name": "Evidence Source Attribution",
+  "version": "v1",
+  "summary": "Attach traceable evidence source metadata to claims, fields, or records.",
+  "source_type": "human",
+  "source_uri": "seed://scientific_ie/v1",
+  "provenance": {
+    "author": "evolab-seed"
+  },
+  "domain_tags": [
+    "evidence",
+    "source",
+    "provenance"
+  ],
+  "task_types": [
+    "attribution",
+    "extraction"
+  ],
+  "target_category": "task.evidence_source_attribution",
+  "scope": "Reusable provenance attribution for extracted scientific claims and records.",
+  "applicability": [
+    "A field, claim, or record needs traceable source metadata."
+  ],
+  "limitations": [
+    "Cannot attribute evidence if source spans or table coordinates are unavailable."
+  ],
+  "required_inputs": [
+    "claim or field",
+    "source span or table coordinates",
+    "artifact metadata"
+  ],
+  "expected_outputs": [
+    "evidence source reference",
+    "source type",
+    "location metadata",
+    "confidence note"
+  ],
+  "dependencies": [
+    "skill.scientific_paper_structure_parsing.v1"
+  ],
+  "environment_assumptions": [
+    "Source artifacts have stable identifiers."
+  ],
+  "procedure": [
+    "Identify source artifact.",
+    "Attach section, span, table, row, or column coordinates.",
+    "Record source type and evidence role.",
+    "Return provenance metadata."
+  ],
+  "required_tools": [
+    "read_text",
+    "search_text",
+    "read_table_slice",
+    "inspect_table"
+  ],
+  "scripts": [],
+  "resources": [
+    "evidence-source-schema"
+  ],
+  "examples": [],
+  "tests": {
+    "smoke": [
+      "Attach a section-span source to one extracted field."
+    ],
+    "synthetic": [
+      "Table-derived field includes table and row coordinates."
+    ],
+    "system": [],
+    "benchmark": []
+  },
+  "validation_signals": [
+    "evidence_source_resolves_to_artifact"
+  ],
+  "confidence": 0.86,
+  "metadata": {
+    "stable_skill": true,
+    "domain_specific": false
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "v1",
+  "title": "Biological Component Extraction Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "article_id",
+    "component_name",
+    "component_type",
+    "evidence_text",
+    "evidence_source",
+    "confidence"
+  ],
+  "properties": {
+    "article_id": {
+      "type": "string",
+      "description": "Stable article, paper, or document identifier."
+    },
+    "component_name": {
+      "type": "string",
+      "description": "Name, label, or mention of the biological component."
+    },
+    "component_type": {
+      "type": "string",
+      "description": "Task ontology component type such as promoter, RBS, terminator, gRNA, plasmid element, primer, barcode, adapter, or other biological part."
+    },
+    "sequence": {
+      "type": ["string", "null"],
+      "description": "Sequence associated with the component when directly evidenced."
+    },
+    "sequence_type": {
+      "type": ["string", "null"],
+      "description": "DNA, RNA, protein, amino acid, degenerate nucleotide sequence, or unspecified."
+    },
+    "host_or_organism": {
+      "type": ["string", "null"],
+      "description": "Host, organism, strain, chassis, or source organism linked to the component."
+    },
+    "function_or_role": {
+      "type": ["string", "null"],
+      "description": "Reported biological function, regulatory role, or experimental role."
+    },
+    "experimental_context": {
+      "type": ["string", "null"],
+      "description": "Assay, construct, condition, or experimental setting for the component."
+    },
+    "evidence_text": {
+      "type": "string",
+      "description": "Exact or normalized evidence text supporting the record."
+    },
+    "evidence_source": {
+      "type": "object",
+      "description": "Traceable provenance such as section, table, row, column, supplementary file, or text span.",
+      "additionalProperties": true
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "status": {
+      "type": ["string", "null"],
+      "enum": ["accepted", "rejected", "needs_review", "skipped", null],
+      "description": "Record-level review status used by the task report and final JSONL outputs."
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Reviewer notes, unresolved ambiguity, or validation warnings."
+    }
+  }
+}
