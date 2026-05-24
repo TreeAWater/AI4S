@@ -22,3 +22,7 @@
 	path = reference-repos/repos/medgeclaw
 	url = https://github.com/xjtulyc/MedgeClaw.git
 	ignore = dirty
+[submodule "benchmark_repo/labbench2"]
+	path = benchmark_repo/labbench2
+	url = https://github.com/EdisonScientific/labbench2.git
+	ignore = dirty
