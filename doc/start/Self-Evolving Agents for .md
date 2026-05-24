@@ -418,3 +418,235 @@
           - https://arxiv.org/abs/2507.18901
           - repo: github.com/uiuc-kang-lab/REPRO-Bench
   - Evolution-Specific Metrics
+
+
+
+- Evaluation
+  - Benchmarks
+    - General Agent Benchmarks
+      - Agent Behavior
+        - GAIA, Meta + HuggingFace, ICLR 2024
+          - paper: https://arxiv.org/abs/2311.12983
+          - leaderboard: https://huggingface.co/spaces/gaia-benchmark/leaderboard
+          - 466 通用助手任务；2026-03 SOTA 为 OPS-Agentic-Search (阿里云) 92.36%
+        - HAL (Holistic Agent Leaderboard), Princeton, ICLR 2026
+          - paper: https://arxiv.org/abs/2510.11977
+          - site: https://hal.cs.princeton.edu/
+          - 标准化 harness，跑 9 个 agent benchmark，含成本核算
+        - HLE (Humanity's Last Exam), CAIS + Scale AI, 2025
+          - paper: https://arxiv.org/abs/2501.14249
+          - site: https://lastexam.ai
+          - 2,500 公开 + ~500 holdout 题，跨 100+ 学科，常用于 research-agent 推理上限测试
+        - AgentRewardBench, McGill-NLP, 2025
+          - paper: https://arxiv.org/abs/2504.08942
+          - 评估 web-agent trajectory 自动评估器的质量
+        - AstaBench (general-agent slice), Allen AI, 2025
+          - paper: https://arxiv.org/abs/2510.21652
+          - repo: https://github.com/allenai/asta-bench
+          - 成本可控的 holistic eval，含 general-agent 子榜
+
+      - Agent Behavior > Long-horizon
+        - OSWorld / OSWorld-Verified, XLang Lab (HKU), 2024 → 2025-07 verified
+          - paper: https://arxiv.org/abs/2404.07972
+          - site: https://os-world.github.io/
+          - 369 真实 Ubuntu/Windows/macOS 任务；Claude Mythos Preview 79.6%（已超人类 72.36%）
+        - Windows Agent Arena, Microsoft, 2024
+          - paper: https://arxiv.org/abs/2409.08264
+          - site: https://microsoft.github.io/WindowsAgentArena/
+          - ~150 Windows OS 任务，Azure 并行
+        - WebArena, CMU, ICLR 2024
+          - paper: https://arxiv.org/abs/2307.13854
+          - site: https://webarena.dev/
+        - VisualWebArena, CMU, ACL 2024
+          - paper: https://arxiv.org/abs/2401.13649
+          - repo: https://github.com/web-arena-x/visualwebarena
+        - WorkArena / WorkArena++, ServiceNow, 2024
+          - paper: https://arxiv.org/abs/2403.07718
+          - 33 atomic + 682 compositional L2 任务（ServiceNow 企业平台）
+        - AssistantBench, Tel Aviv U / AI2, 2024
+          - paper: https://arxiv.org/abs/2407.15711
+          - 214 个真实耗时开放网页任务
+        - BrowserGym, ServiceNow, 2024
+          - paper: https://arxiv.org/abs/2412.05467
+          - repo: https://github.com/ServiceNow/BrowserGym
+          - WebArena/WorkArena/VWA/AssistantBench 的 Gym 统一接口
+        - BrowseComp, OpenAI, 2025-04
+          - paper: https://arxiv.org/abs/2504.12516
+          - site: https://openai.com/index/browsecomp/
+          - 1,266 难找题；Deep Research 51.5% vs GPT-4o+browse 1.9%
+        - BrowseComp-Plus, 2025
+          - paper: https://arxiv.org/abs/2508.06600
+          - 100K 文档静态语料 + 830 题，便于复现 deep-research agent eval
+
+      - Agent Capability > Tool Use
+        - MCPMark, ICLR 2026
+          - paper: https://arxiv.org/abs/2509.24002
+          - openreview: https://openreview.net/forum?id=uobROwBsJm
+          - 127 个压测任务：Notion / GitHub / Filesystem / PostgreSQL / Playwright
+        - MCPEval, Salesforce, 2025
+          - paper: https://arxiv.org/abs/2507.12806
+          - 676 任务跨 5 个 MCP server，自动化深度评估
+        - MCP-RADAR, 2025
+          - paper: https://arxiv.org/abs/2505.16700
+          - 多维 MCP 工具雷达：selection / parameter / execution / observation
+        - MCP-SafetyBench / MSB, ICLR 2026
+          - paper: https://arxiv.org/abs/2512.15163
+          - openreview: https://openreview.net/forum?id=irxxkFMrry
+          - 20 种攻击类型，覆盖 MCP server/host/user 三层
+        - τ-bench, Sierra Research, 2024
+          - paper: https://arxiv.org/abs/2406.12045
+          - repo: https://github.com/sierra-research/tau-bench
+        - τ²-bench, Sierra Research, 2025
+          - paper: https://arxiv.org/abs/2506.07982
+          - Dual-control（agent 与 user 都有工具），覆盖 telecom/airline/retail
+        - τ³-bench / τ-Knowledge / τ-Voice, Sierra Research, 2026
+          - paper: https://arxiv.org/abs/2603.04370, https://arxiv.org/abs/2603.13686
+          - repo: https://github.com/sierra-research/tau2-bench
+          - 全双工语音 + 非结构化知识对话 agent
+        - BFCL v4 (Berkeley Function Calling Leaderboard), UC Berkeley Sky Lab, 2025-07
+          - site: https://gorilla.cs.berkeley.edu/leaderboard.html
+          - repo: https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard
+          - V4 覆盖 agentic web search、memory management、格式敏感度
+        - AppWorld, Stony Brook NLP + AI2, ACL 2024 Best Resource Paper
+          - paper: https://arxiv.org/abs/2407.18901
+          - site: https://appworld.dev/
+          - 9 个日常 app，457 个 API，750 个 state-checked 任务
+
+      - Agent Capability > Planning & Reasoning
+        - AAAR-1.0, Penn State + Salesforce, 2024
+          - paper: https://arxiv.org/abs/2410.22394
+          - 方程推断、实验设计、论文弱点识别、review 批评
+
+      - Agent Capability > Memory
+        - BEAM (Beyond a Million Tokens), Tavakoli et al., ICLR 2026
+          - paper: https://arxiv.org/abs/2510.27246
+          - repo: https://github.com/mohammadtavakoli78/BEAM
+          - 100 对话 × 最长 10M token，2,000 个 probe，10 项 memory 能力（BEAM-1M / BEAM-10M）
+        - MemoryArena, ICML 2026
+          - MemoryAgentBench 的同源工作，评估 agentic memory 在 agentic 任务中的表现
+
+    - Scientific Agent Benchmarks
+      - Domain-Specific Scientific Tasks
+        - LAB-Bench, FutureHouse, 2024
+          - paper: https://arxiv.org/abs/2407.10362
+          - repo: https://github.com/Future-House/LAB-Bench
+          - >2,400 题，实际生物研究能力
+        - LABBench2, FutureHouse, 2026
+          - paper: https://arxiv.org/abs/2604.09554
+          - 1,900+ 任务，LAB-Bench 的继任者
+        - ChemBench, Jablonka Lab (Mirza et al.), 2024
+          - paper: https://arxiv.org/abs/2404.01475
+          - site: https://chembench.lamalab.org/
+          - 2,700+ 化学 Q&A，"Are LLMs superhuman chemists?"
+        - SciCode, UIUC + CMU (Tian et al.), NeurIPS 2024
+          - paper: https://arxiv.org/abs/2407.13168
+          - site: https://scicode-bench.github.io/
+          - 80 主 / 338 子科研编程题，16 个自然科学子领域；Claude 3.5 Sonnet 主问题仅 4.6%
+        - BioProBench, Liu et al., 2025
+          - paper: https://arxiv.org/abs/2505.07889
+          - 27K 生物 protocol，~556K 实例，5 个任务
+        - BioPlanner, FutureHouse, 2023
+          - paper: https://arxiv.org/abs/2310.10632
+          - 生物 protocol 规划自动评估
+        - BioLP-Bench, Ivanov, 2024
+          - LLM 对生物实验室 protocol 的理解
+        - SpatialBench, LatchBio, 2025-11
+          - paper: https://arxiv.org/abs/2511.21471
+          - 层级化空间认知 / 空间转录组任务
+        - NeuroDiscoveryBench, Allen Institute + AI2, 2025
+          - blog: https://allenai.org/blog/neurodiscoverybench
+          - 首个神经科学数据分析 QA benchmark
+        - AAAR-1.0 (cross-listed), Penn State, 2024
+          - paper: https://arxiv.org/abs/2410.22394
+        - BioKGBench, Lin et al., 2024
+          - 生物医学知识图谱推理
+        - RxnBench / ChemAgentBench, 2025
+          - 多模态反应理解（科学文献）
+
+      - End-to-End Research Workflow
+        - MLE-bench, OpenAI (Chan et al.), ICLR 2025
+          - paper: https://arxiv.org/abs/2410.07095
+          - repo: https://github.com/openai/mle-bench
+          - 75 个 Kaggle ML 工程比赛；o1-preview+AIDE 在 16.9% 拿到 Kaggle 铜牌
+        - RE-Bench, METR, 2024
+          - paper: https://arxiv.org/abs/2411.15114
+          - report: https://metr.org/AI_R_D_Evaluation_Report.pdf
+          - 7 个 ML R&D 环境（scaling laws、GPU kernel 等），61 位人类专家提供 71 条基线
+        - PaperBench, OpenAI (Starace et al.), ICLR 2025
+          - paper: https://arxiv.org/abs/2504.01848
+          - repo: https://github.com/openai/preparedness/tree/main/project/paperbench
+          - 20 篇 ICML 2024 Spotlight/Oral 从零复现，8,316 个原子打分点
+        - MLGym / MLGym-Bench, Meta AI (Nathani et al.), 2025
+          - paper: https://arxiv.org/abs/2502.14499
+          - 13 个开放式 AI 研究任务，覆盖 CV/NLP/RL/博弈论；首个 ML research 的 Gym 环境
+        - MLAgentBench, Stanford (Huang et al.), 2023–2024
+          - paper: https://arxiv.org/abs/2310.03302
+          - 经典 ML 任务 + Kaggle 挑战
+        - DSBench, Tencent + UTD (Jing et al.), ICLR 2025
+          - paper: https://arxiv.org/abs/2409.07703
+          - repo: https://github.com/LiqiangJing/DSBench
+          - 466 个数据分析 + 74 个数据建模任务（ModelOff、Kaggle），最佳 agent 仅 34.12%
+        - DataSciBench, Zhang et al., 2025
+          - 数据分析 + 可视化，新评估流水线
+        - AstaBench (umbrella), Allen AI, 2025-10
+          - paper: https://arxiv.org/abs/2510.21652
+          - repo: https://github.com/allenai/asta-bench
+          - site: https://allenai.org/asta/bench
+          - 2,400+ 任务，11 子 bench：PaperFindingBench / DiscoveryBench / E2E-Bench-Hard 等
+        - CORE-Bench, Princeton (Siegel et al.), 2024
+          - paper: https://arxiv.org/abs/2409.11363
+          - 270 个 reproducibility 任务，跨 90 篇 CS/社科/医学论文
+        - Curie, U Michigan, 2025
+          - paper: https://arxiv.org/abs/2502.16069
+          - repo: https://github.com/Just-Curieous/Curie
+          - AI agent 框架 + 46 个跨 CS 的实验研究题
+        - ResearchTown, 2024
+          - paper: https://arxiv.org/abs/2412.17767
+          - 多 agent 模拟人类研究社区，含 node-masking 评估
+        - ResearchBench, Liu et al., 2025
+          - paper: https://arxiv.org/abs/2503.21248
+          - inspiration-based 科学发现，覆盖 12 个学科
+        - IdeaBench, KDD 2025
+          - paper: https://dl.acm.org/doi/10.1145/3711896.3737419
+          - 2,374 篇论文，跨 8 个领域，研究 idea 生成评估
+        - EXP-Bench, 2025
+          - "Can AI conduct AI research experiments?"，与 DeepResearchBench 配套
+        - MLRC-Bench, 2025
+          - Can language agents solve ML research challenges
+        - Idea2Plan Bench, Microsoft, 2025
+          - 200 篇 ICML 2025 Spotlight/Oral，idea-to-plan 评估
+        - Agent Laboratory, 2025
+          - paper: https://arxiv.org/abs/2501.04227
+          - LLM agent 作为研究助理的框架与评估
+        - ScienceBoard, OS-Copilot, ICLR 2026 (推测为原 MoSciBench 所指)
+          - paper: https://arxiv.org/abs/2505.19897
+          - repo: https://github.com/OS-Copilot/ScienceBoard
+          - 多模态自主 agent 的科研工作流
+        - RExBench, 2025
+          - paper: https://arxiv.org/abs/2506.22598
+          - 编程 agent 能否自主实现 AI 研究的拓展
+
+      - Scientific Discovery and Validation
+        - DiscoveryBench, Allen AI + OpenLocus + UMass (Majumder et al.), NeurIPS 2024 D&B
+          - paper: https://arxiv.org/abs/2407.01725
+          - repo: https://github.com/allenai/discoverybench
+          - 264 真实 + 903 合成数据驱动发现任务；最佳系统仅 25%
+        - DiscoveryWorld, Allen AI (Jansen et al.), NeurIPS 2024 D&B
+          - paper: https://arxiv.org/abs/2406.06769
+          - site: https://allenai.github.io/discoveryworld/
+          - 120 个虚拟环境发现任务，8 主题 × 3 难度
+        - FrontierScience, OpenAI, 2026-01
+          - paper: https://arxiv.org/abs/2601.21165
+          - 物理/化学/生物的 Olympiad + PhD 研究轨道，rubric 打分
+        - PaperRepro, 2025
+          - reproducibility agent，在 REPRO-Bench 上相对提升 21.9%
+        - Gravity-Bench-v1, Koblischke et al., 2025
+          - paper: https://arxiv.org/abs/2501.18411
+          - agent 的引力物理发现
+        - Collider-Bench, 2026
+          - paper: https://arxiv.org/abs/2605.13950
+          - 粒子物理分析复现
+        - TPBench, Chung et al., 2025
+          - 理论物理推导，自动校验答案
+        - CURIE benchmark, Cui et al., 2025
+          - 长上下文科学文档理解（与上面的 Curie agent 是不同工作）
