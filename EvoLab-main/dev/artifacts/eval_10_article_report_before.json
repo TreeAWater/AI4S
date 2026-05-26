@@ -1,0 +1,186 @@
+{
+  "evaluation_output_dir": "/tmp/evolab-10-biology-dynamic-openrouter-stage-before-20260521T184728Z/evaluation_partial_fixed10_denominator",
+  "external_blocker": "OpenRouter 403 key daily limit exceeded",
+  "log_path": "/tmp/evolab-10-biology-dynamic-openrouter-stage-before-20260521T184728Z.log",
+  "note": "The 10-article clean-run did not complete because OpenRouter returned 403 daily key limit. Metrics are post-hoc partial evaluation of records produced before interruption, evaluated against the fixed 10-article denominator.",
+  "per_article_metrics": [
+    {
+      "article_id": "automated_model_predictive_design_synthetic_promoters_control_transcriptional",
+      "f1": "0.999814",
+      "false_negative": "2",
+      "false_positive": "0",
+      "gt_sequence_count": "5391",
+      "precision": "1.0",
+      "predicted_sequence_count": "5389",
+      "recall": "0.999629",
+      "true_positive": "5389"
+    },
+    {
+      "article_id": "A parts list of promoters and gRNA scaffolds for mammalian genome engineering and molecular recording",
+      "f1": "0.0",
+      "false_negative": "150",
+      "false_positive": "0",
+      "gt_sequence_count": "150",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "f1": "0.243902",
+      "false_negative": "31",
+      "false_positive": "0",
+      "gt_sequence_count": "36",
+      "precision": "1.0",
+      "predicted_sequence_count": "5",
+      "recall": "0.138889",
+      "true_positive": "5"
+    },
+    {
+      "article_id": "automated_design_thousands_nonrepetitive_parts_engineering_stable_genetic",
+      "f1": "0.999885",
+      "false_negative": "0",
+      "false_positive": "1",
+      "gt_sequence_count": "4350",
+      "precision": "0.99977",
+      "predicted_sequence_count": "4351",
+      "recall": "1.0",
+      "true_positive": "4350"
+    },
+    {
+      "article_id": "Characterization of Context-Dependent Effects on Synthetic Promoters",
+      "f1": "0.0",
+      "false_negative": "56",
+      "false_positive": "0",
+      "gt_sequence_count": "56",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    },
+    {
+      "article_id": "Characterization of divergent promoters PmaiA and Phyd from Gordonia: Co-expression and regulation by CRP",
+      "f1": "0.0",
+      "false_negative": "2",
+      "false_positive": "0",
+      "gt_sequence_count": "2",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    },
+    {
+      "article_id": "Characterization of the endogenous promoters in Yarrowia lipolytica for the biomanufacturing applications",
+      "f1": "0.0",
+      "false_negative": "74",
+      "false_positive": "0",
+      "gt_sequence_count": "74",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    },
+    {
+      "article_id": "Characterization of Zymomonas mobilis promoters that are functional in Escherichia coli",
+      "f1": "0.0",
+      "false_negative": "3",
+      "false_positive": "0",
+      "gt_sequence_count": "3",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    },
+    {
+      "article_id": "Composability of regulatory sequences controlling transcription and translation in Escherichia coli",
+      "f1": "0.0",
+      "false_negative": "95",
+      "false_positive": "0",
+      "gt_sequence_count": "95",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    },
+    {
+      "article_id": "Construction and characterization of a mutant library for the P23 constitutive promoter in lactic acid bacteria",
+      "f1": "0.0",
+      "false_negative": "246",
+      "false_positive": "0",
+      "gt_sequence_count": "246",
+      "precision": "0.0",
+      "predicted_sequence_count": "0",
+      "recall": "0.0",
+      "true_positive": "0"
+    }
+  ],
+  "prediction_artifact": "/tmp/evolab-10-biology-dynamic-openrouter-stage-before-20260521T184728Z/partial_evaluation_inputs/partial_validated_records.jsonl",
+  "processed_before_quota": [
+    {
+      "accepted_records": 5,
+      "article_id": "ai_knowledge_sigma70_design"
+    },
+    {
+      "accepted_records": 4351,
+      "article_id": "automated_design_thousands_nonrepetitive_parts_engineering_stable_genetic"
+    },
+    {
+      "accepted_records": 5389,
+      "article_id": "automated_model_predictive_design_synthetic_promoters_control_transcriptional"
+    },
+    {
+      "accepted_records": 0,
+      "article_id": "characterization_context_dependent_effects_synthetic_promoters"
+    },
+    {
+      "accepted_records": 0,
+      "article_id": "characterization_divergent_promoters_pmaia_phyd_from_gordonia_co"
+    },
+    {
+      "accepted_records": 0,
+      "article_id": "characterization_endogenous_promoters_yarrowia_lipolytica_biomanufacturing_applications"
+    }
+  ],
+  "run_root": "/tmp/evolab-10-biology-dynamic-openrouter-stage-before-20260521T184728Z",
+  "status": "partial_external_api_quota_blocked",
+  "subset_file": "artifacts/eval_10_article_subset.txt",
+  "summary": {
+    "article_filter": [
+      "a parts list of promoters and grna scaffolds for mammalian genome engineering and molecular recording",
+      "ai and knowledge-based method for rational design of escherichia coli sigma70 promoters",
+      "ai_knowledge_sigma70_design",
+      "automated design of thousands of nonrepetitive parts for engineering stable genetic systems",
+      "automated model-predictive design of synthetic promoters to control transcriptional profiles in bacteria",
+      "automated_design_thousands_nonrepetitive_parts_engineering_stable_genetic",
+      "automated_model_predictive_design_synthetic_promoters_control_transcriptional",
+      "characterization of context-dependent effects on synthetic promoters",
+      "characterization of divergent promoters pmaia and phyd from gordonia: co-expression and regulation by crp",
+      "characterization of the endogenous promoters in yarrowia lipolytica for the biomanufacturing applications",
+      "characterization of zymomonas mobilis promoters that are functional in escherichia coli",
+      "characterization_context_dependent_effects_synthetic_promoters",
+      "characterization_divergent_promoters_pmaia_phyd_from_gordonia_co",
+      "characterization_endogenous_promoters_yarrowia_lipolytica_biomanufacturing_applications",
+      "characterization_zymomonas_mobilis_promoters_that_are_functional_escherichia",
+      "composability of regulatory sequences controlling transcription and translation in escherichia coli",
+      "composability_regulatory_sequences_controlling_transcription_translation_escherichia_coli",
+      "construction and characterization of a mutant library for the p23 constitutive promoter in lactic acid bacteria",
+      "construction_characterization_mutant_library_p23_constitutive_promoter_lactic",
+      "parts_list_promoters_grna_scaffolds_mammalian_genome_engineering"
+    ],
+    "f1": 0.967242,
+    "false_negative": 659,
+    "false_positive": 1,
+    "gt_sequence_count": 10403,
+    "precision": 0.999897,
+    "predicted_sequence_count": 9745,
+    "prediction_artifact": "/tmp/evolab-10-biology-dynamic-openrouter-stage-before-20260521T184728Z/partial_evaluation_inputs/partial_validated_records.jsonl",
+    "recall": 0.936653,
+    "true_positive": 9744,
+    "validation_status": {
+      "errors": [],
+      "valid": true
+    },
+    "warnings": []
+  }
+}

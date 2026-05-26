@@ -1,0 +1,80 @@
+{
+  "lab_root": "lab/demo_v1_ci",
+  "task": {
+    "task_id": "demo-v1",
+    "origin": "human",
+    "purpose": "science",
+    "goal": "Run the V1 memory backend path and summarize the result.",
+    "task_config_ref": "configs/demo_v1_ci.yaml"
+  },
+  "task_config": {
+    "task_id": "demo-v1",
+    "goal": "Run the V1 memory backend path and summarize the result.",
+    "agents_ref": "agents/demo_v1_ci_agents.md",
+    "task_memory_backend": {
+      "backend_id": "mem0-task-memory"
+    },
+    "dynamic_subagents": {
+      "enabled": true,
+      "mode": "dynamic",
+      "scope": "per_task",
+      "planner_backend": {
+        "backend_id": "fake-llm"
+      },
+      "default_worker_backend": {
+        "backend_id": "fake-llm"
+      },
+      "allowed_tool_names": []
+    },
+    "runtime_policy": {
+      "max_tool_steps": 0,
+      "allow_human_tools": false
+    }
+  },
+  "backends": {
+    "llm": {
+      "fake-llm": {
+        "type": "fake",
+        "responses": [
+          {
+            "action": {
+              "action": "final_answer",
+              "content": "{\"workflow_id\":\"wf-demo-v1-ci\",\"task_summary\":\"Run the V1 memory backend path and summarize the result.\",\"article_context_summary\":\"none\",\"dynamic_subagents\":[{\"subagent_id\":\"worker\",\"role_name\":\"GeneralistAgent\",\"goal\":\"Verify EvoLab V1 dynamic task-memory behavior.\",\"system_prompt\":\"Verify the V1 memory backend path and summarize scoped task-memory updates.\",\"input_schema\":{\"type\":\"object\"},\"output_schema\":{\"type\":\"object\"},\"allowed_tools\":[]}],\"workflow_nodes\":[{\"node_id\":\"node-worker\",\"subagent_id\":\"worker\"}],\"workflow_edges\":[],\"artifact_contracts\":{},\"validation_rules\":[],\"planner_rationale_summary\":\"One dynamic worker is sufficient for CI.\"}"
+            }
+          },
+          {
+            "action": {
+              "action": "final_answer",
+              "content": "V1 memory backend path completed with scoped task-memory updates."
+            }
+          }
+        ]
+      },
+      "fake-memory-llm": {
+        "type": "fake",
+        "default_content": "{\"memory\":[]}"
+      }
+    },
+    "embedding": {
+      "fake-memory-embedding": {
+        "type": "fake",
+        "dimensions": 8
+      }
+    },
+    "memory": {
+      "mem0-task-memory": {
+        "type": "method",
+        "method": "mem0",
+        "store_path": "registries/memory/mem0-task.sqlite",
+        "llm_backend": "fake-memory-llm",
+        "embedding_backend": "fake-memory-embedding"
+      }
+    },
+    "skill": {
+      "fake-skill": {
+        "type": "fake",
+        "skills": []
+      }
+    }
+  }
+}

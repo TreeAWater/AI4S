@@ -525,7 +525,7 @@
         - MemoryArena, ICML 2026
           - MemoryAgentBench 的同源工作，评估 agentic memory 在 agentic 任务中的表现
 
-    - Scientific Agent Benchmarks
+    /Scientific Agent Benchmarks
       - Domain-Specific Scientific Tasks
         - LAB-Bench, FutureHouse, 2024
           - paper: https://arxiv.org/abs/2407.10362

@@ -1,0 +1,42 @@
+lab_root: lab/demo_api_init
+task_id: demo-api-init
+task: Return a concise confirmation that the API-backed LLM runtime is working.
+agents_ref: agents/demo_api_init_agents.md
+meta_agent:
+  name: api-init-meta
+  system_prompt: |
+    Inspect the active role pool in agents.md before DynamicWorkflowPlanner runs.
+    Return END with metadata.role_pool_update when reusable roles should change, or
+    metadata.no_role_pool_update_reason when the current role pool is already adequate.
+  llm_backend:
+    backend_id: aigocode-gpt
+  memory_backend:
+    backend_id: fake-meta-memory
+dynamic_subagents:
+  enabled: true
+  mode: dynamic
+  scope: per_task
+  planner_backend:
+    backend_id: aigocode-gpt
+  default_worker_backend:
+    backend_id: aigocode-gpt
+  allowed_worker_backend_ids:
+    - aigocode-gpt
+  allowed_tool_names: []
+max_tool_steps: 0
+allow_human_tools: false
+backends:
+  llm:
+    aigocode-gpt:
+      type: api
+      env_ref: aigocode-gpt
+      model: gpt-4.1-mini
+  memory:
+    fake-task-memory:
+      type: fake
+    fake-meta-memory:
+      type: fake
+  skill:
+    fake-skill:
+      type: fake
+      skills: []

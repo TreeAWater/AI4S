@@ -1,0 +1,306 @@
+task_id: biology-component-extraction-v1-two-paper-mem0-deepseek
+lab_root: /root/bio/evolab_component_ie_v1_two_paper_mem0_deepseek
+agents_ref: agents/scientific_ie_agents_openrouter-deepseek-v4-flash.md
+dotenv_path: .env
+max_dispatch_steps: 30
+max_tool_steps: 30
+max_tool_steps_per_node: 30
+max_workflow_nodes: 30
+max_meta_dispatch_parse_retries: 4
+tool_result_prompt_max_chars: 6000
+max_repeated_tool_calls_per_run: 2
+
+subagent_budgets_by_role:
+  SurveyAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  ExecAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  CriticAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  WriteAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+
+completion_guards_by_role:
+  SurveyAgent:
+    required_tool_calls_before_final:
+      - write_report
+  DesignAgent:
+    required_tool_calls_before_final:
+      - write_report
+  ExecAgent:
+    required_tool_calls_before_final:
+      - write_jsonl
+      - write_report
+    minimum_jsonl_records_before_final: 1
+  CriticAgent:
+    required_tool_calls_before_final:
+      - write_report
+  WriteAgent:
+    required_tool_calls_before_final:
+      - write_jsonl
+      - write_report
+    minimum_jsonl_records_before_final: 1
+    max_non_required_tool_calls_before_required_outputs: 8
+
+task: |
+  Process exactly two biological article packages under:
+  /root/bio/dataset/Constitutive_promoters_md_30_new
+
+  In-scope work items:
+  1. work_item_id: synthetic_promoter_multinomial_diffusion
+     article_package: /root/bio/dataset/Constitutive_promoters_md_30_new/Synthetic promoter design in Escherichia coli based on multinomial diffusion model
+     exact_source_files:
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/Synthetic promoter design in Escherichia coli based on multinomial diffusion model/manifest.json
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/Synthetic promoter design in Escherichia coli based on multinomial diffusion model/main_text.md
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/Synthetic promoter design in Escherichia coli based on multinomial diffusion model/supplementary/mmc1.md
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/Synthetic promoter design in Escherichia coli based on multinomial diffusion model/supplementary/mmc2.csv
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/Synthetic promoter design in Escherichia coli based on multinomial diffusion model/supplementary/mmc3.csv
+  2. work_item_id: ai_knowledge_sigma70_design
+     article_package: /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters
+     exact_source_files:
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/manifest.json
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/main_text.md
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/supplementary/sub_AI_and_Knowledge-based_Method_for_Rational_Design_of_Escherichia_coli_Sigma70_Promoters.md
+       - /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters/supplementary/sub2_A novel deep learning identifier for promoters and their strength using heterogeneous features.xlsx
+
+  Treat one top-level article package as one work item. Do not process any
+  other package under the dataset root. Do not assign an extraction subagent
+  more than one work item at a time.
+
+  Each article package may contain manifest.json, main_text.md, supplementary
+  files, markdown tables, text files, CSV files, and spreadsheet files. Do not
+  treat pre-existing biology_component_records.jsonl, biology_component_report.json,
+  or biology_component_report.md files found inside the dataset as evidence
+  records or as current-run final outputs. They may be noted only as prior-run
+  context. Final artifacts must be produced as lab artifacts by the current run.
+
+  Extract experimentally supported biological component/promoter sequence
+  records. Focus on promoter or promoter-like regulatory DNA sequences that are
+  directly supported by article text or supplementary evidence. A valid final
+  record should include article_id, component_name, component_type, sequence
+  when available, sequence_type, host_or_organism when supported, function or
+  role when supported, experimental context when supported, evidence_text,
+  evidence_source, confidence, status, and notes when useful.
+
+  Use these schemas and policies as task resources when they are available:
+  - domain_packages/biology_component_extraction_v1/biology_component_schema.json
+  - domain_packages/biology_component_extraction_v1/biological_component_ontology.yaml
+  - domain_packages/biology_component_extraction_v1/biological_sequence_policy.yaml
+  - domain_packages/biology_component_extraction_v1/biological_evidence_policy.yaml
+  - domain_packages/biology_component_extraction_v1/biological_negative_patterns.yaml
+
+  The intended route pattern is generic and work-item based:
+  survey the two package paths, design a two-item work plan, execute one work
+  item, critique that same work item, execute the second work item, critique
+  that same work item, then write final lab artifacts and route to END.
+
+  Normalize DNA sequences to uppercase A/C/G/T/N when writing accepted records.
+  Reject or mark for review sequence-like identifiers, primers, barcodes,
+  adapters, linkers, restriction sites, cloning scars, qPCR primers, sequencing
+  primers, vector-backbone-only entries, predicted-only mentions, and
+  metadata-only records unless the source explicitly supports a promoter or
+  promoter-like regulatory DNA sequence.
+
+  The final outputs should be written as lab artifacts:
+  - biology_component_records.jsonl
+  - biology_component_report.md or biology_component_report.json
+
+  The report should state two-work-item coverage, processed package/file/table
+  counts with reasons for skips, candidate count, accepted record count,
+  rejected record count, validation failures, empty-output justifications, and
+  links or paths to final artifacts. Do not invent records. Do not silently drop
+  failures. If no valid records are found, write an explicit two-work-item
+  empty-output audit explaining the evidence inspected.
+
+meta_agent:
+  memory_backend: mem0-meta-memory
+  system_prompt: |
+    You are EvoLab's MetaAgent. Decide the next route from the dynamic
+    role pool, or route to END when the task is complete.
+
+    Inputs you receive include the natural-language task description, available
+    role-pool templates and their system prompts, current lab/task state, completed runs,
+    artifact summaries, trajectory summaries, and failure information when
+    present.
+
+    Return valid JSON only. Do not return markdown or commentary.
+
+    For legacy compatibility dispatch, return:
+    {"route":"<subagent_name>","instruction":"<assigned task>","metadata":{...}}
+
+    For completion, return:
+    {"route":"END","instruction":"<completion summary>","metadata":{"final_answer":"..."}}
+
+    Use the dynamic role pool and avoid solver, OtherAgent, or any task-specific hard-coded role. DynamicWorkflowPlanner will select runtime workers from reusable role-pool templates.
+
+    For this run, plan and dispatch work incrementally. Route DesignAgent to
+    produce a work item plan if one is missing; the task description already
+    contains the two explicit package paths, so do not route SurveyAgent unless
+    the plan reports missing path information. When routing ExecAgent, include
+    exactly one work item in the instruction and include metadata.work_item_id.
+    After an ExecAgent run, route CriticAgent with the same metadata.work_item_id
+    before routing any other ExecAgent or END. Route WriteAgent only after both
+    in-scope work items have either been reviewed or explicitly skipped with a
+    reviewed reason.
+
+    For this packaged two-work-item verification run, prefer
+    metadata.execution_mode="direct" for ExecAgent and CriticAgent once the work
+    item path and expected files are known. Direct mode should still use tools,
+    evidence, schemas, policies, and lab state, but it bypasses the internal
+    skill DAG so each dispatch can focus on the single assigned work item.
+      Direct ExecAgent instructions should name the known package files to inspect
+      and should tell the agent to use a small bounded tool sequence: read the
+      manifest or main text only as needed, inspect the known supplementary table
+      or spreadsheet directly, then write intermediate JSONL/report artifacts.
+      For this verification run, tell ExecAgent that at least one candidate
+      JSONL record is required when sequence/table evidence is present.
+    Avoid broad repeated search instructions. Tell ExecAgent not to read the
+    same path repeatedly; after each main source has been inspected once, it
+    should write a partial artifact with uncertainty rather than spending the
+    remaining budget on repeated reads. Do not instruct ExecAgent to pass an
+    article package directory to read_text; give exact file paths.
+    When a dynamic worker needs configured resource files, copy the exact lab_path
+    values from lab_context.configured_resource_paths into the instruction. Do
+    not invent resource paths by joining a dataset root with a configured
+    resource path.
+
+    If a dynamic worker failed because an internal DAG node exceeded tool budget or
+    because it produced tool calls without required artifacts, retry that same
+    role or its required reviewer with a simpler direct instruction and set
+    metadata.execution_mode to "direct". Direct mode bypasses the internal skill
+    DAG and should be used only to recover from such workflow-budget failures.
+
+    Do not route to END until final artifact writing is complete. Even an empty
+    result must be written by WriteAgent as the canonical final records JSONL
+    plus a final report/audit artifact. An intermediate extraction report from
+    ExecAgent is not sufficient for END.
+
+
+work_item_routing:
+  enabled: true
+  executor_roles:
+    - ExecAgent
+  reviewer_roles:
+    - CriticAgent
+  finalizer_roles:
+    - WriteAgent
+  required_work_item_ids:
+    - synthetic_promoter_multinomial_diffusion
+    - ai_knowledge_sigma70_design
+  work_item_id_field: work_item_id
+
+dynamic_subagents:
+  enabled: true
+  mode: dynamic
+  scope: per_work_item
+  planner_backend:
+    backend_id: openrouter-deepseek-v4-flash
+  default_worker_backend:
+    backend_id: openrouter-deepseek-v4-flash
+  max_subagents_per_work_item: 6
+  max_planner_retries: 2
+  allow_skill_required_tools: true
+  require_output_schema: true
+  allowed_tool_names:
+  - list_files
+  - read_text
+  - search_text
+  - inspect_file_metadata
+  - extract_sections
+  - inspect_excel_workbook
+  - read_excel_sheet
+  - inspect_table
+  - read_table_slice
+  - detect_table_header
+  - normalize_table
+  - profile_table
+  - build_document_inventory
+  - discover_candidate_source_files
+  - discover_candidate_tables
+  - extract_candidate_rows
+  - build_candidate_records
+  - validate_candidate_records
+  - serialize_final_records
+  - json_schema_validate
+  - write_jsonl
+  - write_report
+  metadata:
+    extraction_task: true
+    meta_agent_preplanning_enabled: true
+    sequence_extraction_profile: promoter
+    zero_output_recovery_enabled: true
+
+backends:
+  llm:
+    openrouter-deepseek-v4-flash:
+      type: api
+      api: openai-chat-completions
+      api_key_env: OPENAI_API_KEY
+      base_url: https://openrouter.ai/api/v1
+      model: deepseek/deepseek-v4-flash
+      timeout_seconds: 45.0
+      max_retries: 1
+      retry_initial_delay_seconds: 5.0
+      retry_max_delay_seconds: 30.0
+
+  embedding:
+    openrouter-text-embedding-3-small:
+      type: api
+      api: openai-embeddings
+      api_key_env: OPENAI_API_KEY
+      base_url: https://openrouter.ai/api/v1
+      model: openai/text-embedding-3-small
+      timeout_seconds: 45.0
+
+  memory:
+    mem0-meta-memory:
+      type: method
+      method: mem0
+      store_path: registries/memory/mem0-meta.sqlite
+      audit_log_path: registries/memory/mem0-meta.audit.jsonl
+      llm_backend: openrouter-deepseek-v4-flash
+      embedding_backend: openrouter-text-embedding-3-small
+      top_k_existing: 10
+      default_search_top_k: 8
+      default_search_threshold: 0.0
+    mem0-agent-memory:
+      type: method
+      method: mem0
+      store_path: registries/memory/mem0-agent.sqlite
+      audit_log_path: registries/memory/mem0-agent.audit.jsonl
+      llm_backend: openrouter-deepseek-v4-flash
+      embedding_backend: openrouter-text-embedding-3-small
+      top_k_existing: 10
+      default_search_top_k: 8
+      default_search_threshold: 0.0
+    mem0-task-memory:
+      type: method
+      method: mem0
+      store_path: registries/memory/mem0-task.sqlite
+      audit_log_path: registries/memory/mem0-task.audit.jsonl
+      llm_backend: openrouter-deepseek-v4-flash
+      embedding_backend: openrouter-text-embedding-3-small
+      top_k_existing: 10
+      default_search_top_k: 8
+      default_search_threshold: 0.0
+
+  skill:
+    scientific-ie-skills:
+      type: graph
+      graph_path: configs/skills/graphs/scientific_ie_seed_graph_v1.json
+
+evolve_worker:
+  enabled: false
+  mode: promotion_candidates_only

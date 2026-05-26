@@ -1,0 +1,185 @@
+lab_root: /root/bio/evolab_component_ie_v1_ziyi
+dotenv_path: /root/EvoLab/.env
+max_dispatch_steps: 30
+max_tool_steps: 30
+max_tool_steps_per_node: 30
+max_workflow_nodes: 30
+agents_ref: agents/scientific_ie_agents.md
+dynamic_subagents:
+  enabled: true
+  mode: dynamic
+  scope: per_task
+  planner_backend:
+    backend_id: aigocode-gpt
+  default_worker_backend:
+    backend_id: aigocode-gpt
+  allowed_tool_names:
+    - list_files
+    - read_text
+    - inspect_file_metadata
+    - extract_sections
+    - search_text
+    - inspect_table
+    - read_table_slice
+    - inspect_excel_workbook
+    - read_excel_sheet
+    - detect_table_header
+    - normalize_table
+    - profile_table
+    - build_document_inventory
+    - discover_candidate_source_files
+    - discover_candidate_tables
+    - extract_candidate_rows
+    - build_candidate_records
+    - validate_candidate_records
+    - serialize_final_records
+    - json_schema_validate
+    - write_jsonl
+    - write_report
+
+subagent_budgets_by_role:
+  SurveyAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  ExecAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  CriticAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+  WriteAgent:
+    max_internal_dag_nodes: 30
+    max_subagent_tool_calls: 30
+    max_subagent_llm_calls: 30
+    max_subagent_runtime_seconds: 900
+
+task: |
+  Process the biological article packages under:
+  /root/bio/dataset/Constitutive_promoters_md_30_new
+
+  Each article package is expected to be a folder that may contain manifest.json,
+  main_text.md, supplementary files, markdown tables, text files, and spreadsheet
+  files. Treat every article package under the dataset root as in scope unless a
+  file is unreadable or the run input has explicitly limited the dataset.
+  For planning and routing, treat one top-level article package as one work
+  item. Do not assign an extraction subagent the full dataset at once.
+  Do not treat pre-existing biology_component_records.jsonl,
+  biology_component_report.json, or biology_component_report.md files found
+  inside the dataset as evidence records or as current-run final outputs. They
+  may be noted only as prior-run context. Final artifacts must be produced as
+  lab artifacts by the current run.
+
+  Extract experimentally supported biological component/promoter sequence
+  records. Focus on promoter or promoter-like regulatory DNA sequences that are
+  directly supported by article text or supplementary evidence. A valid final
+  record should include article_id, component_name, component_type, sequence
+  when available, sequence_type, host_or_organism when supported, function or
+  role when supported, experimental context when supported, evidence_text,
+  evidence_source, confidence, status, and notes when useful.
+
+  Use these schemas and policies as task resources when they are available:
+  - domain_packages/biology_component_extraction_v1/biology_component_schema.json
+  - domain_packages/biology_component_extraction_v1/biological_component_ontology.yaml
+  - domain_packages/biology_component_extraction_v1/biological_sequence_policy.yaml
+  - domain_packages/biology_component_extraction_v1/biological_evidence_policy.yaml
+  - domain_packages/biology_component_extraction_v1/biological_negative_patterns.yaml
+
+  Normalize DNA sequences to uppercase A/C/G/T/N when writing accepted records.
+  Reject or mark for review sequence-like identifiers, primers, barcodes,
+  adapters, linkers, restriction sites, cloning scars, qPCR primers, sequencing
+  primers, vector-backbone-only entries, predicted-only mentions, and
+  metadata-only records unless the source explicitly supports a promoter or
+  promoter-like regulatory DNA sequence.
+
+  The final outputs should be written as lab artifacts, preferably:
+  - biology_component_records.jsonl
+  - biology_component_report.md or biology_component_report.json
+
+  The report should state dataset coverage, processed article count, skipped
+  article/file/table counts with reasons, candidate count, accepted record count,
+  rejected record count, validation failures, empty-output justifications, and
+  links or paths to final artifacts. Do not invent records. Do not silently drop
+  failures. If no valid records are found, write an explicit full-scope
+  empty-output audit explaining the evidence inspected.
+
+meta_agent:
+  memory_backend: mem0-meta-memory
+  system_prompt: |
+    You are EvoLab's MetaAgent. Decide the next route from the configured
+    active agents.md role pool, or route to END when the task is complete.
+
+    Inputs you receive include the natural-language task description, available
+    role-pool templates and their system prompts, current lab/task state, completed runs,
+    artifact summaries, trajectory summaries, and failure information when
+    present.
+
+    Return valid JSON only. Do not return markdown or commentary.
+
+    For subagent dispatch, return:
+    {"route":"<subagent_name>","instruction":"<assigned task>","metadata":{...}}
+
+    For completion, return:
+    {"route":"END","instruction":"<completion summary>","metadata":{"final_answer":"..."}}
+
+    The route must be one configured role-pool name or END. Do not route to
+    solver, OtherAgent, or any task-specific hard-coded role. Select only the
+    subagent needed for the next step; do not dispatch every subagent by default.
+    Continue routing until the selected work has produced required artifacts or
+    a justified failure/empty-output audit.
+    For large tasks, plan and dispatch work incrementally. When work_item_routing
+    is enabled, route executor roles with exactly one work item per dispatch and
+    include metadata.work_item_id. Route a reviewer for the same work_item_id
+    before dispatching another executor work item or finishing the task.
+    Do not route to END until final artifact writing is complete. For this
+    task, even an empty result must be written by WriteAgent as the canonical
+    final records JSONL plus a final report/audit artifact. An intermediate
+    extraction report from ExecAgent is not sufficient for END.
+
+    For this biological component extraction task, choose generic agents based
+    on the current state rather than a fixed chain. Typical routing is: survey
+    the dataset when coverage is unknown, design an extraction/validation plan
+    when the strategy is missing, execute extraction when candidates are needed,
+    critique when candidates or empty outputs need validation, and write when
+    final artifacts are ready. Recovery should route back to the same generic
+    agent when coverage, artifacts, or validation are incomplete.
+
+work_item_routing:
+  enabled: true
+  executor_roles:
+    - ExecAgent
+  reviewer_roles:
+    - CriticAgent
+  finalizer_roles:
+    - WriteAgent
+  work_item_id_field: work_item_id
+
+backends:
+  llm:
+    aigocode-gpt:
+      type: api
+      env_ref: aigocode-gpt
+      model: gpt-5.4-mini
+      max_retries: 3
+      retry_initial_delay_seconds: 5.0
+      retry_max_delay_seconds: 30.0
+
+  memory:
+    mem0-meta-memory:
+      type: "null"
+    mem0-task-memory:
+      type: "null"
+
+  skill:
+    scientific-ie-skills:
+      type: graph
+      graph_path: configs/skills/graphs/scientific_ie_seed_graph_v1.json
+
+evolve_worker:
+  enabled: false
+  mode: promotion_candidates_only

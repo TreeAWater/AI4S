@@ -1,0 +1,335 @@
+{
+  "article_id": "ai_knowledge_sigma70_design",
+  "article_path": "/root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+  "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+  "ground_truth_records": [
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AAACACTTTAATTCTTGACAGCTGGCTCACGCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8808,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AAACTGATTAATTCTTGACAGCTAGCTCAGCCCTAGGTATAATGCTACCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8800,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AAATCAATTAATTCTTGACAGTTAGCTCATTCCTAGGTATAATGCGAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8782,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AAGAAAATTAATTCTTGACAGGTAGCTCAGTCCTACGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8811,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AATAAATTAAATTCTTGACAGCTAGCTCAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8787,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AATCAATTTAATTCTTGACAGCTAGATCAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8799,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AATCTTTTTAATGCTTGACAGCTAGCTCGGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8801,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AATTACATAAATTCTTGACAGCTAGCTCAGTCCTAGCTATAATGCTACCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8794,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AGGTATTTATGAAATTGACAGCACGCGTATATGACCCTATAATATTCTCC",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8816,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "AGTAAAATAAATTCTTGACAGCTAGCTTAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8807,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "ATAAAAATCAATTCTTGACAGCTAGCTCAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8793,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "ATAATGTTAAATTCTTGACAGCTAGCTCGGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8813,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "ATTATGTTCAATTCTTGACAGCTAGCTCAGTCCTAGGTATAATGGGAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8786,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "ATTGAATTTATTTATTGACAGCTATATCAGTCCTAGGTATAATGCTACCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8785,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "ATTGAGTTAAATTCTTGACAGCTTGCTTAGTCCTACGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8795,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "ATTGTTTTAAATTCTTGACAGCTAGCTTAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8805,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CAAAAAATTAATTCATGACAGATGGCTTAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8804,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CAAAAGAGAAATCCTTGACAGCTCGCTCGGTCTTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8812,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CATAAATGTAATCCTTGACAGCTAGCTCGGGCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8802,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CGAGATATCAATTCTTGACAGCTGGCTTAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8815,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CGTAAAAGAAACTCTTGACAGCTAGCTCAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8797,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CTAAAAAGTAATTCTTGACAGCTAGCTCAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8791,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CTGAAAAGAAATTCTTGACAGCTAGCTCAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8798,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CTTAAGATTAATTCTTGACAGCAATCTCAATCCTAGGTATAATGCGAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8810,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CTTGGATTAAATTCTTGACAGCTAGCTGATTCCTAGGTATAATGCGCGCC",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8784,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "CTTTTGTTTATTACTTGACAGCTAGCTTAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8792,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "GGCGTATTTAATTCTTGACAGCTATATCAGTCCTAGCTATAATGCGAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8803,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "GTAAAAAAAAATTCTTGACAGCTAGCTCAGTCCTTGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8790,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "GTAGATTTTAATTCTTGACAGCTAGGTCACACCTAGGTATAATGCCAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8796,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "GTCAAAATAAATTCTTGACAGCTAGCTCAGTCCTAGGTATAATACAAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8789,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "GTGCAAATCAATACTTGACAGCTATTTTAGTCCTAGATATAATGCTACCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8783,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "TATGTCATTAATTCTTGACAGCTTGCTTAGTCCTAGGTATAATCCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8788,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "TTAGTGTGGCAGTCTTGACAAAGGTAGTCTCAGGTTATATAATAGTGCAA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8814,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "TTATATATATTTTTTTGAGCGTTATCTAGATCCTAGTTATAATGCTCTCC",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8809,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "TTGAAAAGTAATTCTTGACAGCTAGCTCAATGCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8806,
+      "source_sheet": "Sheet1"
+    },
+    {
+      "article_id": "ai_knowledge_sigma70_design",
+      "article_title": "AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters",
+      "component_name": "Random sigma70 promoter",
+      "sequence": "TTTTAATTTAATTCTTGACATCTAGCTTAGTCCTAGGTATAATGCTAGCA",
+      "source_file": "/root/bio/Evaluation/data_constutive_promoter_jy.xlsx",
+      "source_row": 8817,
+      "source_sheet": "Sheet1"
+    }
+  ],
+  "gt_sequence_count": 36,
+  "matching_policy": "Normalize DNA by uppercasing/removing whitespace. Score sequence-level exact, substring, and reverse-complement matches within this article only.",
+  "purpose": "post-run reflector ground truth for one small EvoLab biology component extraction smoke test",
+  "schema_version": "v1"
+}

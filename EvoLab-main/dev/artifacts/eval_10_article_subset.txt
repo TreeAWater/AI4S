@@ -1,0 +1,27 @@
+# Deterministic 10-article EvoLab evaluation subset
+#
+# Selection policy:
+# - Use the first 10 work items from the checked-in dynamic 10-article task config.
+# - The config was derived from the dataset/config ordering rather than from GT metrics.
+# - Paths are exact existing filesystem article package paths.
+
+1. parts_list_promoters_grna_scaffolds_mammalian_genome_engineering
+   /root/bio/dataset/Constitutive_promoters_md_30_new/A parts list of promoters and gRNA scaffolds for mammalian genome engineering and molecular recording
+2. ai_knowledge_sigma70_design
+   /root/bio/dataset/Constitutive_promoters_md_30_new/AI and Knowledge-based Method for Rational Design of Escherichia coli Sigma70 Promoters
+3. automated_design_thousands_nonrepetitive_parts_engineering_stable_genetic
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Automated design of thousands of nonrepetitive parts for engineering stable genetic systems
+4. automated_model_predictive_design_synthetic_promoters_control_transcriptional
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Automated model-predictive design of synthetic promoters to control transcriptional profiles in bacteria
+5. characterization_context_dependent_effects_synthetic_promoters
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Characterization of Context-Dependent Effects on Synthetic Promoters
+6. characterization_zymomonas_mobilis_promoters_that_are_functional_escherichia
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Characterization of Zymomonas mobilis promoters that are functional in Escherichia coli
+7. characterization_divergent_promoters_pmaia_phyd_from_gordonia_co
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Characterization of divergent promoters PmaiA and Phyd from Gordonia: Co-expression and regulation by CRP
+8. characterization_endogenous_promoters_yarrowia_lipolytica_biomanufacturing_applications
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Characterization of the endogenous promoters in Yarrowia lipolytica for the biomanufacturing applications
+9. composability_regulatory_sequences_controlling_transcription_translation_escherichia_coli
+   /root/bio/dataset/Constitutive_promoters_md_30_new/Composability of regulatory sequences controlling transcription and translation in Escherichia coli
+10. construction_characterization_mutant_library_p23_constitutive_promoter_lactic
+    /root/bio/dataset/Constitutive_promoters_md_30_new/Construction and characterization of a mutant library for the P23 constitutive promoter in lactic acid bacteria
